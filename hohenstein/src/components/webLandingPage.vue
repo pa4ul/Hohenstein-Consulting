@@ -1,14 +1,17 @@
 <script>
-import webTopicRight from '@/components/webTopicRight.vue'
+import webTopicRight from "@/components/webTopicRight.vue";
+import webTopicLeft from "@/components/webTopicLeft.vue";
+
 export default {
   data() {
     return {
-      name: 'Hello World!'
-    }
+      name: "Hello World!",
+    };
   },
-  
+
   components: {
-    webTopicRight
+    webTopicRight,
+    webTopicLeft,
   },
 };
 </script>
@@ -18,15 +21,15 @@ export default {
     <div class="landingPage">
       <nav>
         <ul>
-          <li><a>Financial Advise</a></li>
+          <li ><a>Financial Advise</a></li>
           <li><a>Real Estate</a></li>
           <li><a>Classic Cars</a></li>
           <li><a>Business Consulting</a></li>
           <li><a>DE / EN / RU</a></li>
         </ul>
       </nav>
-      <div class="">
-        <img src="@/assets/mansion2.jpg" class="landingPageImage" />
+      <div>
+        <img src="@/assets/imageLandingpage.jpg" class="landingPageImage" />
         <div class="whiteBox1">
           <img
             src="@/assets/HohensteinLogoText.png"
@@ -36,10 +39,38 @@ export default {
           <div class="whiteBox1BlueLine"></div>
         </div>
       </div>
-   <a href="#content"> <img src="@/assets/arrow.png" class="landingPageArrow"> </a>
+      <a href="#content">
+        <img src="@/assets/arrow.png" class="landingPageArrow" />
+      </a>
     </div>
     <div class="content" id="content">
-      <webTopicRight :name="'Classic Cars'" :slogan="'What a Luxury Car Should Be'"/>
+      <webTopicRight
+        :name="'Classic Cars'"
+        :slogan="'What a Luxury Car Should Be.'"
+        :img="require('@/assets/car1.png')"
+        :type="true"
+      />
+
+      <webTopicLeft
+        :name="'Business Consulting'"
+        :slogan="'Consulting is the secret to unlocking your vision.'"
+        :img="require('@/assets/businessImage.png')"
+        :type="true"
+      />
+
+       <webTopicRight
+        :name="'Real Estate'"
+        :slogan="'A Local Expert.'"
+        :img="require('@/assets/house1.png')"
+        :type="false"
+      /> 
+
+<webTopicLeft
+        :name="'Financial Advise'"
+        :slogan="'Live comfortably and better.'"
+        :img="require('@/assets/financeImage.png')"
+        :type="false"
+      />
       
     </div>
   </div>
@@ -52,7 +83,7 @@ export default {
 }
 html {
   scroll-behavior: smooth;
- }
+}
 
 .landingPage {
   position: absolute;
@@ -61,10 +92,9 @@ html {
   height: 100%;
   margin-left: 5%;
   margin-right: 5%;
- 
 }
 nav {
-  font-size:20px;
+  font-size: 20px;
   position: absolute;
   top: 0;
   text-align: center;
@@ -91,49 +121,132 @@ li {
   margin-right: 5%;
   position: absolute;
   top: 100%;
-  background-color: gray;
+  background-color: white;
 }
 .landingPageImage {
   position: absolute;
-  top: 50%;
+  top:50%;
   transform: translateY(-50%);
   right: 0;
-  width: 950px;
+  width: 70%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .whiteBox1 {
   position: absolute;
-  height: 450px;
+  height: 50%;
   width: 500px;
   background-color: white;
   top: 50%;
   transform: translateY(-50%);
-  right: 700px;
+  right: 50%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .hohenSteinLogoText {
   height: 200px;
-  transform: translate(-60%, 35%);
-  
+  top: 15%;
+  left: 0%;
   position: absolute;
 }
 .whiteBox1BlueLine {
   position: absolute;
   top: 50%;
-  right: -75px;
+  right: -15%;
   height: 8px;
   width: 150px;
   background-color: #30375a;
 }
 .whiteBox1Slogan {
-  transform: translate(-8%,260px);
+  transform: translate(-8%, 1050%);
   letter-spacing: 1px;
   opacity: 70%;
   font-size: 20px;
 }
-.landingPageArrow{
+.landingPageArrow {
   position: absolute;
   height: 20px;
   left: 15%;
   bottom: 20px;
+}
+@media only screen and (max-width: 1500px) {
+  .landingPageImage {
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+  right: 0;
+  width: 60%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.whiteBox1 {
+  position: absolute;
+  height: 40%;
+  width: 450px;
+  background-color: white;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 50%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.hohenSteinLogoText {
+  height: 160px;
+  top: 15%;
+  left: 0%;
+  position: absolute;
+}
+.whiteBox1BlueLine {
+  position: absolute;
+  top: 50%;
+  right: -15%;
+  height: 6px;
+  width: 150px;
+  background-color: #30375a;
+}
+.whiteBox1Slogan {
+  transform: translate(-12%, 1050%);
+  letter-spacing: 1px;
+  opacity: 70%;
+  font-size: 15px;
+}
+}
+.f::before,
+.f::after {
+  content: '';
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  transition: all .35s ease;
+  opacity: 0;
+}
 
+
+.f::before{
+  content: '';
+  right: 0;
+  top: 0;
+  border-top: 3px solid #30375a;
+  border-right: 3px solid #30375a;
+  transform: translate(-100%, 50%);
+}
+
+.f::after{
+  content: '';
+  left: 0;
+  bottom: 0;
+  border-bottom: 3px solid #30375a;
+  border-left: 3px solid #30375a;
+  transform: translate(100%, -50%)
+}
+
+.f:hover:before,
+.f:hover:after{
+  transform: translate(0,0);
+  opacity: 1;
 }
 </style>
