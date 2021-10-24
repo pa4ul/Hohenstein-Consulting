@@ -29,6 +29,10 @@ export default {
 <style>
 *{
   color:black;
+  font-family: "Miller Display";
+}
+html {
+  scroll-behavior: smooth;
 }
 .webTopic {
   position: absolute;

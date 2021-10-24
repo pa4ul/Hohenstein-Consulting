@@ -1,7 +1,7 @@
 <script>
 import webTopicRight from "@/components/webTopicRight.vue";
 import webTopicLeft from "@/components/webTopicLeft.vue";
-
+import webFooter from "@/components/webFooter.vue";
 export default {
   data() {
     return {
@@ -12,6 +12,7 @@ export default {
   components: {
     webTopicRight,
     webTopicLeft,
+    webFooter
   },
 };
 </script>
@@ -71,12 +72,12 @@ export default {
         :img="require('@/assets/financeImage.png')"
         :type="false"
       />
-      
+      <webFooter/>
     </div>
   </div>
 </template>
 
-<style>
+<style scoped>
 @import url(//db.onlinewebfonts.com/c/1fdf9a4d690c4e7271e535c39f40045f?family=Miller+Display);
 * {
   font-family: "Miller Display";
@@ -115,7 +116,7 @@ li {
   margin: 4%;
 }
 .content {
-  height: 1400px;
+  height: 2600px;
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
