@@ -168,7 +168,7 @@ li {
   background-color: #30375a;
 }
 .whiteBox1Slogan {
-  transform: translate(-8%, 1050%);
+  transform: translate(12%, 1050%);
   letter-spacing: 1px;
   opacity: 70%;
   font-size: 20px;
@@ -217,7 +217,7 @@ li {
     background-color: #30375a;
   }
   .whiteBox1Slogan {
-    transform: translate(-12%, 1050%);
+    transform: translate(12%, 1150%);
     letter-spacing: 1px;
     opacity: 70%;
     font-size: 15px;
@@ -316,7 +316,7 @@ li {
     background-color: #30375a;
   }
   .whiteBox1Slogan {
-    transform: translate(-12%, 1050%);
+    transform: translate(12%, 1150%);
     letter-spacing: 1px;
     opacity: 70%;
     font-size: 13px;

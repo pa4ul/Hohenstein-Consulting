@@ -45,7 +45,7 @@ export default {
             class="hohenSteinLogoText"
           />
           <li style="float:right;"><a>Weihburggasse 22/5 1010 Wien </a></li>
-          <li style="float:right;"><a>Team</a></li>
+           <router-link to="/team"> <li style="float:right;"><a>Team</a></li></router-link>
           <li style="float:right;"><a>Imprint</a></li>
         </ul>
     </footer>
@@ -157,12 +157,70 @@ iframe{
   height: 450px;
   width: 550px;
 }
+.footer{
+  font-size: 15px;
+  position: absolute;
+  bottom:0px;
+  border: 1px solid black;
+  border-bottom: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  width: 100%;
+  padding-top:10px;
+  padding-bottom:15px;
+  
+}
+.hohenSteinLogoText{
+    position: absolute;
+  height: 90px;
+  left: 50%;
+  transform: translate(-50%, -20%);
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  
+  text-align: center;
+}
+li {
+  display: inline;
+  margin: 2%;
+}
 }
 @media only screen and (max-width: 1100px)  {
 
 iframe{
   height: 450px;
   width: 350px;
+}
+.footer{
+  font-size: 13px;
+  position: absolute;
+  bottom:0px;
+  border: 1px solid black;
+  border-bottom: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  width: 100%;
+  padding-top:10px;
+  padding-bottom:15px;
+  
+}
+.hohenSteinLogoText{
+    position: absolute;
+  height: 70px;
+  left: 50%;
+  transform: translate(-50%, -20%);
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  
+  text-align: center;
+}
+li {
+  display: inline;
+  margin: 2%;
 }
 }
 </style>

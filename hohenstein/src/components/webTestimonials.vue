@@ -59,18 +59,23 @@ export default {
 .slogan {
   font-size: 17px;
   opacity: 70%;
+    text-align: center;
+
 }
 .text {
   font-size: 40px;
   letter-spacing: 1px;
+    text-align: center;
+
 }
 .firstQuote {
   background-color: #e3e5e6;
   height: 200px;
   width: 60%;
+  text-align: center;
   display: flex;
   align-items: center;
-  justify-content: center;
+
   flex-wrap: wrap;
 }
 .secondQuote {
@@ -82,7 +87,7 @@ margin-top: 50px;
   width: 60%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  text-align: center;
   flex-wrap: wrap;
 }
 .thirdQuote {
@@ -92,7 +97,7 @@ margin-top: 300px;
   width: 60%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  text-align: center;
   flex-wrap: wrap;
 }
 .content {
