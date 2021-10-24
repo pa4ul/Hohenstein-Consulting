@@ -24,7 +24,9 @@ export default {
         <input type="button" value="Submit" class="inputButton" />
       </form>
     </div>
-    <div class="maps">
+    
+  </div>
+  <div class="maps">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.0531195811523!2d16.37277211569394!3d48.20559275440027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d079e6c60ca6f%3A0xa3afc3a3cb04134d!2sWeihburggasse%2022%2C%201010%20Wien!5e0!3m2!1sde!2sat!4v1635066761214!5m2!1sde!2sat"
         width="700"
@@ -34,7 +36,6 @@ export default {
         loading="lazy"
       ></iframe>
     </div>
-  </div>
   <footer class="footer">
         <ul>
           <li style="float: left;"><a>office@hohenstein-consulting.at</a></li>
@@ -118,7 +119,8 @@ html {
 }
 .maps {
   position: absolute;
-  left: 700px;
+  top:2750px;
+  right:0px;
 }
 .footer{
   font-size: 16px;
@@ -148,5 +150,19 @@ ul {
 li {
   display: inline;
   margin: 2%;
+}
+@media only screen and (max-width: 1350px)  {
+
+iframe{
+  height: 450px;
+  width: 550px;
+}
+}
+@media only screen and (max-width: 1100px)  {
+
+iframe{
+  height: 450px;
+  width: 350px;
+}
 }
 </style>

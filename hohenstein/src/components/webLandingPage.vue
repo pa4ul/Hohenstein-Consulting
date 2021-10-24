@@ -15,7 +15,7 @@ export default {
     webTopicRight,
     webTopicLeft,
     webFooter,
-    webTestimonials
+    webTestimonials,
   },
 };
 </script>
@@ -25,7 +25,7 @@ export default {
     <div class="landingPage">
       <nav>
         <ul>
-          <li ><a>Financial Advise</a></li>
+          <li><a>Financial Advise</a></li>
           <li><a>Real Estate</a></li>
           <li><a>Classic Cars</a></li>
           <li><a>Business Consulting</a></li>
@@ -62,21 +62,21 @@ export default {
         :type="true"
       />
 
-       <webTopicRight
+      <webTopicRight
         :name="'Real Estate'"
         :slogan="'A Local Expert.'"
         :img="require('@/assets/house1.png')"
         :type="false"
-      /> 
+      />
 
-<webTopicLeft
+      <webTopicLeft
         :name="'Financial Advise'"
         :slogan="'Live comfortably and better.'"
         :img="require('@/assets/financeImage.png')"
         :type="false"
       />
-      <webTestimonials/>
-      <webFooter/>
+      <webTestimonials />
+      <webFooter />
     </div>
   </div>
 </template>
@@ -130,17 +130,20 @@ li {
 }
 .landingPageImage {
   position: absolute;
-  top:50%;
+  top: 50%;
   transform: translateY(-50%);
   right: 0;
-  width: 70%;
+  width: 100%;
+  max-width: 1000px;
+  max-height: 80%;
+  height: auto;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .whiteBox1 {
   position: absolute;
-  height: 50%;
+  height: 500px;
   width: 500px;
   background-color: white;
   top: 50%;
@@ -178,61 +181,60 @@ li {
 }
 @media only screen and (max-width: 1500px) {
   .landingPageImage {
-  position: absolute;
-  top:50%;
-  transform: translateY(-50%);
-  right: 0;
-  width: 60%;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-.whiteBox1 {
-  position: absolute;
-  height: 40%;
-  width: 450px;
-  background-color: white;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 50%;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-.hohenSteinLogoText {
-  height: 160px;
-  top: 15%;
-  left: 0%;
-  position: absolute;
-}
-.whiteBox1BlueLine {
-  position: absolute;
-  top: 50%;
-  right: -15%;
-  height: 6px;
-  width: 150px;
-  background-color: #30375a;
-}
-.whiteBox1Slogan {
-  transform: translate(-12%, 1050%);
-  letter-spacing: 1px;
-  opacity: 70%;
-  font-size: 15px;
-}
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    width: 60%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+  .whiteBox1 {
+    position: absolute;
+    height: 40%;
+    width: 450px;
+    background-color: white;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 50%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+  .hohenSteinLogoText {
+    height: 160px;
+    top: 15%;
+    left: 0%;
+    position: absolute;
+  }
+  .whiteBox1BlueLine {
+    position: absolute;
+    top: 50%;
+    right: -15%;
+    height: 6px;
+    width: 150px;
+    background-color: #30375a;
+  }
+  .whiteBox1Slogan {
+    transform: translate(-12%, 1050%);
+    letter-spacing: 1px;
+    opacity: 70%;
+    font-size: 15px;
+  }
 }
 .f::before,
 .f::after {
-  content: '';
+  content: "";
   height: 14px;
   width: 14px;
   position: absolute;
-  transition: all .35s ease;
+  transition: all 0.35s ease;
   opacity: 0;
 }
 
-
-.f::before{
-  content: '';
+.f::before {
+  content: "";
   right: 0;
   top: 0;
   border-top: 3px solid #30375a;
@@ -240,18 +242,99 @@ li {
   transform: translate(-100%, 50%);
 }
 
-.f::after{
-  content: '';
+.f::after {
+  content: "";
   left: 0;
   bottom: 0;
   border-bottom: 3px solid #30375a;
   border-left: 3px solid #30375a;
-  transform: translate(100%, -50%)
+  transform: translate(100%, -50%);
 }
 
 .f:hover:before,
-.f:hover:after{
-  transform: translate(0,0);
+.f:hover:after {
+  transform: translate(0, 0);
   opacity: 1;
+}
+@media only screen and (max-width: 1250px),screen and (max-height: 850px)  {
+
+  nav {
+  font-size: 18px;
+  position: absolute;
+  top: 0;
+  text-align: center;
+  border: 1px solid black;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  height: 80px;
+  width: 100%;
+}
+ul {
+  list-style-type: none;
+  margin-top: 30px;
+  padding: 0;
+}
+li {
+  display: inline;
+  margin: 3%;
+}
+.landingPageImage {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 100px;
+    width: 50%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+  .whiteBox1 {
+    position: absolute;
+    height: 40%;
+    width: 350px;
+    background-color: white;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 50%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+  .hohenSteinLogoText {
+    height: 130px;
+    top: 15%;
+    left: 0%;
+    position: absolute;
+  }
+  .whiteBox1BlueLine {
+    position: absolute;
+    top: 50%;
+    right: -15%;
+    height: 6px;
+    width: 110px;
+    background-color: #30375a;
+  }
+  .whiteBox1Slogan {
+    transform: translate(-12%, 1050%);
+    letter-spacing: 1px;
+    opacity: 70%;
+    font-size: 13px;
+  }
+}
+@media only screen and (min-width: 2150px) {
+  .landingPageImage {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 200px;
+  width: 100%;
+  max-width: 1000px;
+  max-height: 80%;
+  height: auto;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
 }
 </style>
