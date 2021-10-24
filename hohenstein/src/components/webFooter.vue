@@ -60,7 +60,7 @@ html {
 }
 .div {
   position: absolute;
-  top: 1700px;
+  top: 2700px;
   height: 550px;
   width: 400px;
   background-color: white;
@@ -121,7 +121,7 @@ html {
   left: 700px;
 }
 .footer{
-  font-size: 20px;
+  font-size: 16px;
   position: absolute;
   bottom:0px;
   border: 1px solid black;
@@ -130,7 +130,7 @@ html {
   border-right: 0px;
   width: 100%;
   padding-top:10px;
-  padding-bottom:10px;
+  padding-bottom:15px;
   
 }
 .hohenSteinLogoText{

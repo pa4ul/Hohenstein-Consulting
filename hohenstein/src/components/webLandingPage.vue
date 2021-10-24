@@ -2,6 +2,8 @@
 import webTopicRight from "@/components/webTopicRight.vue";
 import webTopicLeft from "@/components/webTopicLeft.vue";
 import webFooter from "@/components/webFooter.vue";
+import webTestimonials from "@/components/webTestimonials.vue";
+
 export default {
   data() {
     return {
@@ -12,7 +14,8 @@ export default {
   components: {
     webTopicRight,
     webTopicLeft,
-    webFooter
+    webFooter,
+    webTestimonials
   },
 };
 </script>
@@ -72,6 +75,7 @@ export default {
         :img="require('@/assets/financeImage.png')"
         :type="false"
       />
+      <webTestimonials/>
       <webFooter/>
     </div>
   </div>
@@ -116,7 +120,7 @@ li {
   margin: 4%;
 }
 .content {
-  height: 2600px;
+  height: 3400px;
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
