@@ -65,8 +65,9 @@ export default {
 }
 .header {
   position: absolute;
-  left: 200px;
-  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 15%;
   font-size: 40px;
   border-bottom: 5px solid #30375a;
 }
@@ -123,5 +124,25 @@ export default {
   left:25px;
   
   
+}
+@media only screen and (max-width: 1550px),screen and (max-height: 850px)  {
+.teamBox {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 400px;
+  max-height: 50%;
+  background-color: #e3e5e6;
+}
+.header {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 15%;
+  font-size: 40px;
+  border-bottom: 5px solid #30375a;
+}
 }
 </style>

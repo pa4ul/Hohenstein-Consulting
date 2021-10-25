@@ -25,7 +25,7 @@ export default {
     <div class="landingPage">
       <nav>
         <ul>
-          <li><a>Financial Advise</a></li>
+          <router-link to="/finance"><li><a>Financial Advise</a></li> </router-link>
           <li><a>Real Estate</a></li>
           <li><a>Classic Cars</a></li>
           <li><a>Business Consulting</a></li>
@@ -98,6 +98,7 @@ html {
   margin-left: 5%;
   margin-right: 5%;
 }
+a{text-decoration: none;}
 nav {
   font-size: 20px;
   position: absolute;
@@ -113,6 +114,7 @@ nav {
 ul {
   list-style-type: none;
   margin-top: 40px;
+  
   padding: 0;
 }
 li {
@@ -179,7 +181,42 @@ li {
   left: 15%;
   bottom: 20px;
 }
+
+.f::before,
+.f::after {
+  content: "";
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  transition: all 0.35s ease;
+  opacity: 0;
+}
+
+.f::before {
+  content: "";
+  right: 0;
+  top: 0;
+  border-top: 3px solid #5162b4;
+  border-right: 3px solid #30375a;
+  transform: translate(-100%, 50%);
+}
+
+.f::after {
+  content: "";
+  left: 0;
+  bottom: 0;
+  border-bottom: 3px solid #30375a;
+  border-left: 3px solid #30375a;
+  transform: translate(100%, -50%);
+}
+
+.f:hover:before,
+.f:hover:after {
+  transform: translate(0, 0);
+  opacity: 1;
+}
 @media only screen and (max-width: 1500px) {
+  
   .landingPageImage {
     position: absolute;
     top: 50%;
@@ -222,39 +259,6 @@ li {
     opacity: 70%;
     font-size: 15px;
   }
-}
-.f::before,
-.f::after {
-  content: "";
-  height: 14px;
-  width: 14px;
-  position: absolute;
-  transition: all 0.35s ease;
-  opacity: 0;
-}
-
-.f::before {
-  content: "";
-  right: 0;
-  top: 0;
-  border-top: 3px solid #30375a;
-  border-right: 3px solid #30375a;
-  transform: translate(-100%, 50%);
-}
-
-.f::after {
-  content: "";
-  left: 0;
-  bottom: 0;
-  border-bottom: 3px solid #30375a;
-  border-left: 3px solid #30375a;
-  transform: translate(100%, -50%);
-}
-
-.f:hover:before,
-.f:hover:after {
-  transform: translate(0, 0);
-  opacity: 1;
 }
 @media only screen and (max-width: 1250px),screen and (max-height: 850px)  {
 
