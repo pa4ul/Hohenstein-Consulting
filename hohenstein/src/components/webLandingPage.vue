@@ -10,7 +10,17 @@ export default {
       name: "Hello World!",
     };
   },
-
+methods: {
+     languageDE() {
+      this.$store.dispatch("changeLanguage", "de");
+    },
+    languageEN() {
+      this.$store.dispatch("changeLanguage", "en");
+    },
+    languageRU() {
+      this.$store.dispatch("changeLanguage", "ru");
+    },
+  },
   components: {
     webTopicRight,
     webTopicLeft,
@@ -24,12 +34,19 @@ export default {
   <div class="masterDiv">
     <div class="landingPage">
       <nav>
-        <ul>
+        <ul v-if="this.$store.state.language == 'en'">
           <router-link to="/finance"><li><a>Financial Advise</a></li> </router-link>
-          <li><a>Real Estate</a></li>
-          <li><a>Classic Cars</a></li>
-          <li><a>Business Consulting</a></li>
-          <li><a>DE / EN / RU</a></li>
+          <router-link to="/real-estate"> <li><a>Real Estate</a></li> </router-link>
+          <router-link to="/cars"> <li><a>Classic Cars</a></li> </router-link>
+          <router-link to="/business-consulting"> <li><a>Business Consulting</a></li> </router-link>
+          <li><a><span @click="languageDE()">DE</span> / <span @click="languageEN()">EN</span> / <span @click="languageRU()">RU</span></a></li>
+        </ul>
+        <ul v-if="this.$store.state.language == 'de'">
+          <router-link to="/finance"><li><a>Finanz Beratung</a></li> </router-link>
+          <router-link to="/real-estate"> <li><a>Immobilien</a></li> </router-link>
+          <router-link to="/cars"> <li><a>Oldtimer</a></li> </router-link>
+          <router-link to="/business-consulting"> <li><a>Unternehmensberatung</a></li> </router-link>
+          <li><a><span @click="languageDE()">DE</span> / <span @click="languageEN()">EN</span> / <span @click="languageRU()">RU</span></a></li>
         </ul>
       </nav>
       <div>
@@ -39,7 +56,12 @@ export default {
             src="@/assets/HohensteinLogoText.png"
             class="hohenSteinLogoText"
           />
-          <p class="whiteBox1Slogan">Making Your Ideas Come True</p>
+          <p v-if="this.$store.state.language == 'en'" class="whiteBox1Slogan">Making Your Ideas Come True</p>
+                    <p v-if="this.$store.state.language == 'de'" class="whiteBox1Slogan">Wir verwirklichen ihre Ideen</p>
+          <p v-if="this.$store.state.language == 'ru'" class="whiteBox1Slogan">Воплощение ваших идей в жизнь
+</p>
+
+
           <div class="whiteBox1BlueLine"></div>
         </div>
       </div>
@@ -48,33 +70,38 @@ export default {
       </a>
     </div>
     <div class="content" id="content">
+       <router-link to="/cars">
       <webTopicRight
         :name="'Classic Cars'"
         :slogan="'What a Luxury Car Should Be.'"
         :img="require('@/assets/car1.png')"
         :type="true"
       />
-
+       </router-link>
+       <router-link to="/business-consulting">
       <webTopicLeft
         :name="'Business Consulting'"
         :slogan="'Consulting is the secret to unlocking your vision.'"
         :img="require('@/assets/businessImage.png')"
         :type="true"
       />
-
+       </router-link>
+       <router-link to="real-estate">
       <webTopicRight
         :name="'Real Estate'"
         :slogan="'A Local Expert.'"
         :img="require('@/assets/house1.png')"
         :type="false"
       />
-
+       </router-link>
+       <router-link to="/finance">
       <webTopicLeft
         :name="'Financial Advise'"
         :slogan="'Live comfortably and better.'"
         :img="require('@/assets/financeImage.png')"
         :type="false"
       />
+       </router-link>
       <webTestimonials />
       <webFooter />
     </div>
@@ -116,6 +143,9 @@ ul {
   margin-top: 40px;
   
   padding: 0;
+}
+li:hover{
+  cursor: pointer;
 }
 li {
   display: inline;

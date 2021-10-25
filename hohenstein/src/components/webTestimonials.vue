@@ -10,7 +10,7 @@ export default {
 
 <template>
   <div class="testimonials">
-    <p class="slogan">Testimonials</p>
+    <p class="slogan2">Testimonials</p>
     <p class="text">What Our Clients Say</p>
     <div class="firstQuote">
       <p class="content">
@@ -56,11 +56,10 @@ export default {
   height: 700px;
   width: 100%;
 }
-.slogan {
+.slogan2 {
   font-size: 17px;
   opacity: 70%;
-    text-align: center;
-
+text-align: center;
 }
 .text {
   font-size: 40px;

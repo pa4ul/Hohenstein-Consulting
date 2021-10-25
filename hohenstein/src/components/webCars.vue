@@ -25,13 +25,13 @@ export default {
       </div>
     </router-link>
     <p class="category">
-      <span style="font-family: 'Helvetica'"> / </span> Financial Advise
+      <span style="font-family: 'Helvetica'"> / </span> Classic Cars
     </p>
-    <p class="slog3an">
-      ALL IT <br />
-      TAKES
+    <p class="slogan">
+      NOT JUST <br />
+      A CAR
     </p>
-    <img src="@/assets/financeImage.png" class="carimage" />
+    <img src="@/assets/car2.png" class="carimage" />
     <div class="contentDiv">
       <div class="firstText">
         <div class="blueStrike"></div>
@@ -92,12 +92,12 @@ export default {
   font-size: 20px;
   opacity: 70%;
 }
-.slog3an {
+.slogan {
   position: absolute;
   font-size: 50px;
   font-family: Montserrat;
   font-weight: bold;
-  left: 12vw;
+  left: 10vw;
   top: 8vh;
   text-align: center;
   z-index: 2;

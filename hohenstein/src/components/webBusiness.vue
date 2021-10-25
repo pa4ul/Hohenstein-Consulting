@@ -25,13 +25,13 @@ export default {
       </div>
     </router-link>
     <p class="category">
-      <span style="font-family: 'Helvetica'"> / </span> Financial Advise
+      <span style="font-family: 'Helvetica'"> / </span> Business Consulting
     </p>
     <p class="slog3an">
-      ALL IT <br />
-      TAKES
+     WE MAKE IT <br />
+      HAPPEN
     </p>
-    <img src="@/assets/financeImage.png" class="carimage" />
+    <img src="@/assets/businessImage.png" class="carimage" />
     <div class="contentDiv">
       <div class="firstText">
         <div class="blueStrike"></div>
@@ -57,7 +57,7 @@ export default {
         <a href="tel:+43 676 911 511 0">
 <input type="button" value="Call Us" class="inputButton" /></a>
        
-        <input @click="changePath()" type="button" value="Contact Us" class="inputButton" />
+        <input @click="changePath()" type="button" value="Contact Us" class="inputButton Button" />
         
         </div>
       </div>
@@ -166,4 +166,5 @@ export default {
   margin-bottom:50px;
 }
 }
+
 </style>

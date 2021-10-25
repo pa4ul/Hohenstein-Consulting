@@ -3,6 +3,10 @@ import webLandingPage from "@/components/webLandingPage"
 import webTeam from "@/components/webTeam.vue"
 import webFinancial from "@/components/webFinancial.vue"
 import webContact from "@/components/webContact.vue"
+import webRealestate from "@/components/webRealestate.vue"
+import webCars from "@/components/webCars.vue"
+import webBusiness from "@/components/webBusiness.vue"
+
 
 const routes = [
   {
@@ -24,6 +28,21 @@ const routes = [
     path: '/contact',
     name: 'Contact',
     component: webContact
+  },
+  {
+    path: '/real-estate',
+    name: 'realEstate',
+    component: webRealestate
+  },
+  {
+    path: '/cars',
+    name: 'Cars',
+    component: webCars
+  },
+  {
+    path: '/business-consulting',
+    name: 'BusinessConsulting',
+    component: webBusiness
   },
 ]
 
