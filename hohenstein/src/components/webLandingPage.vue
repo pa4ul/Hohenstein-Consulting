@@ -1,18 +1,3 @@
-export default {
-  data() {
-    return {
-      greeting: "Hello World!",
-      isMobile: false
-    };
-  },
-  methods: {
-    changePath: function () {
-      this.$router.push({ path: '/contact' })
-    },
-    
-  },
-  
-};
 <script>
 import webTopicRight from "@/components/webTopicRight.vue";
 import webTopicLeft from "@/components/webTopicLeft.vue";
@@ -23,7 +8,7 @@ export default {
   data() {
     return {
       name: "Hello World!",
-      isMobile: false,
+      isMobile: true,
     };
   },
   methods: {
@@ -42,7 +27,9 @@ export default {
     webTopicLeft,
     webFooter,
     webTestimonials,
+     
   },
+ 
   created() {
     if (
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -55,12 +42,14 @@ export default {
       // false for not mobile device
       this.isMobile = false;
     }
-  },
+  }, 
 };
 </script>
 
 <template>
-  <div v-if="!this.isMobile">
+<div>
+  <!-- Web Version -->
+  <div v-if="this.isMobile">
   <div class="masterDiv">
     <div class="landingPage">
       <nav>
@@ -169,6 +158,17 @@ export default {
     </div>
   </div>
   </div>
+<!-- Mobile Version 
+<div v-if="!this.isMobile">
+  abc
+<Slide>
+      <a id="home" href="#"> 
+        <span>Home</span>  
+      </a>
+    </Slide>
+</div>
+-->
+</div>
 </template>
 
 <style scoped>
