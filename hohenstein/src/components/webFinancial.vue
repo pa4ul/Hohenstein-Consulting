@@ -1,4 +1,5 @@
 <script>
+
 export default {
   data() {
     return {
@@ -8,8 +9,8 @@ export default {
   methods: {
     changePath: function () {
       this.$router.push({ path: '/contact' })
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -65,7 +66,7 @@ export default {
   </div>
 </template>
 
-<style scoped>
+<style>
 a{
   text-decoration: none;
   text-align: center;

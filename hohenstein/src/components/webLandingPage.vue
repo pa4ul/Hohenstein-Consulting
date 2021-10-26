@@ -1,3 +1,18 @@
+export default {
+  data() {
+    return {
+      greeting: "Hello World!",
+      isMobile: false
+    };
+  },
+  methods: {
+    changePath: function () {
+      this.$router.push({ path: '/contact' })
+    },
+    
+  },
+  
+};
 <script>
 import webTopicRight from "@/components/webTopicRight.vue";
 import webTopicLeft from "@/components/webTopicLeft.vue";
@@ -8,10 +23,11 @@ export default {
   data() {
     return {
       name: "Hello World!",
+      isMobile: false,
     };
   },
-methods: {
-     languageDE() {
+  methods: {
+    languageDE() {
       this.$store.dispatch("changeLanguage", "de");
     },
     languageEN() {
@@ -27,26 +43,68 @@ methods: {
     webFooter,
     webTestimonials,
   },
+  created() {
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
+      // true for mobile device
+      this.isMobile = true;
+    } else {
+      // false for not mobile device
+      this.isMobile = false;
+    }
+  },
 };
 </script>
 
 <template>
+  <div v-if="!this.isMobile">
   <div class="masterDiv">
     <div class="landingPage">
       <nav>
         <ul v-if="this.$store.state.language == 'en'">
-          <router-link to="/finance"><li><a>Financial Advise</a></li> </router-link>
-          <router-link to="/real-estate"> <li><a>Real Estate</a></li> </router-link>
-          <router-link to="/cars"> <li><a>Classic Cars</a></li> </router-link>
-          <router-link to="/business-consulting"> <li><a>Business Consulting</a></li> </router-link>
-          <li><a><span @click="languageDE()">DE</span> / <span @click="languageEN()">EN</span> / <span @click="languageRU()">RU</span></a></li>
+          <router-link to="/finance"
+            ><li><a>Financial Advise</a></li>
+          </router-link>
+          <router-link to="/real-estate">
+            <li><a>Real Estate</a></li>
+          </router-link>
+          <router-link to="/cars">
+            <li><a>Classic Cars</a></li>
+          </router-link>
+          <router-link to="/business-consulting">
+            <li><a>Business Consulting</a></li>
+          </router-link>
+          <li>
+            <a
+              ><span @click="languageDE()">DE</span> /
+              <span @click="languageEN()">EN</span> /
+              <span @click="languageRU()">RU</span></a
+            >
+          </li>
         </ul>
         <ul v-if="this.$store.state.language == 'de'">
-          <router-link to="/finance"><li><a>Finanz Beratung</a></li> </router-link>
-          <router-link to="/real-estate"> <li><a>Immobilien</a></li> </router-link>
-          <router-link to="/cars"> <li><a>Oldtimer</a></li> </router-link>
-          <router-link to="/business-consulting"> <li><a>Unternehmensberatung</a></li> </router-link>
-          <li><a><span @click="languageDE()">DE</span> / <span @click="languageEN()">EN</span> / <span @click="languageRU()">RU</span></a></li>
+          <router-link to="/finance"
+            ><li><a>Finanz Beratung</a></li>
+          </router-link>
+          <router-link to="/real-estate">
+            <li><a>Immobilien</a></li>
+          </router-link>
+          <router-link to="/cars">
+            <li><a>Oldtimer</a></li>
+          </router-link>
+          <router-link to="/business-consulting">
+            <li><a>Unternehmensberatung</a></li>
+          </router-link>
+          <li>
+            <a
+              ><span @click="languageDE()">DE</span> /
+              <span @click="languageEN()">EN</span> /
+              <span @click="languageRU()">RU</span></a
+            >
+          </li>
         </ul>
       </nav>
       <div>
@@ -56,11 +114,15 @@ methods: {
             src="@/assets/HohensteinLogoText.png"
             class="hohenSteinLogoText"
           />
-          <p v-if="this.$store.state.language == 'en'" class="whiteBox1Slogan">Making Your Ideas Come True</p>
-                    <p v-if="this.$store.state.language == 'de'" class="whiteBox1Slogan">Wir verwirklichen ihre Ideen</p>
-          <p v-if="this.$store.state.language == 'ru'" class="whiteBox1Slogan">Воплощение ваших идей в жизнь
-</p>
-
+          <p v-if="this.$store.state.language == 'en'" class="whiteBox1Slogan">
+            Making Your Ideas Come True
+          </p>
+          <p v-if="this.$store.state.language == 'de'" class="whiteBox1Slogan">
+            Wir verwirklichen ihre Ideen
+          </p>
+          <p v-if="this.$store.state.language == 'ru'" class="whiteBox1Slogan">
+            Воплощение ваших идей в жизнь
+          </p>
 
           <div class="whiteBox1BlueLine"></div>
         </div>
@@ -70,41 +132,42 @@ methods: {
       </a>
     </div>
     <div class="content" id="content">
-       <router-link to="/cars">
-      <webTopicRight
-        :name="'Classic Cars'"
-        :slogan="'What a Luxury Car Should Be.'"
-        :img="require('@/assets/car1.png')"
-        :type="true"
-      />
-       </router-link>
-       <router-link to="/business-consulting">
-      <webTopicLeft
-        :name="'Business Consulting'"
-        :slogan="'Consulting is the secret to unlocking your vision.'"
-        :img="require('@/assets/businessImage.png')"
-        :type="true"
-      />
-       </router-link>
-       <router-link to="real-estate">
-      <webTopicRight
-        :name="'Real Estate'"
-        :slogan="'A Local Expert.'"
-        :img="require('@/assets/house1.png')"
-        :type="false"
-      />
-       </router-link>
-       <router-link to="/finance">
-      <webTopicLeft
-        :name="'Financial Advise'"
-        :slogan="'Live comfortably and better.'"
-        :img="require('@/assets/financeImage.png')"
-        :type="false"
-      />
-       </router-link>
+      <router-link to="/cars">
+        <webTopicRight
+          :name="'Classic Cars'"
+          :slogan="'What a Luxury Car Should Be.'"
+          :img="require('@/assets/car1.png')"
+          :type="true"
+        />
+      </router-link>
+      <router-link to="/business-consulting">
+        <webTopicLeft
+          :name="'Business Consulting'"
+          :slogan="'Consulting is the secret to unlocking your vision.'"
+          :img="require('@/assets/businessImage.png')"
+          :type="true"
+        />
+      </router-link>
+      <router-link to="real-estate">
+        <webTopicRight
+          :name="'Real Estate'"
+          :slogan="'A Local Expert.'"
+          :img="require('@/assets/house1.png')"
+          :type="false"
+        />
+      </router-link>
+      <router-link to="/finance">
+        <webTopicLeft
+          :name="'Financial Advise'"
+          :slogan="'Live comfortably and better.'"
+          :img="require('@/assets/financeImage.png')"
+          :type="false"
+        />
+      </router-link>
       <webTestimonials />
       <webFooter />
     </div>
+  </div>
   </div>
 </template>
 
@@ -125,7 +188,9 @@ html {
   margin-left: 5%;
   margin-right: 5%;
 }
-a{text-decoration: none;}
+a {
+  text-decoration: none;
+}
 nav {
   font-size: 20px;
   position: absolute;
@@ -141,10 +206,10 @@ nav {
 ul {
   list-style-type: none;
   margin-top: 40px;
-  
+
   padding: 0;
 }
-li:hover{
+li:hover {
   cursor: pointer;
 }
 li {
@@ -246,7 +311,6 @@ li {
   opacity: 1;
 }
 @media only screen and (max-width: 1500px) {
-  
   .landingPageImage {
     position: absolute;
     top: 50%;
@@ -290,30 +354,29 @@ li {
     font-size: 15px;
   }
 }
-@media only screen and (max-width: 1250px),screen and (max-height: 850px)  {
-
+@media only screen and (max-width: 1250px), screen and (max-height: 850px) {
   nav {
-  font-size: 18px;
-  position: absolute;
-  top: 0;
-  text-align: center;
-  border: 1px solid black;
-  border-top: 0px;
-  border-left: 0px;
-  border-right: 0px;
-  height: 80px;
-  width: 100%;
-}
-ul {
-  list-style-type: none;
-  margin-top: 30px;
-  padding: 0;
-}
-li {
-  display: inline;
-  margin: 3%;
-}
-.landingPageImage {
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    text-align: center;
+    border: 1px solid black;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    height: 80px;
+    width: 100%;
+  }
+  ul {
+    list-style-type: none;
+    margin-top: 30px;
+    padding: 0;
+  }
+  li {
+    display: inline;
+    margin: 3%;
+  }
+  .landingPageImage {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -358,17 +421,17 @@ li {
 }
 @media only screen and (min-width: 2150px) {
   .landingPageImage {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 200px;
-  width: 100%;
-  max-width: 1000px;
-  max-height: 80%;
-  height: auto;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 200px;
+    width: 100%;
+    max-width: 1000px;
+    max-height: 80%;
+    height: auto;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
 }
 </style>

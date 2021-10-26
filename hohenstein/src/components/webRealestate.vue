@@ -1,4 +1,7 @@
 <script>
+
+
+
 export default {
   data() {
     return {
@@ -8,12 +11,14 @@ export default {
   methods: {
     changePath: function () {
       this.$router.push({ path: '/contact' })
-    }
+    },
+    
   }
 };
 </script>
 
 <template>
+<div>
   <div>
     <router-link to="/">
       <div class="sidebar">
@@ -63,6 +68,7 @@ YOUR LIFE   </p>
       
     </div>
   </div>
+</div>
 </template>
 
 <style scoped>
