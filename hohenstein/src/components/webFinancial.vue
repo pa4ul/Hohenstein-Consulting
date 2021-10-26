@@ -54,11 +54,10 @@ export default {
           takimata sanctus est Lorem ipsum dolor sit amet.
         </p>
         <div class="buttonDiv">
-        <a href="tel:+43 676 911 511 0">
-<input type="button" value="Call Us" class="inputButton" /></a>
+        <a href="tel:+43 676 911 511 0" class="btn btn3">Call Us</a>
        
-        <input @click="changePath()" type="button" value="Contact Us" class="inputButton" />
         
+        <a href="" class="btn btn3" @click="changePath()">Contact Us</a>
         </div>
       </div>
       
@@ -66,7 +65,49 @@ export default {
   </div>
 </template>
 
-<style >
+<style scoped>
+a{
+  text-decoration: none;
+  text-align: center;
+}
+.btn{
+  position: relative;
+  display: block;
+  color: black;
+  font-size: 15px;
+  font-family: "montserrat";
+  text-decoration: none;
+  border: 1px solid black;
+  width: 200px;
+  height: 40px;
+  padding-top:15px;
+  text-transform: uppercase;
+  
+  overflow: hidden;
+  transition: 1s all ease;
+}
+.btn::before{
+  background: #30375a;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: -1;
+  transition: all 0.6s ease;
+}
+.btn:hover{
+  color:white;
+}
+
+.btn3::before{
+  width: 100%;
+  height: 0%;
+  transform: translate(-50%,-50%) rotate(45deg);
+}
+.btn3:hover::before{
+  height: 450%;
+}
 .sidebar {
   position: fixed;
   height: 100%;
@@ -104,7 +145,8 @@ export default {
 }
 .carimage {
   position: absolute;
-  width: 90%;
+  max-width: 90%;
+  height: 40%;
   top: 20vh;
   z-index: 1;
   left: 50%;
@@ -136,34 +178,24 @@ export default {
   width: 30vw;
   height: 25vh;
 }
-.inputButton {
-  width: 200px;
-  height: 40px;
-  font-size: 15px;
-  background-color: #30375a;
-  color: white;
-  border: 0; 
-}
-@media only screen and (max-width: 1400px)  {
 
-.carimage {
-  position: absolute;
-  width: 90%;
-  max-height: 250px;
-  top: 20vh;
-  z-index: 1;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.inputButton {
-  
+@media only screen and (max-width: 1400px) and (max-height: 750px) {
+
+.btn{
+  position: relative;
+  display: block;
+  color: black;
+  font-size: 15px;
+  font-family: "montserrat";
+  text-decoration: none;
+  border: 1px solid black;
   width: 130px;
   height: 40px;
-  font-size: 15px;
-  background-color: #30375a;
-  color: white;
-  border: 0;
+  padding-top:15px;
+  text-transform: uppercase;
   margin-bottom:50px;
+  overflow: hidden;
+  transition: 1s all ease;
 }
 }
 </style>
