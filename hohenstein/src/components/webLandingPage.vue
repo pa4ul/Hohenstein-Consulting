@@ -1,4 +1,3 @@
-
 <script>
 import webTopicRight from "@/components/webTopicRight.vue";
 import webTopicLeft from "@/components/webTopicLeft.vue";
