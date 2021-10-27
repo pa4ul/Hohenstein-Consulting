@@ -59,6 +59,24 @@ export default {
 input{
     border:0.5px solid black;
 }
+.sidebar {
+  position: fixed;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  width: 80px;
+  padding: 0;
+  margin: 0;
+  background-color: #e3e5e6;
+  z-index: 2;
+}
+.arrowBack {
+  height: 13px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%);
+  left: 25px;
+}
 .div {
   position: absolute;
   left: 150px;

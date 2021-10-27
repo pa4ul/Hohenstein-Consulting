@@ -26,7 +26,7 @@ export default {
   </div>
 </template>
 
-<style>
+<style scoped>
 *{
   color:black;
   font-family: "Miller Display";

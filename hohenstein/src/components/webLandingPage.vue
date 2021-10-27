@@ -1,29 +1,16 @@
-export default {
-  data() {
-    return {
-      greeting: "Hello World!",
-      isMobile: false
-    };
-  },
-  methods: {
-    changePath: function () {
-      this.$router.push({ path: '/contact' })
-    },
-    
-  },
-  
-};
+
 <script>
 import webTopicRight from "@/components/webTopicRight.vue";
 import webTopicLeft from "@/components/webTopicLeft.vue";
 import webFooter from "@/components/webFooter.vue";
 import webTestimonials from "@/components/webTestimonials.vue";
-
+import mobileTopicCar from "@/components/mobileTopicCar.vue"
+import { Slide } from "vue3-burger-menu";
 export default {
   data() {
     return {
       name: "Hello World!",
-      isMobile: false,
+      isMobile: true,
     };
   },
   methods: {
@@ -42,8 +29,10 @@ export default {
     webTopicLeft,
     webFooter,
     webTestimonials,
+    Slide,
+    mobileTopicCar
   },
-  created() {
+  /*created() {
     if (
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
         navigator.userAgent
@@ -54,132 +43,231 @@ export default {
     } else {
       // false for not mobile device
       this.isMobile = false;
-    }
-  },
+    } 
+  },*/
 };
 </script>
 
 <template>
-  <div v-if="!this.isMobile">
-  <div class="masterDiv">
-    <div class="landingPage">
-      <nav>
-        <ul v-if="this.$store.state.language == 'en'">
-          <router-link to="/finance"
-            ><li><a>Financial Advise</a></li>
-          </router-link>
-          <router-link to="/real-estate">
-            <li><a>Real Estate</a></li>
-          </router-link>
-          <router-link to="/cars">
-            <li><a>Classic Cars</a></li>
-          </router-link>
-          <router-link to="/business-consulting">
-            <li><a>Business Consulting</a></li>
-          </router-link>
-          <li>
-            <a
-              ><span @click="languageDE()">DE</span> /
-              <span @click="languageEN()">EN</span> /
-              <span @click="languageRU()">RU</span></a
-            >
-          </li>
-        </ul>
-        <ul v-if="this.$store.state.language == 'de'">
-          <router-link to="/finance"
-            ><li><a>Finanz Beratung</a></li>
-          </router-link>
-          <router-link to="/real-estate">
-            <li><a>Immobilien</a></li>
-          </router-link>
-          <router-link to="/cars">
-            <li><a>Oldtimer</a></li>
-          </router-link>
-          <router-link to="/business-consulting">
-            <li><a>Unternehmensberatung</a></li>
-          </router-link>
-          <li>
-            <a
-              ><span @click="languageDE()">DE</span> /
-              <span @click="languageEN()">EN</span> /
-              <span @click="languageRU()">RU</span></a
-            >
-          </li>
-        </ul>
-      </nav>
-      <div>
-        <img src="@/assets/imageLandingpage.jpg" class="landingPageImage" />
-        <div class="whiteBox1">
-          <img
-            src="@/assets/HohensteinLogoText.png"
-            class="hohenSteinLogoText"
-          />
-          <p v-if="this.$store.state.language == 'en'" class="whiteBox1Slogan">
-            Making Your Ideas Come True
-          </p>
-          <p v-if="this.$store.state.language == 'de'" class="whiteBox1Slogan">
-            Wir verwirklichen ihre Ideen
-          </p>
-          <p v-if="this.$store.state.language == 'ru'" class="whiteBox1Slogan">
-            Воплощение ваших идей в жизнь
-          </p>
+  <div>
+    <div v-if="this.isMobile">
+      <div class="masterDiv">
+        <div class="landingPage">
+          <nav>
+            <ul v-if="this.$store.state.language == 'en'">
+              <router-link to="/finance"
+                ><li><a>Financial Advise</a></li>
+              </router-link>
+              <router-link to="/real-estate">
+                <li><a>Real Estate</a></li>
+              </router-link>
+              <router-link to="/cars">
+                <li><a>Classic Cars</a></li>
+              </router-link>
+              <router-link to="/business-consulting">
+                <li><a>Business Consulting</a></li>
+              </router-link>
+              <li>
+                <a
+                  ><span @click="languageDE()">DE</span> /
+                  <span @click="languageEN()">EN</span> /
+                  <span @click="languageRU()">RU</span></a
+                >
+              </li>
+            </ul>
+            <ul v-if="this.$store.state.language == 'de'">
+              <router-link to="/finance"
+                ><li><a>Finanz Beratung</a></li>
+              </router-link>
+              <router-link to="/real-estate">
+                <li><a>Immobilien</a></li>
+              </router-link>
+              <router-link to="/cars">
+                <li><a>Oldtimer</a></li>
+              </router-link>
+              <router-link to="/business-consulting">
+                <li><a>Unternehmensberatung</a></li>
+              </router-link>
+              <li>
+                <a
+                  ><span @click="languageDE()">DE</span> /
+                  <span @click="languageEN()">EN</span> /
+                  <span @click="languageRU()">RU</span></a
+                >
+              </li>
+            </ul>
+          </nav>
+          <div>
+            <img src="@/assets/imageLandingpage.jpg" class="landingPageImage" />
+            <div class="whiteBox1">
+              <img
+                src="@/assets/HohensteinLogoText.png"
+                class="hohenSteinLogoText"
+              />
+              <p
+                v-if="this.$store.state.language == 'en'"
+                class="whiteBox1Slogan"
+              >
+                Making Your Ideas Come True
+              </p>
+              <p
+                v-if="this.$store.state.language == 'de'"
+                class="whiteBox1Slogan"
+              >
+                Wir verwirklichen ihre Ideen
+              </p>
+              <p
+                v-if="this.$store.state.language == 'ru'"
+                class="whiteBox1Slogan"
+              >
+                Воплощение ваших идей в жизнь
+              </p>
 
-          <div class="whiteBox1BlueLine"></div>
+              <div class="whiteBox1BlueLine"></div>
+            </div>
+          </div>
+          <a href="#content">
+            <img src="@/assets/arrow.png" class="landingPageArrow" />
+          </a>
+        </div>
+        <div class="content" id="content">
+          <router-link to="/cars">
+            <webTopicRight
+              :name="'Classic Cars'"
+              :slogan="'What a Luxury Car Should Be.'"
+              :img="require('@/assets/car1.png')"
+              :type="true"
+            />
+          </router-link>
+          <router-link to="/business-consulting">
+            <webTopicLeft
+              :name="'Business Consulting'"
+              :slogan="'Consulting is the secret to unlocking your vision.'"
+              :img="require('@/assets/businessImage.png')"
+              :type="true"
+            />
+          </router-link>
+          <router-link to="real-estate">
+            <webTopicRight
+              :name="'Real Estate'"
+              :slogan="'A Local Expert.'"
+              :img="require('@/assets/house1.png')"
+              :type="false"
+            />
+          </router-link>
+          <router-link to="/finance">
+            <webTopicLeft
+              :name="'Financial Advise'"
+              :slogan="'Live comfortably and better.'"
+              :img="require('@/assets/financeImage.png')"
+              :type="false"
+            />
+          </router-link>
+          <webTestimonials />
+          <webFooter />
         </div>
       </div>
-      <a href="#content">
-        <img src="@/assets/arrow.png" class="landingPageArrow" />
-      </a>
     </div>
-    <div class="content" id="content">
-      <router-link to="/cars">
-        <webTopicRight
-          :name="'Classic Cars'"
-          :slogan="'What a Luxury Car Should Be.'"
-          :img="require('@/assets/car1.png')"
-          :type="true"
-        />
-      </router-link>
-      <router-link to="/business-consulting">
-        <webTopicLeft
-          :name="'Business Consulting'"
-          :slogan="'Consulting is the secret to unlocking your vision.'"
-          :img="require('@/assets/businessImage.png')"
-          :type="true"
-        />
-      </router-link>
-      <router-link to="real-estate">
-        <webTopicRight
-          :name="'Real Estate'"
-          :slogan="'A Local Expert.'"
-          :img="require('@/assets/house1.png')"
-          :type="false"
-        />
-      </router-link>
-      <router-link to="/finance">
-        <webTopicLeft
-          :name="'Financial Advise'"
-          :slogan="'Live comfortably and better.'"
-          :img="require('@/assets/financeImage.png')"
-          :type="false"
-        />
-      </router-link>
-      <webTestimonials />
-      <webFooter />
+    <div v-if="!this.isMobile">
+      <div>
+        <a class="languageSelection">
+          <span @click="languageDE()">DE</span> /
+          <span @click="languageEN()">EN</span> /
+          <span @click="languageRU()">RU</span></a
+        >
+        <Slide right width="250">
+          <a id="home" href="#">
+            <span>Financial Advise</span>
+          </a>
+          <a id="" href="#">
+            <span>Real Estate</span>
+          </a>
+          <a id="home" href="#">
+            <span>Classic Cars</span>
+          </a>
+          <a id="home" href="#">
+            <span>Business Consulting</span>
+          </a>
+        </Slide>
+      </div>
+      <div style="display: flex;
+  justify-content:center;">
+      <div class="mobileWhiteBox">
+          <img src="@/assets/HohensteinLogoText.png" class="mobileLogo">
+          <p class="mobileSlogan"> Making Your Ideas Come True </p>
+      </div>
+       <img src="@/assets/imageLandingpage.jpg" class="mobileLandingImage" >
+      </div>
+      <div class="mobileContent">
+      <mobileTopicCar/>
+      </div>
     </div>
-  </div>
   </div>
 </template>
 
-<style scoped>
-@import url(//db.onlinewebfonts.com/c/1fdf9a4d690c4e7271e535c39f40045f?family=Miller+Display);
+<style>
+.bm-burger-button {
+  position: absolute;
+  width: 36px;
+  height: 30px;
+  top: 36px;
+  left: 80%;
+  cursor: pointer;
+}
 * {
   font-family: "Miller Display";
 }
 html {
   scroll-behavior: smooth;
 }
+</style>
+<style scoped>
+@import url(//db.onlinewebfonts.com/c/1fdf9a4d690c4e7271e535c39f40045f?family=Miller+Display);
 
+
+.mobileLandingImage{
+  position: absolute;
+  width: 90vw;
+  z-index: 1;
+  top:150px;
+  
+  
+}
+.mobileWhiteBox{
+  position: absolute;
+  top:100px;
+  background-color: white;
+  width: 60%;
+  height: 160px;
+  display: flex;
+  justify-content:center;
+  z-index: 10;
+}
+.mobileLogo{
+  position: absolute;
+  height: 110px;
+}
+.mobileContent{
+  position: absolute;
+  background-color:#e3e5e6;
+  width: 90%;
+  height: 1000px;
+  left: 50%;
+  top:425px;
+  transform: translateX(-50%);
+}
+.mobileSlogan{
+  position: absolute;
+  top:100px;
+  display: flex;
+  justify-content:center;
+}
+.languageSelection{
+  position: absolute;
+  font-size:20px;
+  top:36px;
+  left:36px;
+}
 .landingPage {
   position: absolute;
   top: 0;
