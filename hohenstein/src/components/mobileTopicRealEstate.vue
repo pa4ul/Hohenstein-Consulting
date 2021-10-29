@@ -10,11 +10,11 @@ export default {
 
 <template>
   <div class="mobileTopic">
-    <img src="@/assets/mobileImage1.png" class="image" />
+    <img src="@/assets/mobileRealEstate.png" class="image" />
     <div class="mobileWhiteBox">
       <div class="mobileWhiteBoxContent">
-        <p class="header">Classic Cars</p>
-        <p class="slogan">What a Luxury Car Should Be.</p>
+        <p class="header">Real Estate</p>
+        <p class="slogan">A Local Expert.</p>
      <img src="@/assets/arrow.png" class="mobileArrow">
       </div>
     </div>
@@ -32,6 +32,8 @@ html {
 .mobileTopic {
   display: flex;
   justify-content: center;
+  position: absolute;
+  top:600px;
 }
 .image {
   width: 100%;

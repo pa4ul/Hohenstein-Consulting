@@ -4,12 +4,19 @@ import webTopicLeft from "@/components/webTopicLeft.vue";
 import webFooter from "@/components/webFooter.vue";
 import webTestimonials from "@/components/webTestimonials.vue";
 import mobileTopicCar from "@/components/mobileTopicCar.vue"
+import mobileTopicBusiness from "@/components/mobileTopicBusiness.vue"
+import mobileRealEstate from "@/components/mobileTopicRealEstate.vue"
+import mobileTopicFinance from "@/components/mobileTopicFinance.vue"
+import mobileFooter from "@/components/mobileFooter.vue"
+import mobileContact from "@/components/mobileContact.vue"
+
+
 import { Slide } from "vue3-burger-menu";
 export default {
   data() {
     return {
       name: "Hello World!",
-      isMobile: true,
+      isMobile: false,
     };
   },
   methods: {
@@ -29,7 +36,12 @@ export default {
     webFooter,
     webTestimonials,
     Slide,
-    mobileTopicCar
+    mobileTopicCar,
+    mobileTopicBusiness,
+    mobileRealEstate,
+    mobileTopicFinance,
+    mobileContact,
+    mobileFooter
   },
   /*created() {
     if (
@@ -199,6 +211,11 @@ export default {
       </div>
       <div class="mobileContent">
       <mobileTopicCar/>
+      <mobileTopicBusiness/>
+      <mobileRealEstate/>
+      <mobileTopicFinance/>
+      <mobileContact/>
+      <mobileFooter/>
       </div>
     </div>
   </div>
@@ -248,9 +265,9 @@ html {
 }
 .mobileContent{
   position: absolute;
-  background-color:#e3e5e6;
+  background-color:white;
   width: 90%;
-  height: 1000px;
+  height: 2550px;
   left: 50%;
   top:425px;
   transform: translateX(-50%);

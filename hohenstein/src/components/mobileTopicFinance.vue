@@ -10,13 +10,14 @@ export default {
 
 <template>
   <div class="mobileTopic">
-    <img src="@/assets/mobileImage1.png" class="image" />
+    <img src="@/assets/mobileFinance.png" class="image" />
     <div class="mobileWhiteBox">
       <div class="mobileWhiteBoxContent">
-        <p class="header">Classic Cars</p>
-        <p class="slogan">What a Luxury Car Should Be.</p>
-     <img src="@/assets/arrow.png" class="mobileArrow">
+        <p class="header">Financial Advise</p>
+        <p class="slogan">Live comfortably and better.</p>
       </div>
+           <img src="@/assets/arrow.png" class="mobileArrow">
+
     </div>
   </div>
 </template>
@@ -32,6 +33,8 @@ html {
 .mobileTopic {
   display: flex;
   justify-content: center;
+  position: absolute;
+  top:900px;
 }
 .image {
   width: 100%;
@@ -43,32 +46,32 @@ html {
   width: 300px;
   background-color: white;
   top: 41px;
-  left: 0;
+  right: 0;
 }
 .mobileWhiteBoxContent {
-  vertical-align: middle;
+   position: absolute;
+   right:10px;
 }
 .header {
   font-size: 27px;
   margin-bottom: 0;
-  margin-left: 5px;
-  padding-left:5px;
+  margin-right: 5px;
+  padding-right:5px;
   margin-top:45px;
-  border-left: 3px solid #30375a;
+  border-right: 3px solid #30375a;
 }
 .slogan {
   margin-top: 0;
-    padding-left:5px;
+    padding-right:5px;
 font-size:11px;
-
-  border-left: 3px solid #30375a;
-  margin-left: 5px;
+  border-right: 3px solid #30375a;
+  margin-right: 5px;
 }
 .mobileArrow{
     position: absolute;
     height:15px;
-    right:3px;
+    left:0px;
     bottom:71px;
-    transform: rotate(270deg);
+    transform: rotate(90deg);
 }
 </style>
