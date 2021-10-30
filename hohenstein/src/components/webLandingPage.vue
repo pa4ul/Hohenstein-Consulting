@@ -307,7 +307,7 @@ html {
   position: absolute;
   top: 100px;
   background-color: white;
-  width: 60%;
+  width: 70%;
   height: 160px;
   display: flex;
   justify-content: center;

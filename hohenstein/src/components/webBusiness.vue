@@ -141,8 +141,9 @@ export default {
           ipsum dolor sit amet.
         </p>
         <input type="button" value="Contact us" class="inputButton3" @click="changePath()" />
-                <input type="button" value="Call us" class="inputButton2" />
-
+<a href="tel:+43 676 911 511 0">
+          <input type="button" value="Call us" class="inputButton2"
+        /></a>
       </div>
     </div>
 </div>

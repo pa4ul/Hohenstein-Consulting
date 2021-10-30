@@ -10,7 +10,7 @@ export default {
   },
   methods: {
     changePath: function () {
-      this.$router.push({ path: '/contact' })
+      this.$router.push({ path: "/contact" });
     },
     changePathtoFinance: function () {
       this.$router.push({ path: "/finance" });
@@ -44,60 +44,58 @@ export default {
 };
 </script>
 <template>
-<div>
-  <div v-if="this.isMobile">
-    <router-link to="/">
-      <div class="sidebar">
-        <img
-          class="arrowBack"
-          src="@/assets/arrow.png"
-          style="transform: rotate(90deg)"
-        />
-      </div>
-    </router-link>
-    <p class="category">
-      <span style="font-family: 'Helvetica'"> / </span> Financial Advise
-    </p>
-    <p class="slog3an">
-      ALL IT <br />
-      TAKES
-    </p>
-    <img src="@/assets/financeImage.png" class="carimage" />
-    <div class="contentDiv">
-      <div class="firstText">
-        <div class="blueStrike"></div>
-        <p>
-          <span style="font-size: 25px; color: #30375a">L</span> orem ipsum
-          dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-          tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-          voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-          Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-          dolor sit amet.
-        </p>
-      </div>
-    
-      <div class="secondText">
-        <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum. Stet clitres et ea rebum. Stet clita kasd gubergren, no sea
-          takimata sanctus est Lorem ipsum dolor sit amet.
-        </p>
-        <div class="buttonDiv">
-        <a href="tel:+43 676 911 511 0" class="btn btn3">Call Us</a>
-       
-        
-        <a href="" class="btn btn3" @click="changePath()">Contact Us</a>
+  <div>
+    <div v-if="this.isMobile">
+      <router-link to="/">
+        <div class="sidebar">
+          <img
+            class="arrowBack"
+            src="@/assets/arrow.png"
+            style="transform: rotate(90deg)"
+          />
+        </div>
+      </router-link>
+      <p class="category">
+        <span style="font-family: 'Helvetica'"> / </span> Financial Advise
+      </p>
+      <p class="slog3an">
+        ALL IT <br />
+        TAKES
+      </p>
+      <img src="@/assets/financeImage.png" class="carimage" />
+      <div class="contentDiv">
+        <div class="firstText">
+          <div class="blueStrike"></div>
+          <p>
+            <span style="font-size: 25px; color: #30375a">L</span> orem ipsum
+            dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+            voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+            Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+            dolor sit amet.
+          </p>
+        </div>
+
+        <div class="secondText">
+          <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+            et ea rebum. Stet clitres et ea rebum. Stet clita kasd gubergren, no
+            sea takimata sanctus est Lorem ipsum dolor sit amet.
+          </p>
+          <div class="buttonDiv">
+            <a href="tel:+43 676 911 511 0" class="btn btn3">Call Us</a>
+
+            <a href="" class="btn btn3" @click="changePath()">Contact Us</a>
+          </div>
         </div>
       </div>
-      
     </div>
-  </div>
-  <div v-if="!this.isMobile">
+    <div v-if="!this.isMobile">
       <div class="navbar">
         <router-link to="/">
-        <img src="@/assets/arrow.png" class="backButton" />
+          <img src="@/assets/arrow.png" class="backButton" />
         </router-link>
         <a class="languageSelection">
           <span @click="languageDE()">DE</span> /
@@ -109,7 +107,7 @@ export default {
             <span>Financial Advise</span>
           </a>
 
-          <a id="" href="#"  @click="changePathtoRealEstate()">
+          <a id="" href="#" @click="changePathtoRealEstate()">
             <span>Real Estate</span>
           </a>
           <a id="home" href="#" @click="changePathtoCars()">
@@ -123,7 +121,7 @@ export default {
       <div class="mobileContent">
         <p class="mobileText">Financial Advises</p>
         <img src="@/assets/financeImage.png" class="mobileImage" />
-        <p class="mobileSlogan"> ALL IT TAKES</p>
+        <p class="mobileSlogan">ALL IT TAKES</p>
         <p class="mobileText1">
           <span style="font-size: 25px"> L</span> orem ipsum dolor sit amet,
           consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
@@ -138,16 +136,22 @@ export default {
           rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
           ipsum dolor sit amet.
         </p>
-        <input type="button" value="Contact us"  @click="changePath()" class="inputButton3" />
-                <input type="button" value="Call us" class="inputButton2" />
-
+        <input
+          type="button"
+          value="Contact us"
+          @click="changePath()"
+          class="inputButton3"
+        />
+        <a href="tel:+43 676 911 511 0">
+          <input type="button" value="Call us" class="inputButton2"
+        /></a>
       </div>
     </div>
-</div>
+  </div>
 </template>
 
 <style scoped>
-a{
+a {
   text-decoration: none;
   text-align: center;
 }
@@ -228,7 +232,7 @@ a{
   top: 60px;
   width: 100%;
 }
-.btn{
+.btn {
   position: relative;
   display: block;
   color: black;
@@ -238,32 +242,32 @@ a{
   border: 1px solid black;
   width: 200px;
   height: 40px;
-  padding-top:15px;
+  padding-top: 15px;
   text-transform: uppercase;
-  
+
   overflow: hidden;
   transition: 1s all ease;
 }
-.btn::before{
+.btn::before {
   background: #30375a;
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   z-index: -1;
   transition: all 0.6s ease;
 }
-.btn:hover{
-  color:white;
+.btn:hover {
+  color: white;
 }
 
-.btn3::before{
+.btn3::before {
   width: 100%;
   height: 0%;
-  transform: translate(-50%,-50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
 }
-.btn3:hover::before{
+.btn3:hover::before {
   height: 450%;
 }
 .sidebar {
@@ -316,9 +320,9 @@ a{
   width: 100px;
   background-color: #30375a;
 }
-.buttonDiv{
-    display: flex;
-    justify-content: space-between;
+.buttonDiv {
+  display: flex;
+  justify-content: space-between;
 }
 .contentDiv {
   height: 95vh;
@@ -338,22 +342,21 @@ a{
 }
 
 @media only screen and (max-width: 1400px) and (max-height: 750px) {
-
-.btn{
-  position: relative;
-  display: block;
-  color: black;
-  font-size: 15px;
-  font-family: "montserrat";
-  text-decoration: none;
-  border: 1px solid black;
-  width: 130px;
-  height: 40px;
-  padding-top:15px;
-  text-transform: uppercase;
-  margin-bottom:50px;
-  overflow: hidden;
-  transition: 1s all ease;
-}
+  .btn {
+    position: relative;
+    display: block;
+    color: black;
+    font-size: 15px;
+    font-family: "montserrat";
+    text-decoration: none;
+    border: 1px solid black;
+    width: 130px;
+    height: 40px;
+    padding-top: 15px;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    overflow: hidden;
+    transition: 1s all ease;
+  }
 }
 </style>

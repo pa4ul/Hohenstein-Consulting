@@ -95,7 +95,7 @@ export default {
     <div v-if="!this.isMobile">
       <div class="navbar">
         <router-link to="/">
-        <img src="@/assets/arrow.png" class="backButton" />
+          <img src="@/assets/arrow.png" class="backButton" />
         </router-link>
         <a class="languageSelection">
           <span @click="languageDE()">DE</span> /
@@ -107,7 +107,7 @@ export default {
             <span>Financial Advise</span>
           </a>
 
-          <a id="" href="#"  @click="changePathtoRealEstate()">
+          <a id="" href="#" @click="changePathtoRealEstate()">
             <span>Real Estate</span>
           </a>
           <a id="home" href="#" @click="changePathtoCars()">
@@ -136,9 +136,16 @@ export default {
           rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
           ipsum dolor sit amet.
         </p>
-        
-        <input type="button" value="Call us" class="inputButton" />
-        <input type="button" value="Contact us" class="inputButton2" @click="changePath()" />
+
+        <input
+          type="button"
+          value="Contact us"
+          @click="changePath()"
+          class="inputButton3"
+        />
+        <a href="tel:+43 676 911 511 0">
+          <input type="button" value="Call us" class="inputButton2"
+        /></a>
       </div>
     </div>
   </div>
@@ -169,7 +176,7 @@ a {
   font-family: Montserrat;
   font-weight: bold;
 }
-.inputButton {
+.inputButton3 {
   position: absolute;
   left: 0;
   top: 620px;

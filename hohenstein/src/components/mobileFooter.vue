@@ -27,7 +27,7 @@ export default {
   background-color: white;
   position: absolute;
   width: 100%;
-  bottom: 10px;
+  bottom: 40px;
 }
 .logo{
     width: 70%;

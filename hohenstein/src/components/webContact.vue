@@ -25,6 +25,9 @@ export default {
     changePathtoBusiness: function () {
       this.$router.push({ path: "/business-consulting" });
     },
+    alertFunction: function(){
+      alert("funk");
+    }
   },
   components: {
     Slide,
@@ -117,7 +120,7 @@ export default {
         <div class="contact">
           <p class="header">Contact us</p>
           <p class="text">How can we help?</p>
-          <form>
+          <form method="post">
             <input
               type="text"
               placeholder="Full name"
@@ -132,7 +135,7 @@ export default {
             <br />
             <input type="text" placeholder="Message" class="inputTextMobile" />
             <br />
-            <input type="button" value="Submit" class="inputButtonMobile" />
+            <input type="button" @click="alertFunction()" value="Submit" class="inputButtonMobile" />
           </form>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10636.210315711996!2d16.36620604147663!3d48.205603168378175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d079e6c60ca6f%3A0xa3afc3a3cb04134d!2sWeihburggasse%2022%2C%201010%20Wien!5e0!3m2!1sde!2sat!4v1635526907467!5m2!1sde!2sat"

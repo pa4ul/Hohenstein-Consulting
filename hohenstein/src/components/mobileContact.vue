@@ -12,7 +12,7 @@ export default {
   <div class="contact">
       <p class="header"> Contact Us </p>
       <p class="text"> How can we help?</p>
-      <form>
+      <form action="mailto:info@w3docs.com">
         <input type="text" placeholder="Full name" class="inputName" />
         <br />
         <input type="text" placeholder="Your Email" class="inputEmail" />
@@ -50,6 +50,7 @@ position: absolute;
   top: 1200px;
 }
 .inputName {
+  border:1px solid #30375a;
   position: absolute;
   left: 0;
   top: 120px;
@@ -62,6 +63,7 @@ position: absolute;
   padding-left: 10px;
 }
 .inputEmail {
+  border:1px solid #30375a;
   position: absolute;
   left: 0;
   top: 180px;
@@ -72,6 +74,7 @@ position: absolute;
   padding-left: 10px;
 }
 .inputText {
+  border:1px solid #30375a;
   position: absolute;
   left: 0;
   top: 240px;

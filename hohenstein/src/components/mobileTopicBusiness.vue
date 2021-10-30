@@ -42,11 +42,12 @@ html {
 }
 .mobileWhiteBox {
   position: absolute;
-  height: 150px;
+  height: 120px;
   width: 300px;
   background-color: white;
-  top: 41px;
-  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -1px;
 }
 .mobileWhiteBoxContent {
    position: absolute;
@@ -57,7 +58,7 @@ html {
   margin-bottom: 0;
   margin-right: 5px;
   padding-right:5px;
-  margin-top:45px;
+  margin-top:35px;
   border-right: 3px solid #30375a;
 }
 .slogan {
@@ -71,7 +72,7 @@ font-size:11px;
     position: absolute;
     height:15px;
     left:0px;
-    bottom:71px;
+    bottom:56px;
     transform: rotate(90deg);
 }
 </style>
