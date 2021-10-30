@@ -3,13 +3,12 @@ import webTopicRight from "@/components/webTopicRight.vue";
 import webTopicLeft from "@/components/webTopicLeft.vue";
 import webFooter from "@/components/webFooter.vue";
 import webTestimonials from "@/components/webTestimonials.vue";
-import mobileTopicCar from "@/components/mobileTopicCar.vue"
-import mobileTopicBusiness from "@/components/mobileTopicBusiness.vue"
-import mobileRealEstate from "@/components/mobileTopicRealEstate.vue"
-import mobileTopicFinance from "@/components/mobileTopicFinance.vue"
-import mobileFooter from "@/components/mobileFooter.vue"
-import mobileContact from "@/components/mobileContact.vue"
-
+import mobileTopicCar from "@/components/mobileTopicCar.vue";
+import mobileTopicBusiness from "@/components/mobileTopicBusiness.vue";
+import mobileRealEstate from "@/components/mobileTopicRealEstate.vue";
+import mobileTopicFinance from "@/components/mobileTopicFinance.vue";
+import mobileFooter from "@/components/mobileFooter.vue";
+import mobileContact from "@/components/mobileContact.vue";
 
 import { Slide } from "vue3-burger-menu";
 export default {
@@ -29,6 +28,18 @@ export default {
     languageRU() {
       this.$store.dispatch("changeLanguage", "ru");
     },
+    changePathtoFinance: function () {
+      this.$router.push({ path: "/finance" });
+    },
+    changePathtoRealEstate: function () {
+      this.$router.push({ path: "/real-estate" });
+    },
+    changePathtoCars: function () {
+      this.$router.push({ path: "/cars" });
+    },
+    changePathtoBusiness: function () {
+      this.$router.push({ path: "/business-consulting" });
+    },
   },
   components: {
     webTopicRight,
@@ -41,7 +52,7 @@ export default {
     mobileRealEstate,
     mobileTopicFinance,
     mobileContact,
-    mobileFooter
+    mobileFooter,
   },
   /*created() {
     if (
@@ -186,36 +197,52 @@ export default {
           <span @click="languageEN()">EN</span> /
           <span @click="languageRU()">RU</span></a
         >
-        <Slide right width="250">
-          <a id="home" href="#">
+        <Slide right width="250" class="Slide">
+          <a id="home" href="#" @click="changePathtoFinance()">
             <span>Financial Advise</span>
           </a>
-          <a id="" href="#">
+
+          <a id="" href="#"  @click="changePathtoRealEstate()">
             <span>Real Estate</span>
           </a>
-          <a id="home" href="#">
+          <a id="home" href="#" @click="changePathtoCars()">
             <span>Classic Cars</span>
           </a>
-          <a id="home" href="#">
+          <a id="home" href="#" @click="changePathtoBusiness()">
             <span>Business Consulting</span>
           </a>
         </Slide>
       </div>
-      <div style="display: flex;
-  justify-content:center;">
-      <div class="mobileWhiteBox">
-          <img src="@/assets/HohensteinLogoText.png" class="mobileLogo">
-          <p class="mobileSlogan"> Making Your Ideas Come True </p>
-      </div>
-       <img src="@/assets/imageLandingpage.jpg" class="mobileLandingImage" >
+      <div style="display: flex; justify-content: center">
+        <div class="mobileWhiteBox">
+          <img src="@/assets/HohensteinLogoText.png" class="mobileLogo" />
+          <p class="mobileSlogan" v-if="this.$store.state.language == 'en'">
+            Making Your Ideas Come True
+          </p>
+          <p class="mobileSlogan" v-if="this.$store.state.language == 'de'">
+            Deine Ideen werden wahr.
+          </p>
+          <p class="mobileSlogan" v-if="this.$store.state.language == 'ru'">
+            Making Your Ideas Come True
+          </p>
+        </div>
+        <img src="@/assets/imageLandingpage.jpg" class="mobileLandingImage" />
       </div>
       <div class="mobileContent">
-      <mobileTopicCar/>
-      <mobileTopicBusiness/>
-      <mobileRealEstate/>
-      <mobileTopicFinance/>
-      <mobileContact/>
-      <mobileFooter/>
+        <router-link to="/cars">
+          <mobileTopicCar />
+        </router-link>
+        <router-link to="/business-consulting">
+          <mobileTopicBusiness />
+        </router-link>
+        <router-link to="/real-estate">
+          <mobileRealEstate />
+        </router-link>
+        <router-link to="/finance">
+          <mobileTopicFinance />
+        </router-link>
+        <mobileContact />
+        <mobileFooter />
       </div>
     </div>
   </div>
@@ -226,12 +253,40 @@ export default {
   position: absolute;
   width: 36px;
   height: 30px;
-  top: 36px;
-  left: 80%;
+  top: 28px;
+  left: 85%;
   cursor: pointer;
 }
-* {
-  font-family: "Miller Display";
+.cross-style {
+  position: absolute;
+  top: 22px;
+  right: 6px;
+  cursor: pointer;
+}
+.bm-menu {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #30375a; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /*0.5 second transition effect to slide in the sidenav*/
+}
+.bm-item-list > * > span {
+  margin-left: 0px;
+  font-weight: 400;
+  color: white;
+}
+.bm-overlay {
+      background: white;
+    }
+.bm-item-list {
+  color: #b8b7ad;
+  margin-left: 10%;
+  font-size: 20px;
 }
 html {
   scroll-behavior: smooth;
@@ -239,50 +294,49 @@ html {
 </style>
 <style scoped>
 @import url(//db.onlinewebfonts.com/c/1fdf9a4d690c4e7271e535c39f40045f?family=Miller+Display);
-
-
-.mobileLandingImage{
+* {
+  font-family: "Miller Display";
+}
+.mobileLandingImage {
   position: absolute;
   width: 90vw;
   z-index: 1;
-  top:150px;
-  
-  
+  top: 150px;
 }
-.mobileWhiteBox{
+.mobileWhiteBox {
   position: absolute;
-  top:100px;
+  top: 100px;
   background-color: white;
   width: 60%;
   height: 160px;
   display: flex;
-  justify-content:center;
+  justify-content: center;
   z-index: 10;
 }
-.mobileLogo{
+.mobileLogo {
   position: absolute;
   height: 110px;
 }
-.mobileContent{
+.mobileContent {
   position: absolute;
-  background-color:white;
+  background-color: white;
   width: 90%;
   height: 2550px;
   left: 50%;
-  top:425px;
+  top: 425px;
   transform: translateX(-50%);
 }
-.mobileSlogan{
+.mobileSlogan {
   position: absolute;
-  top:100px;
+  top: 100px;
   display: flex;
-  justify-content:center;
+  justify-content: center;
 }
-.languageSelection{
+.languageSelection {
   position: absolute;
-  font-size:20px;
-  top:36px;
-  left:36px;
+  font-size: 20px;
+  top: 36px;
+  left: 36px;
 }
 .landingPage {
   position: absolute;
@@ -395,7 +449,7 @@ li {
   content: "";
   right: 0;
   top: 0;
-  border-top: 3px solid #5162b4;
+  border-top: 3px solid #30375a;
   border-right: 3px solid #30375a;
   transform: translate(-100%, 50%);
 }

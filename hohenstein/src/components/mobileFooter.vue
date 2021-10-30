@@ -18,7 +18,7 @@ export default {
   </div>
 </template>
 
-<style>
+<style scoped>
 .footer {
     border-top: 1px solid #d3d3d3;
   display: flex;
