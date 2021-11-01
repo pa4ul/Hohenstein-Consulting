@@ -13,7 +13,7 @@ export default {
       <p> Office@hohenstein-consulting.at </p>
       <p> +43 123 456 7890 </p>
       <p> Weihburggasse 22/5 1010 Wien</p>
-      <p> <span style="padding:10px;"> Team  </span> <span style="padding:10px;"> Imprint </span> </p>
+      <p>  <span style="padding:10px;"><router-link to="/team"> Team  </router-link> </span> <span style="padding:10px;"> Imprint </span> </p>
         <img src="@/assets/HohensteinLogoText.png" class="logo"/>
   </div>
 </template>

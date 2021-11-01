@@ -68,14 +68,14 @@ export default {
         <div class="textBox">
           <p class="Headline">Contact Us</p>
           <p class="text">How can we help?</p>
-          <form>
-            <input type="text" placeholder="Full name" class="inputName" />
+          <form action="https://formsubmit.co/paulherbich1@gmail.com" method="POST">
+            <input type="text" name="Name" placeholder="Full name" class="inputName" />
             <br />
-            <input type="text" placeholder="Your Email" class="inputEmail" />
+            <input type="text" name="E-Mail" placeholder="Your Email" class="inputEmail" />
             <br />
-            <input type="text" placeholder="Message" class="inputText" />
+            <input type="text" name="Nachricht" placeholder="Message" class="inputText" />
             <br />
-            <input type="button" value="Submit" class="inputButton" />
+            <input type="submit" value="Submit" class="inputButton" />
           </form>
         </div>
       </div>
@@ -120,22 +120,24 @@ export default {
         <div class="contact">
           <p class="header">Contact us</p>
           <p class="text">How can we help?</p>
-          <form method="post">
+          <form action="https://formsubmit.co/paulherbich1@gmail.com" method="POST">
             <input
+              name="name"
               type="text"
               placeholder="Full name"
               class="inputNameMobile"
             />
             <br />
             <input
+              name="email"
               type="text"
               placeholder="Your Email"
               class="inputEmailMobile"
             />
             <br />
-            <input type="text" placeholder="Message" class="inputTextMobile" />
+            <input type="text" placeholder="Message" name="message" class="inputTextMobile" />
             <br />
-            <input type="button" @click="alertFunction()" value="Submit" class="inputButtonMobile" />
+            <input type="submit" value="Submit" class="inputButtonMobile" />
           </form>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10636.210315711996!2d16.36620604147663!3d48.205603168378175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d079e6c60ca6f%3A0xa3afc3a3cb04134d!2sWeihburggasse%2022%2C%201010%20Wien!5e0!3m2!1sde!2sat!4v1635526907467!5m2!1sde!2sat"
