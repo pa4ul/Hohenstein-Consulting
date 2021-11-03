@@ -27,7 +27,16 @@ export default {
     },
     alertFunction: function(){
       alert("funk");
-    }
+    },
+    languageDE() {
+      this.$store.dispatch("changeLanguage", "de");
+    },
+    languageEN() {
+      this.$store.dispatch("changeLanguage", "en");
+    },
+    languageRU() {
+      this.$store.dispatch("changeLanguage", "ru");
+    },
   },
   components: {
     Slide,
@@ -96,10 +105,25 @@ export default {
           <img src="@/assets/arrow.png" class="backButton" />
         </router-link>
         <a class="languageSelection">
-          <span @click="languageDE()">DE</span> /
-          <span @click="languageEN()">EN</span> /
-          <span @click="languageRU()">RU</span></a
-        >
+          <span
+            v-if="this.$store.state.language == 'de'"
+            @click="languageDE()"
+            style="font-weight: bold"
+            >DE</span
+          >
+          <span v-else @click="languageDE()">DE</span>
+          /
+          <span
+            v-if="this.$store.state.language == 'en'"
+            @click="languageEN()"
+            style="font-weight: bold"
+            >EN</span
+          >
+          <span v-else @click="languageEN()">EN</span>
+          /
+          <span v-if="this.$store.state.language == 'ru'" @click="languageRU()" style="font-weight:bold">RU</span>
+          <span v-else @click="languageRU()">RU</span> 
+        </a>
         <Slide right width="250" class="Slide">
           <a id="home" href="#" @click="changePathtoFinance()">
             <span>Financial Advise</span>
@@ -122,20 +146,20 @@ export default {
           <p class="text">How can we help?</p>
           <form action="https://formsubmit.co/paulherbich1@gmail.com" method="POST">
             <input
-              name="name"
+              name="Name"
               type="text"
               placeholder="Full name"
               class="inputNameMobile"
             />
             <br />
             <input
-              name="email"
+              name="E-Mail"
               type="text"
               placeholder="Your Email"
               class="inputEmailMobile"
             />
             <br />
-            <input type="text" placeholder="Message" name="message" class="inputTextMobile" />
+            <input type="text" placeholder="Message" name="Nachricht" class="inputTextMobile" />
             <br />
             <input type="submit" value="Submit" class="inputButtonMobile" />
           </form>

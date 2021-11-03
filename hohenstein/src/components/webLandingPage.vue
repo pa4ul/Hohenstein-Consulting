@@ -193,16 +193,31 @@ export default {
     <div v-if="!this.isMobile">
       <div>
         <a class="languageSelection">
-          <span @click="languageDE()">DE</span> /
-          <span @click="languageEN()">EN</span> /
-          <span @click="languageRU()">RU</span></a
-        >
+          <span
+            v-if="this.$store.state.language == 'de'"
+            @click="languageDE()"
+            style="font-weight: bold"
+            >DE</span
+          >
+          <span v-else @click="languageDE()">DE</span>
+          /
+          <span
+            v-if="this.$store.state.language == 'en'"
+            @click="languageEN()"
+            style="font-weight: bold"
+            >EN</span
+          >
+          <span v-else @click="languageEN()">EN</span>
+          /
+          <span v-if="this.$store.state.language == 'ru'" @click="languageRU()" style="font-weight:bold">RU</span>
+          <span v-else @click="languageRU()">RU</span> 
+        </a>
         <Slide right width="250" class="Slide">
           <a id="home" href="#" @click="changePathtoFinance()">
             <span>Financial Advise</span>
           </a>
 
-          <a id="" href="#"  @click="changePathtoRealEstate()">
+          <a id="" href="#" @click="changePathtoRealEstate()">
             <span>Real Estate</span>
           </a>
           <a id="home" href="#" @click="changePathtoCars()">
@@ -216,15 +231,6 @@ export default {
       <div style="display: flex; justify-content: center">
         <div class="mobileWhiteBox">
           <img src="@/assets/HohensteinLogoText.png" class="mobileLogo" />
-          <p class="mobileSlogan" v-if="this.$store.state.language == 'en'">
-            Making Your Ideas Come True
-          </p>
-          <p class="mobileSlogan" v-if="this.$store.state.language == 'de'">
-            Deine Ideen werden wahr.
-          </p>
-          <p class="mobileSlogan" v-if="this.$store.state.language == 'ru'">
-            Making Your Ideas Come True
-          </p>
         </div>
         <img src="@/assets/imageLandingpage.jpg" class="mobileLandingImage" />
       </div>
@@ -281,8 +287,8 @@ export default {
   color: white;
 }
 .bm-overlay {
-      background: white;
-    }
+  background: white;
+}
 .bm-item-list {
   color: #b8b7ad;
   margin-left: 10%;
@@ -299,9 +305,14 @@ html {
 }
 .mobileLandingImage {
   position: absolute;
-  width: 90vw;
+  width:100%;
   z-index: 1;
   top: 150px;
+  left:0;
+  right: 0px;
+  margin:0px;
+  padding:0px;
+  
 }
 .mobileWhiteBox {
   position: absolute;
@@ -312,18 +323,21 @@ html {
   display: flex;
   justify-content: center;
   z-index: 10;
+  
+  
 }
 .mobileLogo {
   position: absolute;
+  top:30px;
   height: 110px;
 }
 .mobileContent {
   position: absolute;
   background-color: white;
   width: 90%;
-  height: 2550px;
+  height: 2600px;
   left: 50%;
-  top: 425px;
+  top: 475px;
   transform: translateX(-50%);
 }
 .mobileSlogan {

@@ -12,20 +12,23 @@ export default {
   <div class="contact">
       <p class="header"> Contact Us </p>
       <p class="text"> How can we help?</p>
-      <form action="mailto:info@w3docs.com">
-        <input type="text" placeholder="Full name" class="inputName" />
+      <form action="https://formsubmit.co/paulherbich1@gmail.com" method="post">
+        <input name="Name" type="text" placeholder="Full name" class="inputName" />
         <br />
-        <input type="text" placeholder="Your Email" class="inputEmail" />
+        <input name="E-Mail" type="text" placeholder="Your Email" class="inputEmail" />
         <br />
-        <input type="text" placeholder="Message" class="inputText" />
+        <input name="Nachricht" type="text" placeholder="Message" class="inputText" />
         <br />
-        <input type="button" value="Submit" class="inputButton" />
+        <input type="submit" value="Submit" class="inputButton" />
       </form>
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10636.210315711996!2d16.36620604147663!3d48.205603168378175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d079e6c60ca6f%3A0xa3afc3a3cb04134d!2sWeihburggasse%2022%2C%201010%20Wien!5e0!3m2!1sde!2sat!4v1635526907467!5m2!1sde!2sat" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" class="iframe"></iframe>
   </div>
 </template>
 
 <style scoped>
+*{
+  font-family: "Miller Display";
+}
 .iframe{
     position: absolute;
     top: 550px;

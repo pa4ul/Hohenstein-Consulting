@@ -119,8 +119,6 @@ export default {
 
 <style scoped>
 * {
-  padding: 0;
-  margin: 0;
   font-family: "Miller Display";
 }
 .slogan{

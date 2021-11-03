@@ -8,6 +8,15 @@ export default {
     };
   },
   methods: {
+    languageDE() {
+      this.$store.dispatch("changeLanguage", "de");
+    },
+    languageEN() {
+      this.$store.dispatch("changeLanguage", "en");
+    },
+    languageRU() {
+      this.$store.dispatch("changeLanguage", "ru");
+    },
     changePath: function () {
       this.$router.push({ path: "/contact" });
     },
@@ -98,10 +107,25 @@ export default {
           <img src="@/assets/arrow.png" class="backButton" />
         </router-link>
         <a class="languageSelection">
-          <span @click="languageDE()">DE</span> /
-          <span @click="languageEN()">EN</span> /
-          <span @click="languageRU()">RU</span></a
-        >
+          <span
+            v-if="this.$store.state.language == 'de'"
+            @click="languageDE()"
+            style="font-weight: bold"
+            >DE</span
+          >
+          <span v-else @click="languageDE()">DE</span>
+          /
+          <span
+            v-if="this.$store.state.language == 'en'"
+            @click="languageEN()"
+            style="font-weight: bold"
+            >EN</span
+          >
+          <span v-else @click="languageEN()">EN</span>
+          /
+          <span v-if="this.$store.state.language == 'ru'" @click="languageRU()" style="font-weight:bold">RU</span>
+          <span v-else @click="languageRU()">RU</span> 
+        </a>
         <Slide right width="250" class="Slide">
           <a id="home" href="#" @click="changePathtoFinance()">
             <span>Financial Advise</span>
