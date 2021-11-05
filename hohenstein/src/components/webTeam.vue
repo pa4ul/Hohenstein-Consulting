@@ -1,5 +1,6 @@
 <script>
 import { Slide } from "vue3-burger-menu";
+import mobileFooter from "@/components/mobileFooter.vue";
 
 export default {
   data() {
@@ -36,6 +37,7 @@ export default {
   },
   components: {
     Slide,
+    mobileFooter
   },
   /*created() {
     if (
@@ -145,12 +147,18 @@ export default {
       <p class="slogan"> team </p>
       <div class="mobileContent">
         <div class="person1mobile">
-            <img src="@/assets/aurel_uncut.jpg" class="mobileImageTeam" />
+            <img src="@/assets/Steininger2.jpg" class="mobileImageTeam" />
             <p class="person1text">Gerald Steininger, MBA</p>
             <p class="person1text">+436769115110</p>
             <p class="person1text">Immobilienberatung, Unternehmensberatung</p>
           </div>
-          
+          <div class="person2mobile">
+            <img src="@/assets/Chalupa2.jpg" class="mobileImageTeam" />
+            <p class="person1text">Boris Chalupa</p>
+            <p class="person1text">+436608106408</p>
+            <p class="person1text">Finanzberatung</p>
+          </div>
+          <mobileFooter/>
       </div>
     </div>
   </div>
@@ -172,9 +180,9 @@ export default {
 }
 .mobileContent {
   position: absolute;
-  background-color: #e3e5e6;
+  background-color: white;
   width: 90%;
-  height: 550px;
+  height: 1250px;
   left: 50%;
   top: 125px;
   transform: translateX(-50%);
@@ -224,7 +232,7 @@ export default {
   top: 50%;
   transform: translate(-50%, -50%);
   width: 70%;
-  height: 500px;
+  height: 400px;
   background-color: #e3e5e6;
 }
 .person1mobile {
@@ -242,7 +250,21 @@ export default {
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
   transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
+.person2mobile{
+  position: absolute;
+  height: 125px;
+  width: 300px;
+  background-color: #30375a;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 650px;
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+ box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+ 
+}
 .person2 {
   position: absolute;
   height: 125px;

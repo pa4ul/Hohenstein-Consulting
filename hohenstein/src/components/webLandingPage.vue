@@ -11,6 +11,7 @@ import mobileFooter from "@/components/mobileFooter.vue";
 import mobileContact from "@/components/mobileContact.vue";
 import { Slide } from "vue3-burger-menu";
 
+
 export default {
   data() {
     return {
@@ -322,7 +323,7 @@ export default {
   height: 100px;
   left:50%;
   transform: translateX(-50%);
-  bottom:60px;
+  bottom:70px;
 }
 .bm-overlay {
   background: white;
@@ -378,7 +379,7 @@ html {
   position: absolute;
   background-color: white;
   width: 90%;
-  height: 2600px;
+  height: 3000px;
   left: 50%;
   top: 475px;
   transform: translateX(-50%);
