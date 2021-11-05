@@ -14,7 +14,7 @@ import { Slide } from "vue3-burger-menu";
 export default {
   data() {
     return {
-      name: "Hello World!",
+      
       isMobile: false,
     };
   },
@@ -317,6 +317,13 @@ export default {
   color: white;
   
 }
+.sliderImage{
+  position: absolute;
+  height: 100px;
+  left:50%;
+  transform: translateX(-50%);
+  bottom:60px;
+}
 .bm-overlay {
   background: white;
 }
@@ -349,13 +356,7 @@ html {
   padding:0px;
   
 }
-.sliderImage{
-  position: absolute;
-  height: 100px;
-  left:50%;
-  transform: translateX(-50%);
-  bottom:60px;
-}
+
 .mobileWhiteBox {
   position: absolute;
   top: 100px;

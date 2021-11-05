@@ -126,7 +126,12 @@ export default {
           <span v-if="this.$store.state.language == 'ru'" @click="languageRU()" style="font-weight:bold">RU</span>
           <span v-else @click="languageRU()">RU</span> 
         </a>
-        <Slide right width="250" class="Slide">
+       <Slide right width="250" class="Slide">
+          <a id="home" href="#">
+           
+            <span class="firstHeader">Services</span>
+          
+          </a>
           <a id="home" href="#" @click="changePathtoFinance()">
             <span>Financial Advise</span>
           </a>
@@ -140,6 +145,17 @@ export default {
           <a id="home" href="#" @click="changePathtoBusiness()">
             <span>Business Consulting</span>
           </a>
+          <a id="home" href="#">
+            <span class="secondHeader">Pages</span>
+            
+          </a>
+          <a id="home" href="#">
+            <span>Teams</span>
+          </a>
+          <a id="home" href="#">
+            <span>Imprint</span>
+          </a>
+          <img src="@/assets/HohensteinWhite.png" class="sliderImage">
         </Slide>
       </div>
               <img src="@/assets/financeImage.png" class="mobileImage" />
