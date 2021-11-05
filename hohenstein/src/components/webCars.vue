@@ -142,9 +142,10 @@ export default {
           </a>
         </Slide>
       </div>
+      <img src="@/assets/car1.png" class="mobileImage" />
       <div class="mobileContent">
         <p class="mobileText">Classic Cars</p>
-        <img src="@/assets/car1.png" class="mobileImage" />
+        
         <p class="mobileSlogan">NOT JUST A CAR</p>
         <p class="mobileText1">
           <span style="font-size: 25px"> L</span> orem ipsum dolor sit amet,
@@ -207,14 +208,14 @@ a {
   box-sizing: border-box;
   width: 100%;
   height: 40px;
-  font-size: 15px;
+  font-size: 15px;border-radius: 5px;
   background-color: #30375a;
   color: white;
   border: 0;
 }
 .inputButton2 {
   position: absolute;
-  left: 0;
+  left: 0;border-radius: 5px;
   top: 680px;
   box-sizing: border-box;
   width: 100%;
@@ -253,7 +254,8 @@ a {
 }
 .mobileImage {
   position: absolute;
-  top: 60px;
+  top: 120px;
+  left:0px;
   width: 100%;
 }
 .btn {

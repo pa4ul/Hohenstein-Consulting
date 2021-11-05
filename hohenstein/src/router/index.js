@@ -6,7 +6,7 @@ import webContact from "@/components/webContact.vue"
 import webRealestate from "@/components/webRealestate.vue"
 import webCars from "@/components/webCars.vue"
 import webBusiness from "@/components/webBusiness.vue"
-
+import mobileSwiper from "@/components/mobileSwiper.vue"
 
 const routes = [
   {
@@ -44,6 +44,12 @@ const routes = [
     name: 'BusinessConsulting',
     component: webBusiness
   },
+  {
+    path: '/demo',
+    name: 'demo',
+    component: mobileSwiper
+  },
+
 ]
 
 const router = createRouter({

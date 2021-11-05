@@ -9,8 +9,8 @@ import mobileRealEstate from "@/components/mobileTopicRealEstate.vue";
 import mobileTopicFinance from "@/components/mobileTopicFinance.vue";
 import mobileFooter from "@/components/mobileFooter.vue";
 import mobileContact from "@/components/mobileContact.vue";
-
 import { Slide } from "vue3-burger-menu";
+
 export default {
   data() {
     return {
@@ -53,6 +53,8 @@ export default {
     mobileTopicFinance,
     mobileContact,
     mobileFooter,
+
+    
   },
   /*created() {
     if (
@@ -213,6 +215,11 @@ export default {
           <span v-else @click="languageRU()">RU</span> 
         </a>
         <Slide right width="250" class="Slide">
+          <a id="home" href="#">
+           
+            <span class="firstHeader">Services</span>
+          
+          </a>
           <a id="home" href="#" @click="changePathtoFinance()">
             <span>Financial Advise</span>
           </a>
@@ -226,6 +233,17 @@ export default {
           <a id="home" href="#" @click="changePathtoBusiness()">
             <span>Business Consulting</span>
           </a>
+          <a id="home" href="#">
+            <span class="secondHeader">Pages</span>
+            
+          </a>
+          <a id="home" href="#">
+            <span>Teams</span>
+          </a>
+          <a id="home" href="#">
+            <span>Imprint</span>
+          </a>
+          <img src="@/assets/HohensteinWhite.png" class="sliderImage">
         </Slide>
       </div>
       <div style="display: flex; justify-content: center">
@@ -249,12 +267,24 @@ export default {
         </router-link>
         <mobileContact />
         <mobileFooter />
+       
       </div>
     </div>
   </div>
 </template>
 
 <style>
+
+.firstHeader{
+  font-size:28px;
+  border-bottom:1px solid white;
+}
+.secondHeader{
+  font-size:28px;
+  border-bottom:1px solid white;
+  padding-top:30px;
+}
+
 .bm-burger-button {
   position: absolute;
   width: 36px;
@@ -282,23 +312,28 @@ export default {
   transition: 0.5s; /*0.5 second transition effect to slide in the sidenav*/
 }
 .bm-item-list > * > span {
-  margin-left: 0px;
-  font-weight: 400;
+ margin: 0 auto;
+  font-weight: 500;
   color: white;
+  
 }
 .bm-overlay {
   background: white;
 }
 .bm-item-list {
   color: #b8b7ad;
-  margin-left: 10%;
+  margin:0;
   font-size: 20px;
+}
+.bm-item-list>*{
+  padding:5px;
 }
 html {
   scroll-behavior: smooth;
 }
 </style>
 <style scoped>
+@import url(//db.onlinewebfonts.com/c/92463c635ac9f1453c6a0cf83d469764?family=Miller);
 @import url(//db.onlinewebfonts.com/c/1fdf9a4d690c4e7271e535c39f40045f?family=Miller+Display);
 * {
   font-family: "Miller Display";
@@ -313,6 +348,13 @@ html {
   margin:0px;
   padding:0px;
   
+}
+.sliderImage{
+  position: absolute;
+  height: 100px;
+  left:50%;
+  transform: translateX(-50%);
+  bottom:60px;
 }
 .mobileWhiteBox {
   position: absolute;

@@ -105,7 +105,7 @@ export default {
       <p class="slogan"> team </p>
       <div class="mobileContent">
         <div class="person1mobile">
-            <img src="@/assets/aurel.png" class="imageTeam" />
+            <img src="@/assets/aurel_uncut.jpg" class="mobileImageTeam" />
             <p class="person1text">Gerald Steininger, MBA</p>
             <p class="person1text">+436769115110</p>
             <p class="person1text">Immobilienberatung, Unternehmensberatung</p>
@@ -198,8 +198,8 @@ export default {
   display: flex;
   justify-content: center;
   flex-flow: column wrap;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+ box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
   transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -243,6 +243,16 @@ export default {
   left: 50%;
   transform: translateX(-50%);
   bottom: 125px;
+  
+}
+.mobileImageTeam {
+  width: 290px;
+  
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 125px;
+  
 }
 .person1:hover {
   transform: translateX(0px) scale(1.05);

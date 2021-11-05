@@ -146,9 +146,10 @@ export default {
           </a>
         </Slide>
       </div>
+      <img src="@/assets/businessImage.png" class="mobileImage" />
       <div class="mobileContent">
         <p class="mobileText">Classic Cars</p>
-        <img src="@/assets/businessImage.png" class="mobileImage" />
+        
         <p class="mobileSlogan">  BUSINESS CONSULTING</p>
         <p class="mobileText1">
           <span style="font-size: 25px"> L</span> orem ipsum dolor sit amet,
@@ -208,12 +209,12 @@ a{
   height: 40px;
   font-size: 15px;
   background-color: #30375a;
-  color: white;
+  color: white;border-radius: 5px;
   border: 0;
 }
 .inputButton2 {
   position: absolute;
-  left: 0;
+  left: 0;border-radius: 5px;
   top: 680px;
   box-sizing: border-box;
   width: 100%;
@@ -252,7 +253,8 @@ a{
 }
 .mobileImage {
   position: absolute;
-  top: 60px;
+  top: 120px;
+  left:0px;
   width: 100%;
 }
 .btn{

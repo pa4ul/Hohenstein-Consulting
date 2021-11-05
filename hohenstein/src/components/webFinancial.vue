@@ -142,9 +142,10 @@ export default {
           </a>
         </Slide>
       </div>
+              <img src="@/assets/financeImage.png" class="mobileImage" />
+
       <div class="mobileContent">
         <p class="mobileText">Financial Advises</p>
-        <img src="@/assets/financeImage.png" class="mobileImage" />
         <p class="mobileSlogan">ALL IT TAKES</p>
         <p class="mobileText1">
           <span style="font-size: 25px"> L</span> orem ipsum dolor sit amet,
@@ -210,10 +211,10 @@ a {
   font-size: 15px;
   background-color: #30375a;
   color: white;
-  border: 0;
+  border: 0;border-radius: 5px;
 }
 .inputButton2 {
-  position: absolute;
+  position: absolute;border-radius: 5px;
   left: 0;
   top: 680px;
   box-sizing: border-box;
@@ -253,7 +254,8 @@ a {
 }
 .mobileImage {
   position: absolute;
-  top: 60px;
+  top: 120px;
+  left:0px;
   width: 100%;
 }
 .btn {
