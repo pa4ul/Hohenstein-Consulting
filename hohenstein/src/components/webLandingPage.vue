@@ -129,6 +129,7 @@ export default {
                 src="@/assets/HohensteinLogoText.png"
                 class="hohenSteinLogoText"
               />
+              <!--
               <p
                 v-if="this.$store.state.language == 'en'"
                 class="whiteBox1Slogan"
@@ -147,7 +148,7 @@ export default {
               >
                 Воплощение ваших идей в жизнь
               </p>
-
+-->
               <div class="whiteBox1BlueLine"></div>
             </div>
           </div>
@@ -469,7 +470,8 @@ li {
 }
 .hohenSteinLogoText {
   height: 200px;
-  top: 15%;
+  top: 50%;
+    transform: translateY(-50%);
   left: 0%;
   position: absolute;
 }
@@ -552,7 +554,8 @@ li {
   }
   .hohenSteinLogoText {
     height: 160px;
-    top: 15%;
+   top: 50%;
+    transform: translateY(-50%);
     left: 0%;
     position: absolute;
   }
@@ -617,7 +620,8 @@ li {
   }
   .hohenSteinLogoText {
     height: 130px;
-    top: 15%;
+    top: 50%;
+    transform: translateY(-50%);
     left: 0%;
     position: absolute;
   }
