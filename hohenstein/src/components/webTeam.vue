@@ -37,7 +37,7 @@ export default {
   },
   components: {
     Slide,
-    mobileFooter
+    mobileFooter,
   },
   /*created() {
     if (
@@ -80,7 +80,7 @@ export default {
             <p class="person1text">Immobilienberatung, Unternehmensberatung</p>
           </div>
           <div class="person2">
-                        <img src="@/assets/chalupaCut.png" class="imageTeam" />
+            <img src="@/assets/chalupaCut.png" class="imageTeam" />
 
             <p class="person1text">Boris Chalupa</p>
             <p class="person1text">+436608106408</p>
@@ -111,14 +111,17 @@ export default {
           >
           <span v-else @click="languageEN()">EN</span>
           /
-          <span v-if="this.$store.state.language == 'ru'" @click="languageRU()" style="font-weight:bold">RU</span>
-          <span v-else @click="languageRU()">RU</span> 
+          <span
+            v-if="this.$store.state.language == 'ru'"
+            @click="languageRU()"
+            style="font-weight: bold"
+            >RU</span
+          >
+          <span v-else @click="languageRU()">RU</span>
         </a>
         <Slide right width="250" class="Slide">
           <a id="home" href="#">
-           
             <span class="firstHeader">Services</span>
-          
           </a>
           <a id="home" href="#" @click="changePathtoFinance()">
             <span>Financial Advise</span>
@@ -135,7 +138,6 @@ export default {
           </a>
           <a id="home" href="#">
             <span class="secondHeader">Pages</span>
-            
           </a>
           <a id="home" href="#">
             <span>Teams</span>
@@ -143,24 +145,24 @@ export default {
           <a id="home" href="#">
             <span>Imprint</span>
           </a>
-          <img src="@/assets/HohensteinWhite.png" class="sliderImage">
+          <img src="@/assets/HohensteinWhite.png" class="sliderImage" />
         </Slide>
       </div>
-      <p class="slogan"> team </p>
+      <p class="slogan">team</p>
       <div class="mobileContent">
         <div class="person1mobile">
-            <img src="@/assets/Steininger2.jpg" class="mobileImageTeam" />
-            <p class="person1text">Gerald Steininger, MBA</p>
-            <p class="person1text">+436769115110</p>
-            <p class="person1text">Immobilienberatung, Unternehmensberatung</p>
-          </div>
-          <div class="person2mobile">
-            <img src="@/assets/Chalupa2.jpg" class="mobileImageTeam" />
-            <p class="person1text">Boris Chalupa</p>
-            <p class="person1text">+436608106408</p>
-            <p class="person1text">Finanzberatung</p>
-          </div>
-          <mobileFooter/>
+          <img src="@/assets/Steininger2.jpg" class="mobileImageTeam" />
+          <p class="person1text">Gerald Steininger, MBA</p>
+          <p class="person1text">+436769115110</p>
+          <p class="person1text">Immobilienberatung, Unternehmensberatung</p>
+        </div>
+        <div class="person2mobile">
+          <img src="@/assets/Chalupa2.jpg" class="mobileImageTeam" />
+          <p class="person1text">Boris Chalupa</p>
+          <p class="person1text">+436608106408</p>
+          <p class="person1text">Finanzberatung</p>
+        </div>
+        <mobileFooter />
       </div>
     </div>
   </div>
@@ -171,14 +173,13 @@ export default {
 * {
   font-family: "Miller Display";
 }
-.slogan{
+.slogan {
   position: absolute;
-  left:50%;
+  left: 50%;
   transform: translateX(-50%);
-  top:70px;
+  top: 70px;
   font-size: 20px;
   opacity: 70%;
-  
 }
 .mobileContent {
   position: absolute;
@@ -248,11 +249,11 @@ export default {
   display: flex;
   justify-content: center;
   flex-flow: column wrap;
- box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
   transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.person2mobile{
+.person2mobile {
   position: absolute;
   height: 125px;
   width: 300px;
@@ -263,9 +264,8 @@ export default {
   display: flex;
   justify-content: center;
   flex-flow: column wrap;
- box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
- 
 }
 .person1 {
   position: absolute;
@@ -321,16 +321,14 @@ export default {
   left: 50%;
   transform: translateX(-50%);
   bottom: 125px;
-  
 }
 .mobileImageTeam {
   width: 290px;
-  
+
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   bottom: 125px;
-  
 }
 .person1:hover {
   transform: translateX(0px) scale(1.05);
