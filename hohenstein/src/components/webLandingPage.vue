@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       
-      isMobile: false,
+      isMobile: true,
     };
   },
   methods: {
@@ -406,6 +406,7 @@ html {
 }
 a {
   text-decoration: none;
+  color:black;
 }
 nav {
   font-size: 20px;

@@ -4,7 +4,7 @@ import { Slide } from "vue3-burger-menu";
 export default {
   data() {
     return {
-      isMobile: false,
+      isMobile: true,
     };
   },
   methods: {

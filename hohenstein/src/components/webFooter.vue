@@ -44,8 +44,8 @@ export default {
             src="@/assets/HohensteinLogoText.png"
             class="hohenSteinLogoText"
           />
-          <li style="float:right;"><a>Weihburggasse 22/5 1010 Wien </a></li>
-           <router-link to="/team" style="float:right;"> <li><a>Team</a></li></router-link>
+          <li style="float:right;"><a>Weihburggasse 22/5 1010 Wien </a></li> 
+         <router-link to="/team">   <li style="float:right"><a>Team</a></li></router-link>
           <li style="float:right;"><a>Imprint</a></li>
         </ul>
     </footer>
@@ -150,6 +150,7 @@ ul {
 li {
   display: inline;
   margin: 2%;
+  color:black;
 }
 @media only screen and (max-width: 1350px)  {
 

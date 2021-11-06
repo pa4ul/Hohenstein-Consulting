@@ -5,7 +5,7 @@ import mobileFooter from "@/components/mobileFooter.vue";
 export default {
   data() {
     return {
-      isMobile: false,
+      isMobile: true,
       greeting: "Hello World!",
     };
   },
@@ -74,12 +74,14 @@ export default {
         <p class="header">The Team</p>
         <div class="teamBox">
           <div class="person1">
-            <img src="@/assets/aurel.png" class="imageTeam" />
+            <img src="@/assets/steiningerCut.png" class="imageTeam" />
             <p class="person1text">Gerald Steininger, MBA</p>
             <p class="person1text">+436769115110</p>
             <p class="person1text">Immobilienberatung, Unternehmensberatung</p>
           </div>
           <div class="person2">
+                        <img src="@/assets/chalupaCut.png" class="imageTeam" />
+
             <p class="person1text">Boris Chalupa</p>
             <p class="person1text">+436608106408</p>
             <p class="person1text">Finanzberatung</p>
@@ -264,6 +266,20 @@ export default {
  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
  
+}
+.person1 {
+  position: absolute;
+  height: 125px;
+  width: 300px;
+  background-color: #30375a;
+  left: 20px;
+  bottom: 30px;
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .person2 {
   position: absolute;
