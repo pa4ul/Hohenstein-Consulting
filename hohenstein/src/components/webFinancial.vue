@@ -33,6 +33,9 @@ export default {
     languageRU() {
       this.$store.dispatch("changeLanguage", "ru");
     },
+    goBack() {
+      window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
+    }
   },
   components: {
     Slide,
@@ -55,7 +58,7 @@ export default {
 <template>
   <div>
     <div v-if="this.isMobile">
-      <router-link to="/">
+      <a @click="goBack()">
         <div class="sidebar">
           <img
             class="arrowBack"
@@ -63,7 +66,7 @@ export default {
             style="transform: rotate(90deg)"
           />
         </div>
-      </router-link>
+      </a>
       <p class="category">
         <span style="font-family: 'Helvetica'"> / </span> Financial Advise
       </p>
@@ -274,7 +277,7 @@ a {
   left:0px;
   width: 100%;
 }
-.btn {
+.btn{
   position: relative;
   display: block;
   color: black;
@@ -282,11 +285,11 @@ a {
   font-family: "montserrat";
   text-decoration: none;
   border: 1px solid black;
-  width: 200px;
+  width: 185px;
   height: 40px;
-  padding-top: 15px;
+  padding-top:15px;
   text-transform: uppercase;
-
+  margin-right:5px;
   overflow: hidden;
   transition: 1s all ease;
 }

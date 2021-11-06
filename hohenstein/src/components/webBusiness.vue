@@ -281,11 +281,11 @@ a{
   font-family: "montserrat";
   text-decoration: none;
   border: 1px solid black;
-  width: 200px;
+  width: 185px;
   height: 40px;
   padding-top:15px;
   text-transform: uppercase;
-  
+  margin-right:5px;
   overflow: hidden;
   transition: 1s all ease;
 }
@@ -393,8 +393,8 @@ a{
 
 .carimage {
   position: absolute;
-  width: 90%;
-  max-height: 250px;
+  
+  max-height: 300px;
   top: 20vh;
   z-index: 1;
   left: 50%;

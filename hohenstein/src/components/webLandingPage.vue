@@ -94,9 +94,13 @@ export default {
               </router-link>
               <li>
                 <a
-                  ><span @click="languageDE()">DE</span> /
-                  <span @click="languageEN()">EN</span> /
-                  <span @click="languageRU()">RU</span></a
+                  ><span v-if="this.$store.state.language == 'de'" style="font-weight:bold" @click="languageDE()">DE</span>
+                  <span v-else @click="languageDE()">DE</span> /
+                  <span v-if="this.$store.state.language == 'en'" style="font-weight:bold" @click="languageEN()">EN</span>
+                  <span v-else @click="languageEN()">EN</span> /
+                  <span v-if="this.$store.state.language == 'ru'" style="font-weight:bold" @click="languageRU()">RU</span>
+                  <span v-else @click="languageRU()">RU</span>
+                  </a
                 >
               </li>
             </ul>
@@ -115,9 +119,13 @@ export default {
               </router-link>
               <li>
                 <a
-                  ><span @click="languageDE()">DE</span> /
-                  <span @click="languageEN()">EN</span> /
-                  <span @click="languageRU()">RU</span></a
+                  ><span v-if="this.$store.state.language == 'de'" style="font-weight:bold" @click="languageDE()">DE</span>
+                  <span v-else @click="languageDE()">DE</span> /
+                  <span v-if="this.$store.state.language == 'en'" style="font-weight:bold" @click="languageEN()">EN</span>
+                  <span v-else @click="languageEN()">EN</span> /
+                  <span v-if="this.$store.state.language == 'ru'" style="font-weight:bold" @click="languageRU()">RU</span>
+                  <span v-else @click="languageRU()">RU</span>
+                  </a
                 >
               </li>
             </ul>

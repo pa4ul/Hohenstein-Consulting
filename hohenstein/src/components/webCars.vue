@@ -274,7 +274,7 @@ a {
   left:0px;
   width: 100%;
 }
-.btn {
+.btn{
   position: relative;
   display: block;
   color: black;
@@ -282,11 +282,11 @@ a {
   font-family: "montserrat";
   text-decoration: none;
   border: 1px solid black;
-  width: 200px;
+  width: 185px;
   height: 40px;
-  padding-top: 15px;
+  padding-top:15px;
   text-transform: uppercase;
-
+  margin-right:5px;
   overflow: hidden;
   transition: 1s all ease;
 }
