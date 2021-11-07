@@ -5,7 +5,7 @@ import mobileFooter from "@/components/mobileFooter.vue";
 export default {
   data() {
     return {
-      isMobile: true,
+      isMobile: false,
       greeting: "Hello World!",
     };
   },
@@ -149,6 +149,7 @@ export default {
         </Slide>
       </div>
       <p class="slogan">team</p>
+      <p class="text"> od tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea ta</p>
       <div class="mobileContent">
         <div class="person1mobile">
           <img src="@/assets/Steininger2.jpg" class="mobileImageTeam" />
@@ -187,7 +188,7 @@ export default {
   width: 90%;
   height: 1250px;
   left: 50%;
-  top: 125px;
+  top: 245px;
   transform: translateX(-50%);
 }
 .sidebar {
@@ -207,6 +208,15 @@ export default {
   top: 34px;
   left: 50%;
   transform: translateX(-50%);
+}
+.text{
+  
+  opacity: 70%;
+  text-align:center;
+  position:absolute;
+  padding-left:40px;
+  padding-right:40px;
+  top:120px;
 }
 .backButton {
   position: absolute;

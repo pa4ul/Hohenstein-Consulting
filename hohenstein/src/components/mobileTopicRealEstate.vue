@@ -64,14 +64,12 @@ html {
   margin-bottom: 0;
   margin-left: 5px;
   padding-left: 15px;
-  border-left: 3px solid #30375a;
 }
 .slogan {
   margin-top: 0;
   padding-left: 15px;
   font-size: 11px;
 
-  border-left: 3px solid #30375a;
   margin-left: 5px;
 }
 .mobileArrow {

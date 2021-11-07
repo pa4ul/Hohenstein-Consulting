@@ -98,6 +98,6 @@ position: absolute;
   background-color: #30375a;
   color: white;
   border: 0;
-  border-radius: 5px;
+ 
 }
 </style>

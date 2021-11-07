@@ -1,10 +1,11 @@
 <script>
 import { Slide } from "vue3-burger-menu";
+import mobileFooter from "@/components/mobileFooter.vue";
 
 export default {
   data() {
     return {
-      isMobile: true,
+      isMobile: false,
       greeting: "Hello World!",
     };
   },
@@ -36,6 +37,7 @@ export default {
   },
   components: {
     Slide,
+    mobileFooter
   },
   /*created() {
     if (
@@ -105,7 +107,7 @@ export default {
       
     </div>
   </div>
-   <div v-if="!this.isMobile">
+   <div v-if="!this.isMobile" class="mobileContentDiv">
       <div class="navbar">
         <router-link to="/">
         <img src="@/assets/arrow.png" class="backButton" />
@@ -186,6 +188,10 @@ export default {
           <input type="button" value="Call us" class="inputButton2"
         /></a>
       </div>
+      <div class="footerHelper">
+      <mobileFooter/>
+
+      </div>
     </div>
 </div>
 </template>
@@ -198,6 +204,20 @@ a{
   text-decoration: none;
   
   text-align: center;
+}.footerHelper
+{
+  position:absolute;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:90%;
+}
+.mobileContentDiv{
+  position:absolute;
+  height:1250px;
+  width:100%;
+  left:0;
+
 }
 .mobileContent {
   position: absolute;
@@ -225,12 +245,12 @@ a{
   height: 40px;
   font-size: 15px;
   background-color: #30375a;
-  color: white;border-radius: 5px;
+  color: white;
   border: 0;
 }
 .inputButton2 {
   position: absolute;
-  left: 0;border-radius: 5px;
+  left: 0;
   top: 680px;
   box-sizing: border-box;
   width: 100%;

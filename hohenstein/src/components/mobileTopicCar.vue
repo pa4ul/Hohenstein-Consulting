@@ -11,7 +11,7 @@ export default {
 <template>
   <div class="mobileTopic">
     <div class="wrapper">
-    <img src="@/assets/mobileImage1.png" class="image" />
+    <img src="@/assets/car1Cut.png" class="image" />
     <div class="mobileWhiteBox">
       <div class="mobileWhiteBoxContent">
         <p class="header">Classic Cars</p>
@@ -44,6 +44,7 @@ html {
 }
 .image {
   width: 100%;
+  
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
@@ -61,14 +62,12 @@ html {
   margin-bottom: 0;
   margin-left: 5px;
   padding-left: 15px;
-  border-left: 3px solid #30375a;
 }
 .slogan {
   margin-top: 0;
   padding-left: 15px;
   font-size: 11px;
 
-  border-left: 3px solid #30375a;
   margin-left: 5px;
 }
 .mobileArrow {

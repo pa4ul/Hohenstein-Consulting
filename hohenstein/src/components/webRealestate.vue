@@ -1,10 +1,11 @@
 <script>
 import { Slide } from "vue3-burger-menu";
+import mobileFooter from "@/components/mobileFooter.vue";
 
 export default {
   data() {
     return {
-      isMobile: true,
+      isMobile: false,
       greeting: "Hello World!",
     };
   },
@@ -36,6 +37,7 @@ export default {
   },
   components: {
     Slide,
+    mobileFooter
   },
   /*created() {
     if (
@@ -103,7 +105,7 @@ export default {
         </div>
       </div>
     </div>
-    <div v-if="!this.isMobile">
+    <div v-if="!this.isMobile" class="mobileContentDiv">
       <div class="navbar">
         <router-link to="/">
           <img src="@/assets/arrow.png" class="backButton" />
@@ -189,6 +191,10 @@ export default {
           <input type="button" value="Call us" class="inputButton2"
         /></a>
       </div>
+      <div class="footerHelper">
+      <mobileFooter/>
+
+      </div>
     </div>
   </div>
 </template>
@@ -197,7 +203,23 @@ export default {
 a {
   text-decoration: none;
 
+  bottom:0;
   text-align: center;
+}
+.footerHelper
+{
+  position:absolute;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:90%;
+}
+.mobileContentDiv{
+  position:absolute;
+  height:1250px;
+  width:100%;
+  left:0;
+
 }
 .mobileContent {
   position: absolute;
@@ -217,7 +239,7 @@ a {
   font-weight: bold;
 }
 .inputButton3 {
-  position: absolute;border-radius: 5px;
+  position: absolute;
   left: 0;
   top: 620px;
   box-sizing: border-box;
@@ -229,7 +251,7 @@ a {
   border: 0;
 }
 .inputButton2 {
-  position: absolute;border-radius: 5px;
+  position: absolute;
   left: 0;
   top: 680px;
   box-sizing: border-box;

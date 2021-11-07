@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       
-      isMobile: true,
+      isMobile: false,
     };
   },
   methods: {
@@ -164,7 +164,9 @@ export default {
             <img src="@/assets/arrow.png" class="landingPageArrow" />
           </a>
         </div>
+        
         <div class="content" id="content">
+        
           <router-link to="/cars">
             <webTopicRight
               :name="'Classic Cars'"
@@ -262,7 +264,9 @@ export default {
         </div>
         <img src="@/assets/imageLandingpage.jpg" class="mobileLandingImage" />
       </div>
+       <p class="servicesText">Our Services </p>
       <div class="mobileContent">
+     
         <router-link to="/cars">
           <mobileTopicCar />
         </router-link>
@@ -287,11 +291,11 @@ export default {
 
 .firstHeader{
   font-size:28px;
-  border-bottom:1px solid white;
+  border-bottom:2px solid white;
 }
 .secondHeader{
   font-size:28px;
-  border-bottom:1px solid white;
+  border-bottom:2px solid white;
   padding-top:30px;
 }
 
@@ -343,13 +347,14 @@ export default {
   font-size: 20px;
 }
 .bm-item-list>*{
-  padding:5px;
+  
 }
 html {
   scroll-behavior: smooth;
 }
 </style>
 <style scoped>
+/*box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; shadow für whiteBox */
 @import url(//db.onlinewebfonts.com/c/92463c635ac9f1453c6a0cf83d469764?family=Miller);
 @import url(//db.onlinewebfonts.com/c/1fdf9a4d690c4e7271e535c39f40045f?family=Miller+Display);
 * {
@@ -376,7 +381,7 @@ html {
   display: flex;
   justify-content: center;
   z-index: 10;
-  
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   
 }
 .mobileLogo {
@@ -450,6 +455,16 @@ li {
   position: absolute;
   top: 100%;
   background-color: white;
+}
+.servicesText{
+ 
+  font-size:30px;
+ position:absolute;
+ top:390px;
+ 
+  left:50%;
+  transform:translateX(-50%);
+  margin-bottom:130px;
 }
 .landingPageImage {
   position: absolute;
