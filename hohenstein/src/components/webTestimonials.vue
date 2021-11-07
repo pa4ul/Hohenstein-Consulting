@@ -74,7 +74,7 @@ text-align: center;
   text-align: center;
   display: flex;
   align-items: center;
-
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   flex-wrap: wrap;
 }
 .secondQuote {
@@ -84,7 +84,7 @@ margin-top: 50px;
   background-color: #e3e5e6;
   height: 200px;
   width: 60%;
-  display: flex;
+  display: flex;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   align-items: center;
   text-align: center;
   flex-wrap: wrap;
@@ -93,7 +93,7 @@ margin-top: 50px;
 margin-top: 300px;
   background-color: #e3e5e6;
   height: 200px;
-  width: 60%;
+  width: 60%;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   display: flex;
   align-items: center;
   text-align: center;

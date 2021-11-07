@@ -97,14 +97,26 @@ export default {
           takimata sanctus est Lorem ipsum dolor sit amet.
         </p>
         <div class="buttonDiv">
-     <a href="tel:+43 676 911 511 0" class="btn btn3">Call Us</a>
+     <a href="tel:+43 676 911 511 0" class="btn btn3" title="+43 676 911 511 0">Call Us</a>
        
         
         <a href="" class="btn btn3" @click="changePath()">Contact Us</a>
         
         </div>
       </div>
-      
+      <footer class="footer">
+        <ul>
+          <li style="float: left;"><a>office@hohenstein-consulting.at</a></li>
+          <li style="float: left;"><a>+43 676 911 511 0</a></li>
+          <img
+            src="@/assets/HohensteinLogoText.png"
+            class="hohenSteinLogoText"
+          />
+          <li style="float:right;"><a>Weihburggasse 22/5 1010 Wien </a></li> 
+         <router-link to="/team">   <li style="float:right"><a>Team</a></li></router-link>
+          <li style="float:right;"><a>Imprint</a></li>
+        </ul>
+    </footer>
     </div>
   </div>
    <div v-if="!this.isMobile" class="mobileContentDiv">
@@ -200,6 +212,40 @@ export default {
 * {
   font-family: "Miller Display";
 }
+.footer{
+  font-size: 15px;
+  position: absolute;
+  bottom:-240px;
+  border: 1px solid black;
+  border-bottom: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  width: 80%;
+  height: 90px;
+  left:50%;
+  transform:translateX(-50%);
+  padding-top:10px;
+  padding-bottom:15px;
+  
+}
+.hohenSteinLogoText{
+    position: absolute;
+  height: 70px;
+  top:35%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  
+  text-align: center;
+}
+li {
+  display: inline;
+  margin: 2%;
+  color:black;
+}
 a{
   text-decoration: none;
   
@@ -224,6 +270,7 @@ a{
   width: 90%;
   left: 50%;
   top: 65px;
+  
   transform: translateX(-50%);
 }
 .mobileSlogan {
@@ -352,7 +399,7 @@ a{
 .category {
   position: absolute;
   left: 150px;
-  top: 50px;
+  top: 20px;
   font-size: 20px;
   opacity: 70%;
 }
@@ -361,8 +408,9 @@ a{
   font-size: 50px;
   font-family: Montserrat;
   font-weight: bold;
-  left: 12vw;
-  top: 8vh;
+    left: 150px;
+
+  top: 40px;
   text-align: center;
   z-index: 2;
 }
@@ -386,7 +434,7 @@ a{
     justify-content: space-between;
 }
 .contentDiv {
-  height: 95vh;
+  height: 86vh;
   display: flex;
   justify-content: space-evenly;
   align-items: flex-end;

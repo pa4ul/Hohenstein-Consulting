@@ -74,7 +74,7 @@ export default {
         <p class="header">The Team</p>
         <div class="teamBox">
           <div class="person1">
-            <img src="@/assets/steiningerCut.png" class="imageTeam" />
+            <img src="@/assets/steiningerCut.png" class="imageTeam" style="width:130px;" />
             <p class="person1text">Gerald Steininger, MBA</p>
             <p class="person1text">+436769115110</p>
             <p class="person1text">Immobilienberatung, Unternehmensberatung</p>
@@ -87,6 +87,7 @@ export default {
             <p class="person1text">Finanzberatung</p>
           </div>
         </div>
+        <p class="descriptionTeam">em ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor </p>
       </div>
     </div>
     <div v-if="!this.isMobile">
@@ -151,6 +152,7 @@ export default {
       <p class="slogan">team</p>
       <p class="text"> od tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea ta</p>
       <div class="mobileContent">
+        
         <div class="person1mobile">
           <img src="@/assets/Steininger2.jpg" class="mobileImageTeam" />
           <p class="person1text">Gerald Steininger, MBA</p>
@@ -162,6 +164,7 @@ export default {
           <p class="person1text">Boris Chalupa</p>
           <p class="person1text">+436608106408</p>
           <p class="person1text">Finanzberatung</p>
+        
         </div>
         <mobileFooter />
       </div>
@@ -182,6 +185,14 @@ export default {
   font-size: 20px;
   opacity: 70%;
 }
+.descriptionTeam{
+  position: absolute;
+  left:55%;
+  transform: translateX(-50%);
+  bottom:55px;
+  opacity: 70%;
+  text-align: center;
+}
 .mobileContent {
   position: absolute;
   background-color: white;
@@ -191,6 +202,7 @@ export default {
   top: 245px;
   transform: translateX(-50%);
 }
+
 .sidebar {
   position: absolute;
   height: 100vh;
@@ -282,7 +294,7 @@ export default {
   height: 125px;
   width: 300px;
   background-color: #30375a;
-  left: 20px;
+  left: 10%;
   bottom: 30px;
   display: flex;
   justify-content: center;
@@ -296,7 +308,7 @@ export default {
   height: 125px;
   width: 300px;
   background-color: #30375a;
-  left: 380px;
+  right:10%;
   bottom: 30px;
   display: flex;
   justify-content: center;
@@ -349,13 +361,13 @@ export default {
 @media only screen and (max-width: 1550px), screen and (max-height: 850px) {
   .teamBox {
     position: absolute;
-    left: 50%;
+    left: 55%;
     top: 50%;
     transform: translate(-50%, -50%);
     width: 70%;
     min-width: 700px;
-    height: 400px;
-    min-height: 400px;
+    height: 300px;
+    
     max-height: 50%;
     background-color: #e3e5e6;
   }
@@ -368,7 +380,7 @@ export default {
     border-bottom: 5px solid #30375a;
   }
   .imageTeam {
-    width: 190px;
+    width: 160px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);

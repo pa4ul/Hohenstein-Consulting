@@ -424,7 +424,12 @@ a {
 }
 nav {
   font-size: 20px;
-  position: absolute;
+  position: fixed;
+    z-index: 999999999;
+    background-color:white;
+    top: 0;
+    left:50%;
+    transform: translateX(-50%);
   top: 0;
   text-align: center;
   border: 1px solid black;
@@ -600,15 +605,19 @@ li {
 @media only screen and (max-width: 1250px), screen and (max-height: 850px) {
   nav {
     font-size: 18px;
-    position: absolute;
+    position: fixed;
+    z-index: 999999999;
+    background-color:white;
     top: 0;
+    left:50%;
+    transform: translateX(-50%);
     text-align: center;
     border: 1px solid black;
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
     height: 80px;
-    width: 100%;
+    width: 92%;
   }
   ul {
     list-style-type: none;
