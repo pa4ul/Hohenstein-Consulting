@@ -10,7 +10,7 @@ import mobileTopicFinance from "@/components/mobileTopicFinance.vue";
 import mobileFooter from "@/components/mobileFooter.vue";
 import mobileContact from "@/components/mobileContact.vue";
 import { Slide } from "vue3-burger-menu";
-
+import mobileSlider from "@/components/mobileSwiper.vue"
 
 export default {
   data() {
@@ -53,6 +53,7 @@ export default {
     mobileRealEstate,
     mobileTopicFinance,
     mobileContact,
+    mobileSlider,
     mobileFooter,
 
     
@@ -279,6 +280,7 @@ export default {
         <router-link to="/finance">
           <mobileTopicFinance />
         </router-link>
+        <mobileSlider/>
         <mobileContact />
         <mobileFooter />
        
@@ -395,7 +397,7 @@ html {
   width: 90%;
   height: 3000px;
   left: 50%;
-  top: 475px;
+  top: 525px;
   transform: translateX(-50%);
 }
 .mobileSlogan {
@@ -462,11 +464,10 @@ li {
   background-color: white;
 }
 .servicesText{
- 
   font-size:30px;
  position:absolute;
- top:390px;
- 
+ top:415px;
+  letter-spacing:1px;
   left:50%;
   transform:translateX(-50%);
   margin-bottom:130px;

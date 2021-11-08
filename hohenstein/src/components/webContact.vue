@@ -287,6 +287,7 @@ export default {
   position: absolute;
   height: 12px;
   top: 35px;
+  left:15px;
   transform: rotate(90deg);
 }
 .greeting {

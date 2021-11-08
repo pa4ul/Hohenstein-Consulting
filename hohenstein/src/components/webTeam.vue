@@ -232,6 +232,7 @@ export default {
 }
 .backButton {
   position: absolute;
+  left:15px;
   height: 12px;
   top: 35px;
   transform: rotate(90deg);
