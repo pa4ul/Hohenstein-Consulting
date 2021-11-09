@@ -2,7 +2,6 @@
 import webTopicRight from "@/components/webTopicRight.vue";
 import webTopicLeft from "@/components/webTopicLeft.vue";
 import webFooter from "@/components/webFooter.vue";
-import webTestimonials from "@/components/webTestimonials.vue";
 import mobileTopicCar from "@/components/mobileTopicCar.vue";
 import mobileTopicBusiness from "@/components/mobileTopicBusiness.vue";
 import mobileRealEstate from "@/components/mobileTopicRealEstate.vue";
@@ -10,7 +9,6 @@ import mobileTopicFinance from "@/components/mobileTopicFinance.vue";
 import mobileFooter from "@/components/mobileFooter.vue";
 import mobileContact from "@/components/mobileContact.vue";
 import { Slide } from "vue3-burger-menu";
-import mobileSlider from "@/components/mobileSwiper.vue"
 
 export default {
   data() {
@@ -46,14 +44,14 @@ export default {
     webTopicRight,
     webTopicLeft,
     webFooter,
-    webTestimonials,
+   
     Slide,
     mobileTopicCar,
     mobileTopicBusiness,
     mobileRealEstate,
     mobileTopicFinance,
     mobileContact,
-    mobileSlider,
+  
     mobileFooter,
 
     
@@ -200,7 +198,7 @@ export default {
               :type="false"
             />
           </router-link>
-          <webTestimonials />
+       
           <webFooter />
         </div>
       </div>
@@ -280,7 +278,6 @@ export default {
         <router-link to="/finance">
           <mobileTopicFinance />
         </router-link>
-        <mobileSlider/>
         <mobileContact />
         <mobileFooter />
        
@@ -395,7 +392,7 @@ html {
   position: absolute;
   background-color: white;
   width: 90%;
-  height: 3000px;
+  height: 2600px;
   left: 50%;
   top: 525px;
   transform: translateX(-50%);
@@ -455,7 +452,7 @@ li {
   margin: 4%;
 }
 .content {
-  height: 3400px;
+  height: 2350px;
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;

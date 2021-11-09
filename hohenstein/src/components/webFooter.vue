@@ -61,7 +61,7 @@ html {
 }
 .div {
   position: absolute;
-  top: 2700px;
+  top: 1700px;
   height: 550px;
   width: 400px;
   background-color: white;
@@ -119,7 +119,7 @@ html {
 }
 .maps {
   position: absolute;
-  top:2750px;
+  top: 1750px;
   right:0px;
 }
 .footer{

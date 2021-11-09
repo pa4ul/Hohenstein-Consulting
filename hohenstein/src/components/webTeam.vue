@@ -77,17 +77,17 @@ export default {
             <img src="@/assets/steiningerCut.png" class="imageTeam" style="width:130px;" />
             <p class="person1text">Gerald Steininger, MBA</p>
             <p class="person1text">+436769115110</p>
-            <p class="person1text">Immobilienberatung, Unternehmensberatung</p>
+            <p class="person1text">gerald.steininger@hohenstein-consulting.at</p>
           </div>
           <div class="person2">
             <img src="@/assets/chalupaCut.png" class="imageTeam" />
 
             <p class="person1text">Boris Chalupa</p>
             <p class="person1text">+436608106408</p>
-            <p class="person1text">Finanzberatung</p>
+            <p class="person1text">boris.chalupa@hohenstein-consulting.at</p>
           </div>
         </div>
-        <p class="descriptionTeam">em ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor </p>
+        <p class="descriptionTeam">Jahrzehnte lange Praxiserfahrung bündelt sich zu einem Netzwerk, welches sensationelle Lösungen für jegliche Anwendungen schafft. Unser Team berät Sie gerne und geht auf Ihren Fall ernsthaft ein. Etliche zufriedene Kunden bestätigen den Erfolg unseres Teams.</p>
       </div>
     </div>
     <div v-if="!this.isMobile">
@@ -150,7 +150,7 @@ export default {
         </Slide>
       </div>
       <p class="slogan">team</p>
-      <p class="text"> od tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea ta</p>
+      <p class="text">Jahrzehnte lange Praxiserfahrung bündelt sich zu einem Netzwerk, welches sensationelle Lösungen für jegliche Anwendungen schafft. Unser Team berät Sie gerne und geht auf Ihren Fall ernsthaft ein. Etliche zufriedene Kunden bestätigen den Erfolg unseres Teams.</p>
       <div class="mobileContent">
         
         <div class="person1mobile">

@@ -71,30 +71,28 @@ export default {
       <span style="font-family: 'Helvetica'"> / </span> Business Consulting
     </p>
     <p class="slog3an">
-     WE MAKE IT <br />
-      HAPPEN
+     ALL IT <br />
+      TAKES
     </p>
     <img src="@/assets/businessImage.png" class="carimage" />
     <div class="contentDiv">
       <div class="firstText">
         <div class="blueStrike"></div>
         <p>
-          <span style="font-size: 25px; color: #30375a">L</span> orem ipsum
-          dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-          tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-          voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-          Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-          dolor sit amet.
+          <span style="font-size: 25px; color: #30375a"></span>
+           <ul class="checkList">
+  <li style="padding-bottom:10px;">Finanzpläne</li>
+  <li style="padding-bottom:10px;">Kreditvermittlung</li>
+  <li>Mezzaninkapital</li>
+</ul>
+Wir arbeiten mit Ihnen gemeinsam, um Ihr bestehendes oder neu gegründetes Unternehmen auf Spitzenleistung zu bringen. 
         </p>
       </div>
     
       <div class="secondText">
         <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum. Stet clitres et ea rebum. Stet clita kasd gubergren, no sea
-          takimata sanctus est Lorem ipsum dolor sit amet.
+Wir arbeiten mit Ihnen gemeinsam, um Ihr bestehendes oder neu gegründetes Unternehmen auf Spitzenleistung zu bringen. 
+          Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten. Wir freuen uns auf Ihr Projekt.
         </p>
         <div class="buttonDiv">
      <a href="tel:+43 676 911 511 0" class="btn btn3" title="+43 676 911 511 0">Call Us</a>
@@ -105,16 +103,16 @@ export default {
         </div>
       </div>
       <footer class="footer">
-        <ul>
-          <li style="float: left;"><a>office@hohenstein-consulting.at</a></li>
-          <li style="float: left;"><a>+43 676 911 511 0</a></li>
+        <ul class="ul">
+          <li  class="li" style="float: left;"><a>office@hohenstein-consulting.at</a></li>
+          <li class="li" style="float: left;"><a>+43 676 911 511 0</a></li>
           <img
             src="@/assets/HohensteinLogoText.png"
             class="hohenSteinLogoText"
           />
-          <li style="float:right;"><a>Weihburggasse 22/5 1010 Wien </a></li> 
-         <router-link to="/team">   <li style="float:right"><a>Team</a></li></router-link>
-          <li style="float:right;"><a>Imprint</a></li>
+          <li class="li" style="float:right;"><a>Weihburggasse 22/5 1010 Wien </a></li> 
+         <router-link to="/team">   <li class="li" style="float:right"><a>Team</a></li></router-link>
+          <li class="li" style="float:right;"><a>Imprint</a></li>
         </ul>
     </footer>
     </div>
@@ -178,25 +176,39 @@ export default {
       </div>
       <img src="@/assets/businessImage.png" class="mobileImage" />
       <div class="mobileContent">
-        <p class="mobileText">Classic Cars</p>
-        
-        <p class="mobileSlogan">  BUSINESS CONSULTING</p>
-        <p class="mobileText1">
-          <span style="font-size: 25px"> L</span> orem ipsum dolor sit amet,
-          consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-          labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos
-          et accusam et justo duo dolores et ea rebum. Stet clita kasd
-          gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-        </p>
-        <p class="mobileText2">
-          sum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-          eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
-          diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-          ipsum dolor sit amet.
-        </p>
-        <input type="button" value="Contact us" class="inputButton3" @click="changePath()" />
-<a href="tel:+43 676 911 511 0">
+        <p class="mobileText">Business Consulting</p>
+        <p class="mobileSlogan">All it takes</p>
+        <div class="mobileText-container-helper">
+        <div class="mobileText-container">
+        <p class="item1">
+          &#10003; Prozessoptimierung
+          <br/>
+          &#10003; Rechtliche Beratung
+          <br/>
+          &#10003; Beratung in Management und Mitarbeiterführung
+           <br/>
+          &#10003; Firmengründungen europaweit
+          <br/>
+          &#10003; Steuerberatung
+         
+         </p>
+         <p class="item2">
+            <span style="font-size: 27px;">W</span>ir arbeiten mit Ihnen gemeinsam, um Ihr bestehendes oder neu gegründetes Unternehmen auf Spitzenleistung zu bringen. Entdecken Sie durch uns neue Möglichkeiten und Chancen durch Optimierung Ihrer Prozesse sowie steuerrechtliche Belange.  
+           </p>
+          <p class="item3">
+          Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten. Wir freuen uns auf Ihr Projekt.</p>
+         </div>
+         </div>
+     
+      
+      
+        <input  
+          type="button"
+          value="Contact us"
+          @click="changePath()"
+          class="inputButton3"
+        />
+        <a href="tel:+43 676 911 511 0" >
           <input type="button" value="Call us" class="inputButton2"
         /></a>
       </div>
@@ -212,6 +224,32 @@ export default {
 * {
   font-family: "Miller Display";
 }
+.checkList{
+  padding-top:20px;
+  padding-bottom:5px;
+  list-style-type: '\2713';
+} 
+.mobileText-container-helper{
+  position:absolute;
+  top:275px;
+}
+.mobileText-container{
+  display:flex;
+  flex-wrap:wrap;
+  top:500px;
+}
+.item1{
+  width:100%;
+}
+.item2{
+  width:100%;
+  text-align: justify;
+}
+.item3{
+  width:100%;
+  text-align: justify;
+}
+
 .footer{
   font-size: 15px;
   position: absolute;
@@ -235,13 +273,13 @@ export default {
   left: 50%;
   transform: translate(-50%, -20%);
 }
-ul {
+.ul {
   list-style-type: none;
   padding: 0;
   
   text-align: center;
 }
-li {
+.li {
   display: inline;
   margin: 2%;
   color:black;
@@ -250,7 +288,8 @@ a{
   text-decoration: none;
   
   text-align: center;
-}.footerHelper
+}
+.footerHelper
 {
   position:absolute;
   bottom:0;
@@ -260,7 +299,7 @@ a{
 }
 .mobileContentDiv{
   position:absolute;
-  height:1250px;
+  height:1300px;
   width:100%;
   left:0;
 
@@ -279,14 +318,13 @@ a{
   padding-left: 10px;
   font-size: 25px;
   border-left: 5px solid #30375a;
-
   font-family: Montserrat;
   font-weight: bold;
 }
 .inputButton3 {
   position: absolute;
   left: 0;
-  top: 620px;
+  top: 700px;
   box-sizing: border-box;
   width: 100%;
   height: 40px;
@@ -298,7 +336,7 @@ a{
 .inputButton2 {
   position: absolute;
   left: 0;
-  top: 680px;
+  top: 760px;
   box-sizing: border-box;
   width: 100%;
   height: 40px;

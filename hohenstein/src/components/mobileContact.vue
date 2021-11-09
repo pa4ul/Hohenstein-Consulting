@@ -50,7 +50,7 @@ position: absolute;
   width: 100%;
   height: 400px;
   background-color: white;
-  top: 1600px;
+  top: 1200px;
 }
 .inputName {
   border:1px solid #30375a;
