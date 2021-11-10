@@ -5,7 +5,7 @@ import mobileFooter from "@/components/mobileFooter.vue";
 export default {
   data() {
     return {
-      isMobile: false,
+      isMobile: true,
       greeting: "Hello World!",
     };
   },
@@ -175,7 +175,8 @@ Wir arbeiten mit Ihnen gemeinsam, um Ihr bestehendes oder neu gegründetes Unter
         </Slide>
       </div>
       <img src="@/assets/businessImage.png" class="mobileImage" />
-      <div class="mobileContent">
+      <div class="mo
+      bileContent">
         <p class="mobileText">Business Consulting</p>
         <p class="mobileSlogan">All it takes</p>
         <div class="mobileText-container-helper">
