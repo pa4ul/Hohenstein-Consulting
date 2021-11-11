@@ -378,10 +378,11 @@ a {
 .btn{
   position: relative;
   display: block;
-  color: black;
   font-size: 15px;
+  background-color:#30375a;
   font-family: "montserrat";
   text-decoration: none;
+  z-index:10000000000000;
   border: 1px solid black;
   width: 185px;
   height: 40px;
@@ -392,7 +393,7 @@ a {
   transition: 1s all ease;
 }
 .btn::before {
-  background: #30375a;
+  background: white;
   content: "";
   position: absolute;
   top: 50%;
@@ -402,7 +403,8 @@ a {
   transition: all 0.6s ease;
 }
 .btn:hover {
-  color: white;
+  color: black;
+
 }
 
 .btn3::before {
@@ -448,6 +450,7 @@ a {
   text-align: left;
   z-index: 2;
 }
+
 .carimage {
   position: absolute;
   max-width: 90%;
@@ -474,21 +477,32 @@ a {
   align-items: flex-end;
 }
 .firstText {
-  color: #30375a;
+  color: black;
   width: 30vw;
   height: 25vh;
+  text-align:justify;
 }
 .secondText {
-  color: #30375a;
+  color: black;
   width: 30vw;
   height: 25vh;
+  text-align:justify;
+
 }
 
 @media only screen and (max-width: 1400px) and (max-height: 750px) {
+  .carimage {
+    position: absolute;
+    height: 250px;
+    top: 20vh;
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+  }
   .btn {
     position: relative;
     display: block;
-    color: black;
+    color: white;
     font-size: 15px;
     font-family: "montserrat";
     text-decoration: none;

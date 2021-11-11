@@ -382,12 +382,14 @@ a{
 .btn{
   position: relative;
   display: block;
-  color: black;
   font-size: 15px;
+  background-color:#30375a;
   font-family: "montserrat";
   text-decoration: none;
+  z-index:10000000000000;
   border: 1px solid black;
   width: 185px;
+  color:white;
   height: 40px;
   padding-top:15px;
   text-transform: uppercase;
@@ -395,18 +397,19 @@ a{
   overflow: hidden;
   transition: 1s all ease;
 }
-.btn::before{
-  background: #30375a;
+.btn::before {
+  background: white;
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   z-index: -1;
   transition: all 0.6s ease;
 }
-.btn:hover{
-  color:white;
+.btn:hover {
+  color: black;
+
 }
 
 .btn3::before{
@@ -479,50 +482,45 @@ a{
   align-items: flex-end;
 }
 .firstText {
-  color: #30375a;
+  color: black;
   width: 30vw;
   height: 25vh;
+  text-align:justify;
 }
 .secondText {
-  color: #30375a;
+  color: black;
   width: 30vw;
   height: 25vh;
+  text-align:justify;
+
 }
-.inputButton {
-  width: 200px;
-  height: 40px;
-  font-size: 15px;
-  background-color: #30375a;
-  color: white;
-  border: 0; 
-}
+
 @media only screen and (max-width: 1400px) and (max-height: 750px) {
 
-.carimage {
-  position: absolute;
-  
-  max-height: 300px;
-  top: 20vh;
-  z-index: 1;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.btn{
-  position: relative;
-  display: block;
-  color: black;
-  font-size: 15px;
-  font-family: "montserrat";
-  text-decoration: none;
-  border: 1px solid black;
-  width: 130px;
-  height: 40px;
-  padding-top:15px;
-  text-transform: uppercase;
-  margin-bottom:50px;
-  overflow: hidden;
-  transition: 1s all ease;
-}
+  .carimage {
+    position: absolute;
+    height: 250px;
+    top: 20vh;
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .btn {
+    position: relative;
+    display: block;
+    color: white;
+    font-size: 15px;
+    font-family: "montserrat";
+    text-decoration: none;
+    border: 1px solid black;
+    width: 130px;
+    height: 40px;
+    padding-top: 15px;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    overflow: hidden;
+    transition: 1s all ease;
+  }
 }
 
 </style>

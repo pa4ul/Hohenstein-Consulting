@@ -329,7 +329,7 @@ a {
 .inputButton3 {
   position: absolute;
   left: 0;
-  top: 720px;
+  top: 620px;
   box-sizing: border-box;
   width: 100%;
   height: 40px;
@@ -341,7 +341,7 @@ a {
 .inputButton2 {
   position: absolute;
   left: 0;
-  top: 780px;
+  top: 680px;
   box-sizing: border-box;
   width: 100%;
   height: 40px;
@@ -387,10 +387,11 @@ a {
 .btn{
   position: relative;
   display: block;
-  color: black;
   font-size: 15px;
+  background-color:#30375a;
   font-family: "montserrat";
   text-decoration: none;
+  z-index:10000000000000;
   border: 1px solid black;
   width: 185px;
   height: 40px;
@@ -401,7 +402,7 @@ a {
   transition: 1s all ease;
 }
 .btn::before {
-  background: #30375a;
+  background: white;
   content: "";
   position: absolute;
   top: 50%;
@@ -411,7 +412,8 @@ a {
   transition: all 0.6s ease;
 }
 .btn:hover {
-  color: white;
+  color: black;
+
 }
 
 .btn3::before {
@@ -485,29 +487,22 @@ a {
   align-items: flex-end;
 }
 .firstText {
-  color: #30375a;
-  width: 30vw;
-  height: 25vh;text-align: justify;
-	text-align-last: justify;
-}
-.secondText {
-  color: #30375a;
+  color: black;
   width: 30vw;
   height: 25vh;
-  
+  text-align:justify;
 }
-.inputButton {
-  width: 200px;
-  height: 40px;
-  font-size: 15px;
-  background-color: #30375a;
-  color: white;
-  border: 0;
+.secondText {
+  color: black;
+  width: 30vw;
+  height: 25vh;
+  text-align:justify;
+
 }
 @media only screen and (max-width: 1400px) and (max-height: 750px) {
   .carimage {
     position: absolute;
-    width: 70%;
+    height: 250px;
     top: 20vh;
     z-index: 1;
     left: 50%;
@@ -516,7 +511,7 @@ a {
   .btn {
     position: relative;
     display: block;
-    color: black;
+    color: white;
     font-size: 15px;
     font-family: "montserrat";
     text-decoration: none;

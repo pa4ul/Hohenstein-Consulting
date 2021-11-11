@@ -82,7 +82,7 @@ export default {
   <li style="padding-bottom:10px;">Finanzpläne</li>
   <li style="padding-bottom:10px;">Kreditvermittlung</li>
   <li>Mezzaninkapital</li>
-</ul>Fahren Sie jetzt Ihren Traumwagen. Heben Sie sich durch den klassisch eleganten Stil der Oldtimer von der Masse ab. 
+</ul>Fahren Sie jetzt Ihren Traumwagen. Heben Sie sich durch den klassisch eleganten Stil der Oldtimer von der Masse ab.
           </p>
         </div>
 
@@ -104,13 +104,13 @@ export default {
             src="@/assets/HohensteinLogoText.png"
             class="hohenSteinLogoText"
           />
-          <li class="li" style="float:right;"><a>Weihburggasse 22/5 1010 Wien </a></li> 
+          <li class="li" style="float:right;"><a>Weihburggasse 22/5 1010 Wien </a></li>
          <router-link to="/team">   <li class="li" style="float:right"><a>Team</a></li></router-link>
           <li class="li" style="float:right;"><a>Imprint</a></li>
         </ul>
     </footer>
       </div>
-       
+
     </div>
     <div v-if="!this.isMobile" class="mobileContentDiv">
       <div class="navbar">
@@ -135,13 +135,13 @@ export default {
           <span v-else @click="languageEN()">EN</span>
           /
           <span v-if="this.$store.state.language == 'ru'" @click="languageRU()" style="font-weight:bold">RU</span>
-          <span v-else @click="languageRU()">RU</span> 
+          <span v-else @click="languageRU()">RU</span>
         </a>
         <Slide right width="250" class="Slide">
           <a id="home" href="#">
-           
+
             <span class="firstHeader">Services</span>
-          
+
           </a>
           <a id="home" href="#" @click="changePathtoFinance()">
             <span>Financial Advise</span>
@@ -158,7 +158,7 @@ export default {
           </a>
           <a id="home" href="#">
             <span class="secondHeader">Pages</span>
-            
+
           </a>
           <a id="home" href="#">
             <span>Teams</span>
@@ -183,7 +183,7 @@ export default {
           &#10003; Oldtimervermietung
          </p>
          <p class="item2">
-            <span style="font-size: 27px;">F</span>ahren Sie jetzt Ihren Traumwagen. Heben Sie sich durch den klassisch eleganten Stil der Oldtimer von der Masse ab. 
+            <span style="font-size: 27px;">F</span>ahren Sie jetzt Ihren Traumwagen. Heben Sie sich durch den klassisch eleganten Stil der Oldtimer von der Masse ab.
            </p>
           <p class="item3">
           Wir unterstützen Sie bei der Suche, Finanzierung oder der simplen Miete Ihres Wunschautos.
@@ -191,10 +191,10 @@ export default {
         </p>
          </div>
          </div>
-     
-      
-      
-        <input  
+
+
+
+        <input
           type="button"
           value="Contact us"
           @click="changePath()"
@@ -256,7 +256,7 @@ export default {
   transform:translateX(-50%);
   padding-top:10px;
   padding-bottom:15px;
-  
+
 }
 .hohenSteinLogoText{
     position: absolute;
@@ -268,7 +268,7 @@ export default {
 .ul {
   list-style-type: none;
   padding: 0;
-  
+
   text-align: center;
 }
 .li {
@@ -278,7 +278,6 @@ export default {
 }
 a {
   text-decoration: none;
-
   text-align: center;
 }.footerHelper
 {
@@ -372,10 +371,11 @@ a {
 .btn{
   position: relative;
   display: block;
-  color: black;
   font-size: 15px;
+  background-color:#30375a;
   font-family: "montserrat";
   text-decoration: none;
+  z-index:10000000000000;
   border: 1px solid black;
   width: 185px;
   height: 40px;
@@ -386,7 +386,7 @@ a {
   transition: 1s all ease;
 }
 .btn::before {
-  background: #30375a;
+  background: white;
   content: "";
   position: absolute;
   top: 50%;
@@ -396,7 +396,8 @@ a {
   transition: all 0.6s ease;
 }
 .btn:hover {
-  color: white;
+  color: black;
+
 }
 
 .btn3::before {
@@ -469,14 +470,17 @@ a {
   align-items: flex-end;
 }
 .firstText {
-  color: #30375a;
+  color: black;
   width: 30vw;
   height: 25vh;
+  text-align:justify;
 }
 .secondText {
-  color: #30375a;
+  color: black;
   width: 30vw;
   height: 25vh;
+  text-align:justify;
+
 }
 
 @media only screen and (max-width: 1400px) and (max-height: 750px) {
@@ -491,7 +495,7 @@ a {
   .btn {
     position: relative;
     display: block;
-    color: black;
+    color: white;
     font-size: 15px;
     font-family: "montserrat";
     text-decoration: none;
