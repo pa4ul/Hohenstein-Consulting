@@ -197,9 +197,10 @@ export default {
   position: absolute;
   background-color: white;
   width: 90%;
+  
   height: 1250px;
   left: 50%;
-  top: 245px;
+  top: 270px;
   transform: translateX(-50%);
 }
 
@@ -222,7 +223,6 @@ export default {
   transform: translateX(-50%);
 }
 .text{
-  
   opacity: 70%;
   text-align:center;
   position:absolute;

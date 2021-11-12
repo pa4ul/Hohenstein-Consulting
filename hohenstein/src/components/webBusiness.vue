@@ -5,7 +5,7 @@ import mobileFooter from "@/components/mobileFooter.vue";
 export default {
   data() {
     return {
-      isMobile: true,
+      isMobile: false,
       greeting: "Hello World!",
     };
   },
@@ -58,6 +58,66 @@ export default {
 <template>
 <div>
   <div v-if="this.isMobile">
+   <nav>
+            <ul v-if="this.$store.state.language == 'en'">
+              <router-link to="/finance"
+              >
+                <li><a>Financial Advise</a></li>
+              </router-link>
+              <router-link to="/real-estate">
+                <li><a>Real Estate</a></li>
+              </router-link>
+              <router-link to="/cars">
+                <li><a>Classic Cars</a></li>
+              </router-link>
+              <router-link to="/business-consulting">
+                <li><a>Business Consulting</a></li>
+              </router-link>
+              <li>
+                <a
+                ><span v-if="this.$store.state.language == 'de'" style="font-weight:bold"
+                       @click="languageDE()">DE</span>
+                  <span v-else @click="languageDE()">DE</span> /
+                  <span v-if="this.$store.state.language == 'en'" style="font-weight:bold"
+                        @click="languageEN()">EN</span>
+                  <span v-else @click="languageEN()">EN</span> /
+                  <span v-if="this.$store.state.language == 'ru'" style="font-weight:bold"
+                        @click="languageRU()">RU</span>
+                  <span v-else @click="languageRU()">RU</span>
+                </a
+                >
+              </li>
+            </ul>
+            <ul v-if="this.$store.state.language == 'de'">
+              <router-link to="/finance"
+              >
+                <li><a>Finanz Beratung</a></li>
+              </router-link>
+              <router-link to="/real-estate">
+                <li><a>Immobilien</a></li>
+              </router-link>
+              <router-link to="/cars">
+                <li><a>Oldtimer</a></li>
+              </router-link>
+              <router-link to="/business-consulting">
+                <li><a>Unternehmensberatung</a></li>
+              </router-link>
+              <li>
+                <a
+                ><span v-if="this.$store.state.language == 'de'" style="font-weight:bold"
+                       @click="languageDE()">DE</span>
+                  <span v-else @click="languageDE()">DE</span> /
+                  <span v-if="this.$store.state.language == 'en'" style="font-weight:bold"
+                        @click="languageEN()">EN</span>
+                  <span v-else @click="languageEN()">EN</span> /
+                  <span v-if="this.$store.state.language == 'ru'" style="font-weight:bold"
+                        @click="languageRU()">RU</span>
+                  <span v-else @click="languageRU()">RU</span>
+                </a
+                >
+              </li>
+            </ul>
+          </nav>
     <router-link to="/">
       <div class="sidebar">
         <img
@@ -81,24 +141,25 @@ export default {
         <p>
           <span style="font-size: 25px; color: #30375a"></span>
            <ul class="checkList">
-  <li style="padding-bottom:10px;">Finanzpläne</li>
-  <li style="padding-bottom:10px;">Kreditvermittlung</li>
-  <li>Mezzaninkapital</li>
+  <li style="padding-bottom:10px;">Prozessoptimierung</li>
+  <li style="padding-bottom:10px;">Rechtliche Beratung</li>
+   <li style="padding-bottom:10px;">Beratung in Management und Mitarbeiterführung</li>
+    <li style="padding-bottom:10px;">Firmengründung europaweit</li>
+     <li style="padding-bottom:10px;">Steuerberatung  </li>
 </ul>
-Wir arbeiten mit Ihnen gemeinsam, um Ihr bestehendes oder neu gegründetes Unternehmen auf Spitzenleistung zu bringen. 
-        </p>
+          </p>
       </div>
     
       <div class="secondText">
         <p>
-Wir arbeiten mit Ihnen gemeinsam, um Ihr bestehendes oder neu gegründetes Unternehmen auf Spitzenleistung zu bringen. 
+ <span style="font-size: 27px;">W</span>ir arbeiten mit Ihnen gemeinsam, um Ihr bestehendes oder neu gegründetes Unternehmen auf Spitzenleistung zu bringen. 
           Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten. Wir freuen uns auf Ihr Projekt.
         </p>
         <div class="buttonDiv">
-     <a href="tel:+43 676 911 511 0" class="btn btn3" title="+43 676 911 511 0">Call Us</a>
+     <a href="tel:+43 676 911 511 0" class="btn btn3" title="+43 676 911 511 0">Rufe uns an!</a>
        
         
-        <a href="" class="btn btn3" @click="changePath()">Contact Us</a>
+        <a href="" class="btn btn3" @click="changePath()">Kontaktiere uns!</a>
         
         </div>
       </div>
@@ -208,10 +269,13 @@ Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten.
           value="Contact us"
           @click="changePath()"
           class="inputButton3"
+          style="-webkit-appearance: none;
+       border-radius: 0;"
         />
         <a href="tel:+43 676 911 511 0" >
-          <input type="button" value="Call us" class="inputButton2"
-        /></a>
+          <input type="button" value="Call us" class="inputButton2" style="-webkit-appearance: none;
+       border-radius: 0;">
+        </a>
       </div>
       <div class="footerHelper">
       <mobileFooter/>
@@ -226,7 +290,8 @@ Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten.
   font-family: "Miller Display";
 }
 .checkList{
-  padding-top:20px;
+  padding-top:5px;
+  margin-top:5px;
   padding-bottom:5px;
   list-style-type: '\2713';
 } 
@@ -274,6 +339,39 @@ Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten.
   left: 50%;
   transform: translate(-50%, -20%);
 }
+nav {
+  font-size: 15px;
+  position: fixed;
+  z-index: 999999999;
+  background-color: white;
+  top: 0;
+  
+  top: 0;
+  text-align: center;
+  border: 1px solid black;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  height: 90px;
+  left:100px;
+  right:100px;
+}
+ul {
+  list-style-type: none;
+  margin-top: 40px;
+
+  padding: 0;
+}
+
+li:hover {
+  cursor: pointer;
+}
+
+nav li {
+  display: inline;
+  margin: 4%;
+}
+
 .ul {
   list-style-type: none;
   padding: 0;
@@ -287,7 +385,7 @@ Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten.
 }
 a{
   text-decoration: none;
-  
+  color:black;
   text-align: center;
 }
 .footerHelper
@@ -389,12 +487,12 @@ a{
   text-decoration: none;
   z-index:10000000000000;
   border: 1px solid black;
-  width: 185px;
+  width: 200px;
   color:white;
   height: 40px;
   padding-top:15px;
   text-transform: uppercase;
-  margin-right:5px;
+  margin-right:1px;
   overflow: hidden;
   transition: 1s all ease;
 }
@@ -452,9 +550,8 @@ a{
   font-family: Montserrat;
   font-weight: bold;
     left: 150px;
-
+text-align:left;
   top: 40px;
-  text-align: center;
   z-index: 2;
 }
 .carimage {
@@ -467,7 +564,6 @@ a{
   transform: translateX(-50%);
 }
 .blueStrike {
-  position: absolute;
   height: 8px;
   width: 100px;
   background-color: #30375a;
@@ -479,7 +575,7 @@ a{
 .contentDiv {
   height: 86vh;
   display: flex;
-  justify-content: space-evenly;
+  justify-content:space-evenly;
   align-items: flex-end;
 }
 .firstText {
@@ -487,6 +583,10 @@ a{
   width: 30vw;
   height: 25vh;
   text-align:justify;
+}
+.firstText li{
+  margin-left:12px;
+  padding-left:3px;  
 }
 .secondText {
   color: black;
@@ -498,14 +598,7 @@ a{
 
 @media only screen and (max-width: 1400px) and (max-height: 750px) {
 
-  .carimage {
-    position: absolute;
-    height: 250px;
-    top: 20vh;
-    z-index: 1;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+  
   .btn {
     position: relative;
     display: block;
@@ -514,7 +607,7 @@ a{
     font-family: "montserrat";
     text-decoration: none;
     border: 1px solid black;
-    width: 130px;
+    width: 170px;
     height: 40px;
     padding-top: 15px;
     text-transform: uppercase;
@@ -522,6 +615,36 @@ a{
     overflow: hidden;
     transition: 1s all ease;
   }
+  nav{
+    
+  }
+}
+@media only screen and (max-width: 1050px){
+
+  
+  
+  nav li{
+    margin:2%;
+    font-size:12px;
+  }
+  .ul {
+  list-style-type: none;
+  padding: 0;
+  font-size:12px;
+  text-align: center;
+}
+.li {
+  display: inline;
+  margin: 1%;
+  color:black;
+}
+.hohenSteinLogoText{
+    position: absolute;
+  height: 50px;
+  top:45%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+}
 }
 
 </style>

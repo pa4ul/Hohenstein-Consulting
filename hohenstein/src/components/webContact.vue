@@ -5,7 +5,7 @@ import mobileFooter from "@/components/mobileFooter.vue";
 export default {
   data() {
     return {
-      isMobile: true,
+      isMobile: false,
       greeting: "Hello World!",
     };
   },
@@ -84,7 +84,7 @@ export default {
             <br />
             <input type="text" name="Nachricht" placeholder="Message" class="inputText" />
             <br />
-            <input type="submit" value="Submit" class="inputButton" />
+            <input type="submit" value="Submit" class="inputButton"  />
           </form>
         </div>
       </div>
@@ -177,7 +177,8 @@ export default {
             <br />
             <input type="text" placeholder="Message" name="Nachricht" class="inputTextMobile" />
             <br />
-            <input type="submit" value="Submit" class="inputButtonMobile" />
+            <input type="submit" value="Submit" class="inputButtonMobile" style="-webkit-appearance: none;
+       border-radius: 0;" />
           </form>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10636.210315711996!2d16.36620604147663!3d48.205603168378175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d079e6c60ca6f%3A0xa3afc3a3cb04134d!2sWeihburggasse%2022%2C%201010%20Wien!5e0!3m2!1sde!2sat!4v1635526907467!5m2!1sde!2sat"

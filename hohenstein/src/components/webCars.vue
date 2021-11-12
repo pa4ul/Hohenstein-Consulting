@@ -5,7 +5,8 @@ import mobileFooter from "@/components/mobileFooter.vue";
 export default {
   data() {
     return {
-      isMobile: true,
+      isMobile: false,
+      greeting: "Hello World!",
     };
   },
   methods: {
@@ -19,7 +20,7 @@ export default {
       this.$store.dispatch("changeLanguage", "ru");
     },
     changePath: function () {
-      this.$router.push({ path: "/contact" });
+      this.$router.push({ path: '/contact' })
     },
     changePathtoFinance: function () {
       this.$router.push({ path: "/finance" });
@@ -55,48 +56,115 @@ export default {
 </script>
 
 <template>
-  <div>
-    <div v-if="this.isMobile">
-      <router-link to="/">
-        <div class="sidebar">
-          <img
-            class="arrowBack"
-            src="@/assets/arrow.png"
-            style="transform: rotate(90deg)"
-          />
-        </div>
-      </router-link>
-      <p class="category">
-        <span style="font-family: 'Helvetica'"> / </span> Classic Cars
-      </p>
-      <p class="slogan">
-        NOT JUST <br />
-        A CAR
-      </p>
-      <img src="@/assets/car2.png" class="carimage" />
-      <div class="contentDiv">
-        <div class="firstText">
-          <div class="blueStrike"></div>
-          <p>
+<div>
+  <div v-if="this.isMobile">
+   <nav>
+            <ul v-if="this.$store.state.language == 'en'">
+              <router-link to="/finance"
+              >
+                <li><a>Financial Advise</a></li>
+              </router-link>
+              <router-link to="/real-estate">
+                <li><a>Real Estate</a></li>
+              </router-link>
+              <router-link to="/cars">
+                <li><a>Classic Cars</a></li>
+              </router-link>
+              <router-link to="/business-consulting">
+                <li><a>Business Consulting</a></li>
+              </router-link>
+              <li>
+                <a
+                ><span v-if="this.$store.state.language == 'de'" style="font-weight:bold"
+                       @click="languageDE()">DE</span>
+                  <span v-else @click="languageDE()">DE</span> /
+                  <span v-if="this.$store.state.language == 'en'" style="font-weight:bold"
+                        @click="languageEN()">EN</span>
+                  <span v-else @click="languageEN()">EN</span> /
+                  <span v-if="this.$store.state.language == 'ru'" style="font-weight:bold"
+                        @click="languageRU()">RU</span>
+                  <span v-else @click="languageRU()">RU</span>
+                </a
+                >
+              </li>
+            </ul>
+            <ul v-if="this.$store.state.language == 'de'">
+              <router-link to="/finance"
+              >
+                <li><a>Finanz Beratung</a></li>
+              </router-link>
+              <router-link to="/real-estate">
+                <li><a>Immobilien</a></li>
+              </router-link>
+              <router-link to="/cars">
+                <li><a>Oldtimer</a></li>
+              </router-link>
+              <router-link to="/business-consulting">
+                <li><a>Unternehmensberatung</a></li>
+              </router-link>
+              <li>
+                <a
+                ><span v-if="this.$store.state.language == 'de'" style="font-weight:bold"
+                       @click="languageDE()">DE</span>
+                  <span v-else @click="languageDE()">DE</span> /
+                  <span v-if="this.$store.state.language == 'en'" style="font-weight:bold"
+                        @click="languageEN()">EN</span>
+                  <span v-else @click="languageEN()">EN</span> /
+                  <span v-if="this.$store.state.language == 'ru'" style="font-weight:bold"
+                        @click="languageRU()">RU</span>
+                  <span v-else @click="languageRU()">RU</span>
+                </a
+                >
+              </li>
+            </ul>
+          </nav>
+    <router-link to="/">
+      <div class="sidebar">
+        <img
+          class="arrowBack"
+          src="@/assets/arrow.png"
+          style="transform: rotate(90deg)"
+        />
+      </div>
+    </router-link>
+    <p class="category">
+      <span style="font-family: 'Helvetica'"> / </span> Business Consulting
+    </p>  
+    <p class="slog3an">
+     NOT JUST <br />
+      A CAR
+    </p>
+    <img src="@/assets/car1.png" class="carimage" />
+    <div class="contentDiv">
+      <div class="firstText">
+        <div class="blueStrike"></div>
+        <p>
+          <span style="font-size: 25px; color: #30375a"></span>
            <ul class="checkList">
-  <li style="padding-bottom:10px;">Finanzpläne</li>
-  <li style="padding-bottom:10px;">Kreditvermittlung</li>
-  <li>Mezzaninkapital</li>
-</ul>Fahren Sie jetzt Ihren Traumwagen. Heben Sie sich durch den klassisch eleganten Stil der Oldtimer von der Masse ab.
+  <li style="padding-bottom:10px;">Oldtimervermittlung</li>
+  <li style="padding-bottom:10px;">Oldtimerfinanzierung</li>
+  <li>Oldtimervermietung</li>
+  <p>Fahren Sie jetzt Ihren Traumwagen. Heben Sie sich durch den klassisch eleganten Stil der Oldtimer von der Masse ab.  </p>
+</ul>
           </p>
-        </div>
+      </div>
+    
+      <div class="secondText">
+        <p>
+ <span style="font-size: 27px;">W</span>ir unterstützen Sie bei der Suche, Finanzierung oder der simplen Miete Ihres Wunschautos.
 
-        <div class="secondText">
-          <p>
-           Wir unterstützen Sie bei der Suche, Finanzierung oder der simplen Miete Ihres Wunschautos. Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten. Wir freuen uns auf Ihr Projekt.
-          </p>
-          <div class="buttonDiv">
-            <a href="tel:+43 676 911 511 0" class="btn btn3" title="+43 676 911 511 0">Call Us</a>
+Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten. Wir freuen uns auf Ihr Projekt.
 
-            <a href="" class="btn btn3" @click="changePath()">Contact Us</a>
-          </div>
+        </p>
+        <div class="buttonDiv">
+     <a href="tel:+43 676 911 511 0" class="btn btn3" title="+43 676 911 511 0">Rufe uns an!</a>
+       
+        
+        <a href="" class="btn btn3" @click="changePath()">Kontaktiere uns!</a>
+        
         </div>
-        <footer class="footer">
+      </div>
+      <footer class="footer">
         <ul class="ul">
           <li  class="li" style="float: left;"><a>office@hohenstein-consulting.at</a></li>
           <li class="li" style="float: left;"><a>+43 676 911 511 0</a></li>
@@ -104,15 +172,14 @@ export default {
             src="@/assets/HohensteinLogoText.png"
             class="hohenSteinLogoText"
           />
-          <li class="li" style="float:right;"><a>Weihburggasse 22/5 1010 Wien </a></li>
+          <li class="li" style="float:right;"><a>Weihburggasse 22/5 1010 Wien </a></li> 
          <router-link to="/team">   <li class="li" style="float:right"><a>Team</a></li></router-link>
           <li class="li" style="float:right;"><a>Imprint</a></li>
         </ul>
     </footer>
-      </div>
-
     </div>
-    <div v-if="!this.isMobile" class="mobileContentDiv">
+  </div>
+  <div v-if="!this.isMobile" class="mobileContentDiv">
       <div class="navbar">
         <router-link to="/">
           <img src="@/assets/arrow.png" class="backButton" />
@@ -171,24 +238,22 @@ export default {
       </div>
       <img src="@/assets/car1.png" class="mobileImage" />
       <div class="mobileContent">
-        <p class="mobileText">Classic Cars</p>
-        <p class="mobileSlogan">Not just a car</p>
+        <p class="mobileText">Business Consulting</p>
+        <p class="mobileSlogan">All it takes</p>
         <div class="mobileText-container-helper">
         <div class="mobileText-container">
         <p class="item1">
           &#10003; Oldtimervermittlung
           <br/>
+
           &#10003; Oldtimerfinanzierung
           <br/>
           &#10003; Oldtimervermietung
          </p>
          <p class="item2">
-            <span style="font-size: 27px;">F</span>ahren Sie jetzt Ihren Traumwagen. Heben Sie sich durch den klassisch eleganten Stil der Oldtimer von der Masse ab.
-           </p>
+            <span style="font-size: 27px;">F</span>ahren Sie jetzt Ihren Traumwagen. Heben Sie sich durch den klassisch eleganten Stil der Oldtimer von der Masse ab. Wir unterstützen Sie bei der Suche, Finanzierung oder der simplen Miete Ihres Wunschautos.</p>
           <p class="item3">
-          Wir unterstützen Sie bei der Suche, Finanzierung oder der simplen Miete Ihres Wunschautos.
-          Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten. Wir freuen uns auf Ihr Projekt.
-        </p>
+         Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten. Wir freuen uns auf Ihr Projekt.</p>
          </div>
          </div>
 
@@ -199,23 +264,32 @@ export default {
           value="Contact us"
           @click="changePath()"
           class="inputButton3"
+          style="-webkit-appearance: none;
+       border-radius: 0;"
         />
         <a href="tel:+43 676 911 511 0" >
-          <input type="button" value="Call us" class="inputButton2"
-        /></a>
+          <input type="button" value="Call us" class="inputButton2" style="-webkit-appearance: none;
+       border-radius: 0;">
+        </a>
       </div>
       <div class="footerHelper">
       <mobileFooter/>
 
       </div>
     </div>
-  </div>
+</div>
 </template>
 
 <style scoped>
 * {
   font-family: "Miller Display";
 }
+.checkList{
+  padding-top:5px;
+  margin-top:5px;
+  padding-bottom:5px;
+  list-style-type: '\2713';
+} 
 .mobileText-container-helper{
   position:absolute;
   top:275px;
@@ -236,11 +310,7 @@ export default {
   width:100%;
   text-align: justify;
 }
-.checkList{
-  padding-top:20px;
-  padding-bottom:5px;
-  list-style-type: '\2713';
-}
+
 .footer{
   font-size: 15px;
   position: absolute;
@@ -255,7 +325,7 @@ export default {
   transform:translateX(-50%);
   padding-top:10px;
   padding-bottom:15px;
-
+  
 }
 .hohenSteinLogoText{
     position: absolute;
@@ -264,10 +334,43 @@ export default {
   left: 50%;
   transform: translate(-50%, -20%);
 }
+nav {
+  font-size: 15px;
+  position: fixed;
+  z-index: 999999999;
+  background-color: white;
+  top: 0;
+  
+  top: 0;
+  text-align: center;
+  border: 1px solid black;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  height: 90px;
+  left:100px;
+  right:100px;
+}
+ul {
+  list-style-type: none;
+  margin-top: 40px;
+
+  padding: 0;
+}
+
+li:hover {
+  cursor: pointer;
+}
+
+nav li {
+  display: inline;
+  margin: 4%;
+}
+
 .ul {
   list-style-type: none;
   padding: 0;
-
+  
   text-align: center;
 }
 .li {
@@ -275,10 +378,12 @@ export default {
   margin: 2%;
   color:black;
 }
-a {
+a{
   text-decoration: none;
+  color:black;
   text-align: center;
-}.footerHelper
+}
+.footerHelper
 {
   position:absolute;
   bottom:0;
@@ -288,7 +393,7 @@ a {
 }
 .mobileContentDiv{
   position:absolute;
-  height:1250px;
+  height:1300px;
   width:100%;
   left:0;
 
@@ -298,22 +403,22 @@ a {
   width: 90%;
   left: 50%;
   top: 65px;
+  
   transform: translateX(-50%);
 }
 .mobileSlogan {
   position: absolute;
   top: 200px;
   padding-left: 10px;
-  font-size: 30px;
+  font-size: 25px;
   border-left: 5px solid #30375a;
-
   font-family: Montserrat;
   font-weight: bold;
 }
 .inputButton3 {
   position: absolute;
   left: 0;
-  top: 620px;
+  top: 700px;
   box-sizing: border-box;
   width: 100%;
   height: 40px;
@@ -325,7 +430,7 @@ a {
 .inputButton2 {
   position: absolute;
   left: 0;
-  top: 680px;
+  top: 760px;
   box-sizing: border-box;
   width: 100%;
   height: 40px;
@@ -334,12 +439,13 @@ a {
   color: white;
   border: 0;
 }
-
+.mobileText1 {
+  position: absolute;
+  top: 280px;
+}
 
 .mobileText2 {
   position: absolute;
-  text-align: justify;
-	text-align-last: justify;
   top: 450px;
 }
 .languageSelection {
@@ -376,11 +482,12 @@ a {
   text-decoration: none;
   z-index:10000000000000;
   border: 1px solid black;
-  width: 185px;
+  width: 200px;
+  color:white;
   height: 40px;
   padding-top:15px;
   text-transform: uppercase;
-  margin-right:5px;
+  margin-right:1px;
   overflow: hidden;
   transition: 1s all ease;
 }
@@ -399,12 +506,12 @@ a {
 
 }
 
-.btn3::before {
+.btn3::before{
   width: 100%;
   height: 0%;
-  transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%,-50%) rotate(45deg);
 }
-.btn3:hover::before {
+.btn3:hover::before{
   height: 450%;
 }
 .sidebar {
@@ -432,15 +539,15 @@ a {
   font-size: 20px;
   opacity: 70%;
 }
-.slogan {
+.slog3an {
   position: absolute;
   font-size: 50px;
   font-family: Montserrat;
   font-weight: bold;
     left: 150px;
-
+text-align:left;
   top: 40px;
-  text-align: center;
+ 
   z-index: 2;
 }
 .carimage {
@@ -453,19 +560,18 @@ a {
   transform: translateX(-50%);
 }
 .blueStrike {
-  position: absolute;
   height: 8px;
   width: 100px;
   background-color: #30375a;
 }
-.buttonDiv {
-  display: flex;
-  justify-content: space-between;
+.buttonDiv{
+    display: flex;
+    justify-content: space-between;
 }
 .contentDiv {
-  height: 90vh;
+  height: 86vh;
   display: flex;
-  justify-content: space-evenly;
+  justify-content:space-evenly;
   align-items: flex-end;
 }
 .firstText {
@@ -473,6 +579,10 @@ a {
   width: 30vw;
   height: 25vh;
   text-align:justify;
+}
+.firstText li{
+  margin-left:12px;
+  padding-left:3px;  
 }
 .secondText {
   color: black;
@@ -483,14 +593,8 @@ a {
 }
 
 @media only screen and (max-width: 1400px) and (max-height: 750px) {
-  .carimage {
-    position: absolute;
-    height: 250px;
-    top: 20vh;
-    z-index: 1;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+
+  
   .btn {
     position: relative;
     display: block;
@@ -499,7 +603,7 @@ a {
     font-family: "montserrat";
     text-decoration: none;
     border: 1px solid black;
-    width: 130px;
+    width: 170px;
     height: 40px;
     padding-top: 15px;
     text-transform: uppercase;
@@ -507,5 +611,36 @@ a {
     overflow: hidden;
     transition: 1s all ease;
   }
+  nav{
+    
+  }
 }
+@media only screen and (max-width: 1050px){
+
+  
+  
+  nav li{
+    margin:2%;
+    font-size:12px;
+  }
+  .ul {
+  list-style-type: none;
+  padding: 0;
+  font-size:12px;
+  text-align: center;
+}
+.li {
+  display: inline;
+  margin: 1%;
+  color:black;
+}
+.hohenSteinLogoText{
+    position: absolute;
+  height: 50px;
+  top:45%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+}
+}
+
 </style>
