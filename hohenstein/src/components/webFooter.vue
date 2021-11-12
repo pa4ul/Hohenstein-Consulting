@@ -41,12 +41,13 @@ export default {
           <li style="float: left;"><a>office@hohenstein-consulting.at</a></li>
           <li style="float: left;"><a>+43 650 123 4567</a></li>
           <img
-            src="@/assets/HohensteinLogoText.png"
+            src="@/assets/HohensteinWhite.png"
             class="hohenSteinLogoText"
           />
-          <li style="float:right;"><a>Weihburggasse 22/5 1010 Wien </a></li> 
-         <router-link to="/team">   <li style="float:right"><a>Team</a></li></router-link>
+          
+          <router-link to="/team"> <li style="float:right"><a>Team</a></li></router-link>
           <li style="float:right;"><a>Imprint</a></li>
+          <li style="float:right;"><a>Weihburggasse 22/5 1010 Wien </a></li> 
         </ul>
     </footer>
 </div>
@@ -133,6 +134,7 @@ html {
   width: 100%;
   padding-top:10px;
   padding-bottom:15px;
+  background-color:#30375a;
   
 }
 .hohenSteinLogoText{
@@ -150,7 +152,7 @@ ul {
 li {
   display: inline;
   margin: 2%;
-  color:black;
+  color:white;
 }
 @media only screen and (max-width: 1350px)  {
 

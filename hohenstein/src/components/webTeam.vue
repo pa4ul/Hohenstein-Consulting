@@ -5,7 +5,7 @@ import mobileFooter from "@/components/mobileFooter.vue";
 export default {
   data() {
     return {
-      isMobile: false,
+      isMobile: true,
       greeting: "Hello World!",
     };
   },
@@ -71,19 +71,20 @@ export default {
         <p class="category">
           <span style="font-family: 'Helvetica'"> / </span> Team
         </p>
-        <p class="header">The Team</p>
+        
         <div class="teamBox">
+        <p class="header">The Team</p>
           <div class="person1">
             <img src="@/assets/steiningerCut.png" class="imageTeam" style="width:130px;" />
             <p class="person1text">Gerald Steininger, MBA</p>
-            <p class="person1text">+436769115110</p>
+            <p class="person1text">+43 676 911 511 0</p>
             <p class="person1text">gerald.steininger@hohenstein-consulting.at</p>
           </div>
           <div class="person2">
             <img src="@/assets/chalupaCut.png" class="imageTeam" />
 
             <p class="person1text">Boris Chalupa</p>
-            <p class="person1text">+436608106408</p>
+            <p class="person1text">+43 660 810 6408</p>
             <p class="person1text">boris.chalupa@hohenstein-consulting.at</p>
           </div>
         </div>
@@ -150,20 +151,20 @@ export default {
         </Slide>
       </div>
       <p class="slogan">team</p>
-      <p class="text">Jahrzehnte lange Praxiserfahrung bündelt sich zu einem Netzwerk, welches sensationelle Lösungen für jegliche Anwendungen schafft. Unser Team berät Sie gerne und geht auf Ihren Fall ernsthaft ein. Etliche zufriedene Kunden bestätigen den Erfolg unseres Teams.</p>
+      <p class="text">Jahrzehnte lange Praxiserfahrung bündelt sich zu einem Netzwerk, welches sensationelle Lösungen für jegliche Anwendungen schafft. <br/><br/> Unser Team berät Sie gerne und geht auf Ihren Fall ernsthaft ein. Etliche zufriedene Kunden bestätigen den Erfolg unseres Teams.</p>
       <div class="mobileContent">
         
         <div class="person1mobile">
           <img src="@/assets/Steininger2.jpg" class="mobileImageTeam" />
           <p class="person1text">Gerald Steininger, MBA</p>
-          <p class="person1text">+436769115110</p>
-          <p class="person1text">Immobilienberatung, Unternehmensberatung</p>
+          <a href="tel:+436769115110" style="text-decoration:none;"><p class="person1text">+43 676 911 511 0</p></a>
+          <p class="person1text">gerald.steininger@hohenstein-consulting.at</p>
         </div>
         <div class="person2mobile">
           <img src="@/assets/Chalupa2.jpg" class="mobileImageTeam" />
           <p class="person1text">Boris Chalupa</p>
-          <p class="person1text">+436608106408</p>
-          <p class="person1text">Finanzberatung</p>
+          <p class="person1text">+43 660 8106 408</p>
+          <p class="person1text">boris.chalupa@hohenstein-consulting.at</p>
         
         </div>
         <mobileFooter />
@@ -190,8 +191,8 @@ export default {
   left:55%;
   transform: translateX(-50%);
   bottom:55px;
-  opacity: 70%;
-  text-align: center;
+  ;
+  text-align: justify;
 }
 .mobileContent {
   position: absolute;
@@ -200,7 +201,7 @@ export default {
   
   height: 1250px;
   left: 50%;
-  top: 270px;
+  top: 340px;
   transform: translateX(-50%);
 }
 
@@ -223,12 +224,14 @@ export default {
   transform: translateX(-50%);
 }
 .text{
-  opacity: 70%;
+  
   text-align:center;
   position:absolute;
   padding-left:40px;
   padding-right:40px;
   top:120px;
+  font-weight:bold;
+  text-align:justify;
 }
 .backButton {
   position: absolute;
@@ -245,10 +248,7 @@ export default {
   opacity: 70%;
 }
 .header {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 15%;
+  margin-top:-120px;
   font-size: 40px;
   border-bottom: 5px solid #30375a;
 }
@@ -321,7 +321,9 @@ export default {
 .person1text {
   color: white;
   text-align: center;
+  text-decoration:none;
   margin: 4px;
+  font-weight:bold;
 }
 .person2text {
   color: white;

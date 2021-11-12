@@ -5,7 +5,7 @@ import mobileFooter from "@/components/mobileFooter.vue";
 export default {
   data() {
     return {
-      isMobile: false,
+      isMobile: true,
       greeting: "Hello World!",
     };
   },
@@ -469,6 +469,7 @@ a{
   width: 100%;
 }
 .btn{
+  
   position: relative;
   display: block;
   font-size: 15px;
@@ -547,16 +548,17 @@ text-align:left;
 }
 .carimage {
   position: absolute;
-  max-width: 90%;
+  width: 74%;
   height: 40%;
-  top: 20vh;
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
+top: 20vh;
   z-index: 1;
   left: 50%;
   transform: translateX(-50%);
 }
 .blueStrike {
-  height: 8px;
-  width: 100px;
+  height: 2px;
+  width: 900px;
   background-color: #30375a;
 }
 .buttonDiv{

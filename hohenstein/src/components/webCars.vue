@@ -5,7 +5,7 @@ import mobileFooter from "@/components/mobileFooter.vue";
 export default {
   data() {
     return {
-      isMobile: false,
+      isMobile: true,
       greeting: "Hello World!",
     };
   },
@@ -128,7 +128,7 @@ export default {
       </div>
     </router-link>
     <p class="category">
-      <span style="font-family: 'Helvetica'"> / </span> Business Consulting
+      <span style="font-family: 'Helvetica';"> / </span> Classic Cars
     </p>  
     <p class="slog3an">
      NOT JUST <br />
@@ -238,14 +238,14 @@ Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten.
       </div>
       <img src="@/assets/car1.png" class="mobileImage" />
       <div class="mobileContent">
-        <p class="mobileText">Business Consulting</p>
+        <p class="mobileText">CLASSIC CARS</p>
         <p class="mobileSlogan">All it takes</p>
         <div class="mobileText-container-helper">
         <div class="mobileText-container">
         <p class="item1">
           &#10003; Oldtimervermittlung
           <br/>
-
+          
           &#10003; Oldtimerfinanzierung
           <br/>
           &#10003; Oldtimervermietung
@@ -283,6 +283,7 @@ Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten.
 <style scoped>
 * {
   font-family: "Miller Display";
+
 }
 .checkList{
   padding-top:5px;
@@ -292,7 +293,7 @@ Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten.
 } 
 .mobileText-container-helper{
   position:absolute;
-  top:275px;
+  top:315px;
 }
 .mobileText-container{
   display:flex;
@@ -397,6 +398,7 @@ a{
   width:100%;
   left:0;
 
+
 }
 .mobileContent {
   position: absolute;
@@ -408,12 +410,13 @@ a{
 }
 .mobileSlogan {
   position: absolute;
-  top: 200px;
+  top: 245px;
   padding-left: 10px;
   font-size: 25px;
   border-left: 5px solid #30375a;
   font-family: Montserrat;
   font-weight: bold;
+  color:#30375a;
 }
 .inputButton3 {
   position: absolute;
@@ -464,12 +467,15 @@ a{
 }
 .mobileText {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  font-size:22px; 
+  font-weight:bold;
+  letter-spacing:1px;
+  width:100%;
+  text-align:center;
 }
 .mobileImage {
   position: absolute;
-  top: 120px;
+  top: 130px;
   left:0px;
   width: 100%;
 }
@@ -538,6 +544,7 @@ a{
   top: 20px;
   font-size: 20px;
   opacity: 70%;
+  
 }
 .slog3an {
   position: absolute;

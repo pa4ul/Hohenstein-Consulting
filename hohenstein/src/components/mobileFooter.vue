@@ -30,6 +30,7 @@ export default {
 <style scoped>
 * {
   color: white;
+  font-weight:bold;
 }
 .tel {
   margin-left: 50px;
@@ -58,6 +59,7 @@ export default {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top:5px;
 }
 .logo {
   width: 70%;
