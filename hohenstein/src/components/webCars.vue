@@ -211,8 +211,7 @@ export default {
     </div>
   </div>
 </template>
-<style>
-</style>
+
 <style scoped>
 * {
   font-family: "Miller Display";

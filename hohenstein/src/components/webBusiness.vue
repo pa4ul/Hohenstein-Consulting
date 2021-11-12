@@ -117,10 +117,10 @@ Wir arbeiten mit Ihnen gemeinsam, um Ihr bestehendes oder neu gegründetes Unter
     </footer>
     </div>
   </div>
-   <div v-if="!this.isMobile" class="mobileContentDiv">
+  <div v-if="!this.isMobile" class="mobileContentDiv">
       <div class="navbar">
         <router-link to="/">
-        <img src="@/assets/arrow.png" class="backButton" />
+          <img src="@/assets/arrow.png" class="backButton" />
         </router-link>
         <a class="languageSelection">
           <span
@@ -140,13 +140,13 @@ Wir arbeiten mit Ihnen gemeinsam, um Ihr bestehendes oder neu gegründetes Unter
           <span v-else @click="languageEN()">EN</span>
           /
           <span v-if="this.$store.state.language == 'ru'" @click="languageRU()" style="font-weight:bold">RU</span>
-          <span v-else @click="languageRU()">RU</span> 
+          <span v-else @click="languageRU()">RU</span>
         </a>
         <Slide right width="250" class="Slide">
           <a id="home" href="#">
-           
+
             <span class="firstHeader">Services</span>
-          
+
           </a>
           <a id="home" href="#" @click="changePathtoFinance()">
             <span>Financial Advise</span>
@@ -163,7 +163,7 @@ Wir arbeiten mit Ihnen gemeinsam, um Ihr bestehendes oder neu gegründetes Unter
           </a>
           <a id="home" href="#">
             <span class="secondHeader">Pages</span>
-            
+
           </a>
           <a id="home" href="#">
             <span>Teams</span>
@@ -175,8 +175,7 @@ Wir arbeiten mit Ihnen gemeinsam, um Ihr bestehendes oder neu gegründetes Unter
         </Slide>
       </div>
       <img src="@/assets/businessImage.png" class="mobileImage" />
-      <div class="mo
-      bileContent">
+      <div class="mobileContent">
         <p class="mobileText">Business Consulting</p>
         <p class="mobileSlogan">All it takes</p>
         <div class="mobileText-container-helper">
@@ -187,23 +186,24 @@ Wir arbeiten mit Ihnen gemeinsam, um Ihr bestehendes oder neu gegründetes Unter
           &#10003; Rechtliche Beratung
           <br/>
           &#10003; Beratung in Management und Mitarbeiterführung
-           <br/>
-          &#10003; Firmengründungen europaweit
+          <br/>
+          &#10003; Firmengründung europaweit
           <br/>
           &#10003; Steuerberatung
-         
          </p>
          <p class="item2">
-            <span style="font-size: 27px;">W</span>ir arbeiten mit Ihnen gemeinsam, um Ihr bestehendes oder neu gegründetes Unternehmen auf Spitzenleistung zu bringen. Entdecken Sie durch uns neue Möglichkeiten und Chancen durch Optimierung Ihrer Prozesse sowie steuerrechtliche Belange.  
-           </p>
+            <span style="font-size: 27px;">W</span>ir arbeiten mit Ihnen gemeinsam, um Ihr bestehendes oder neu gegründetes Unternehmen auf Spitzenleistung zu bringen.    </p>
           <p class="item3">
-          Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten. Wir freuen uns auf Ihr Projekt.</p>
+          Entdecken Sie durch uns neue Möglichkeiten und Chancen durch Optimierung Ihrer Prozesse sowie steuerrechtliche Belange. 
+
+Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten. Wir freuen uns auf Ihr Projekt.
+</p>
          </div>
          </div>
-     
-      
-      
-        <input  
+
+
+
+        <input
           type="button"
           value="Contact us"
           @click="changePath()"
@@ -366,6 +366,7 @@ a{
   position: absolute;
   height: 12px;
   top: 35px;
+  left:15px;
   transform: rotate(90deg);
 }
 .mobileText {
