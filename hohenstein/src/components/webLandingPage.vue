@@ -110,6 +110,7 @@ export default {
             <ul v-if="this.$store.state.language == 'de'">
               <router-link to="/finance"
               >
+
                 <li><a>Finanz Beratung</a></li>
               </router-link>
               <router-link to="/real-estate">
@@ -121,6 +122,11 @@ export default {
               <router-link to="/business-consulting">
                 <li><a>Unternehmensberatung</a></li>
               </router-link>
+
+              <router-link to="/team">
+                <li><a>Team</a></li>
+              </router-link>
+
               <li>
                 <a
                 ><span v-if="this.$store.state.language == 'de'" style="font-weight:bold"
