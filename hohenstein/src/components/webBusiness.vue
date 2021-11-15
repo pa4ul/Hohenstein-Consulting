@@ -39,7 +39,8 @@ export default {
     Slide,
     mobileFooter
   },
-  /*created() {
+  /*
+  created() {
     if (
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
         navigator.userAgent
@@ -169,9 +170,10 @@ export default {
             <a href="tel:+43 676 911 511 0" class="btn btn3" title="+43 676 911 511 0">Rufe uns an!</a>
 
 
-            <a href="" class="btn btn3" @click="changePath()">Kontaktiere uns!</a>
+            <a href="" class="btn btn3" @click="changePath()">Kontaktieren uns!</a>
 
           </div>
+
         </div>
         <footer class="footer">
           <ul class="ul">
@@ -199,7 +201,7 @@ export default {
           <span
               v-if="this.$store.state.language == 'de'"
               @click="languageDE()"
-              style="font-weight: bold"
+              style="font-weight: bold;font-size:24px"
           >DE</span
           >
           <span v-else @click="languageDE()">DE</span>
@@ -207,12 +209,12 @@ export default {
           <span
               v-if="this.$store.state.language == 'en'"
               @click="languageEN()"
-              style="font-weight: bold"
+              style="font-weight: bold;font-size:24px"
           >EN</span
           >
           <span v-else @click="languageEN()">EN</span>
           /
-          <span v-if="this.$store.state.language == 'ru'" @click="languageRU()" style="font-weight:bold">RU</span>
+          <span v-if="this.$store.state.language == 'ru'" @click="languageRU()" style="font-weight: bold;font-size:24px">RU</span>
           <span v-else @click="languageRU()">RU</span>
         </a>
         <Slide right width="250" class="Slide">
@@ -225,7 +227,7 @@ export default {
             <span>Financial Advise</span>
           </a>
 
-          <a id="" href="#" @click="changePathtoRealEstate()">
+          <a id="home" href="#" @click="changePathtoRealEstate()">
             <span>Real Estate</span>
           </a>
           <a id="home" href="#" @click="changePathtoCars()">
@@ -253,17 +255,14 @@ export default {
         <p class="mobileSlogan">All it takes</p>
         <div class="mobileText-container-helper">
           <div class="mobileText-container">
-            <p class="item1">
-              &#10003; Prozessoptimierung
-              <br/>
-              &#10003; Rechtliche Beratung
-              <br/>
-              &#10003; Beratung in Management und Mitarbeiterführung
-              <br/>
-              &#10003; Firmengründung europaweit
-              <br/>
-              &#10003; Steuerberatung
-            </p>
+            <ul class="item1">
+              <li>  Prozessoptimierung </li>
+              <li>  Rechtliche Beratung</li>
+              <li> Beratung in Management</li>
+              <li> Beratung in Mitarbeiterführung</li>
+              <li> Firmengründung europaweit</li>
+              <li> Steuerberatung</li>
+            </ul>
             <p class="item2">
               <span style="font-size: 27px;">W</span>ir arbeiten mit Ihnen gemeinsam, um Ihr bestehendes oder neu
               gegründetes Unternehmen auf Spitzenleistung zu bringen. </p>
@@ -280,14 +279,14 @@ export default {
 
         <input
             type="button"
-            value="Contact us"
+            value="Konaktiere uns!"
             @click="changePath()"
             class="inputButton3"
             style="-webkit-appearance: none;
        border-radius: 0;"
         />
         <a href="tel:+43 676 911 511 0">
-          <input type="button" value="Call us" class="inputButton2" style="-webkit-appearance: none;
+          <input type="button" value="Ruf uns an!" class="inputButton2" style="-webkit-appearance: none;
        border-radius: 0;">
         </a>
       </div>
@@ -319,34 +318,45 @@ export default {
 .mobileText-container {
   display: flex;
   flex-wrap: wrap;
-  top: 500px;
+  margin-top:-20px;
 }
 
 .item1 {
   width: 100%;
+  list-style-type:none;
+  font-size:18px;
+}
+
+.item1 li::before {
+  content: "■";
+  color: #30375a;
+  padding:5px;
 }
 
 .item2 {
   width: 100%;
   text-align: justify;
+  font-size:18px;
+
 }
 
 .item3 {
   width: 100%;
   text-align: justify;
+  font-size:18px;
+
 }
 
-.hohenSteinLogoText {
-  position: absolute;
-  height: 100px;
-  left: 50%;
-  transform: translate(-50%, -20%);
-}
+
 
 .footer {
+  display: flex;
+  flex-direction: column;
+
   font-size: 15px;
-  position: absolute;
-  bottom: -120px;
+  position: static;
+  bottom:0px;
+  margin-top:150px;
   border: 1px solid black;
   border-bottom: 0px;
   border-left: 0px;
@@ -355,18 +365,15 @@ export default {
   background-color: #30375a;
   height: 90px;
   left: 50%;
-  transform: translateX(-50%);
   padding-top: 10px;
   padding-bottom: 15px;
 
 }
 
 .hohenSteinLogoText {
-  position: absolute;
+
   height: 70px;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -20%);
+  transform: translateY(-20px);
 }
 
 nav {
@@ -381,7 +388,7 @@ nav {
   border-left: 0px;
   border-right: 0px;
   height: 90px;
-  width: calc(80% - 12px);
+  width: calc(75% - 13px);
 }
 
 ul {
@@ -435,7 +442,7 @@ a {
 
 .mobileContentDiv {
   position: absolute;
-  height: 1300px;
+  height: 1450px;
   width: 100%;
   left: 0;
 
@@ -463,7 +470,7 @@ a {
 .inputButton3 {
   position: absolute;
   left: 0;
-  top: 700px;
+  top: 800px;
   box-sizing: border-box;
   width: 100%;
   height: 40px;
@@ -476,7 +483,7 @@ a {
 .inputButton2 {
   position: absolute;
   left: 0;
-  top: 760px;
+  top: 880px;
   box-sizing: border-box;
   width: 100%;
   height: 40px;
@@ -499,8 +506,9 @@ a {
 .languageSelection {
   position: absolute;
   font-size: 20px;
-  top: 34px;
+  top: 28px;
   left: 50%;
+  font-family: "Miller Display";
   transform: translateX(-50%);
 }
 
@@ -514,8 +522,11 @@ a {
 
 .mobileText {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  font-weight: 500;
+  width: 100%;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-align: center;
 }
 
 .mobileImage {
@@ -592,31 +603,20 @@ a {
 }
 
 
-
-.slog3an {
-  position: absolute;
-  font-size: 50px;
-  font-family: Montserrat;
-  font-weight: bold;
-  left: 150px;
-  text-align: left;
-  top: 40px;
-  z-index: 2;
-}
-
 .carimage {
   flex-basis: 80%;
   overflow: hidden;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   max-height: 35vh;
   object-fit: cover;
-  margin-top: 60px;
+  margin-top: 120px;
 }
 
 .blueStrike {
   height: 1px;
   background-color: #30375a;
   width: 80%;
+  margin-top:3vh;
 }
 
 .buttonDiv {
@@ -625,11 +625,11 @@ a {
 }
 
 .contentDiv {
-  height: 86vh;
   display: flex;
   justify-content: space-evenly;
-  align-items: flex-end;
   flex-wrap: wrap;
+  gap:10px;
+  margin-left:80px;
 }
 
 .firstText {
@@ -686,7 +686,7 @@ a {
   .ul {
     list-style-type: none;
     padding: 0;
-    font-size: 12px;
+    font-size: 13px;
     text-align: center;
   }
 
@@ -697,11 +697,8 @@ a {
   }
 
   .hohenSteinLogoText {
-    position: absolute;
-    height: 50px;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -20%);
+    height: 60px;
+
   }
 }
 

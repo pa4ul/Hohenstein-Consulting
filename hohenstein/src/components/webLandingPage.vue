@@ -277,9 +277,9 @@ export default {
         </div>
         <img src="@/assets/imageLandingpage.jpg" class="mobileLandingImage"/>
       </div>
-      <p class="servicesText">Our Services </p>
-      <div class="mobileContent">
 
+      <div class="mobileContent">
+        <p class="servicesText">Our Services </p>
         <router-link to="/cars">
           <mobileTopicCar/>
         </router-link>
@@ -301,7 +301,9 @@ export default {
 </template>
 
 <style>
-
+.Slide{
+  white-space: nowrap;
+}
 .firstHeader {
   font-size: 28px;
   border-bottom: 2px solid white;
@@ -435,7 +437,7 @@ html {
 .languageSelection {
   position: absolute;
   font-size: 20px;
-  top: 36px;
+  top: 28px;
   left: 36px;
 }
 
@@ -499,14 +501,35 @@ li {
 
 .servicesText {
   font-size: 30px;
+  opacity: 90%;
   position: absolute;
-  top: 415px;
+  top: -110px;
   letter-spacing: 1px;
-  left: 50%;
-  transform: translateX(-50%);
+  text-align: center;
+  width: 97%;
+
   margin-bottom: 130px;
 }
-
+.servicesText:before{
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: #30375a;
+  left:0px;
+  top: 50%;
+  position: absolute;
+}
+.servicesText:after{
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: #30375a;
+  right: 0px;
+  top: 50%;
+  position: absolute;
+}
 .landingPageImage {
   position: absolute;
   top: 50%;
@@ -649,9 +672,9 @@ li {
   }
 }
 
-@media only screen and (max-width: 1250px), screen and (max-height: 850px) {
+@media only screen and (max-width: 1150px), screen and (max-height: 850px) {
   nav {
-    font-size: 18px;
+    font-size: 19px;
     position: fixed;
     z-index: 999999999;
     background-color: white;
@@ -664,9 +687,11 @@ li {
     border-left: 0px;
     border-right: 0px;
     height: 80px;
-    width: 92%;
+    width: 100%;
   }
-
+  nav a{
+    font-size:16px;
+  }
   ul {
     list-style-type: none;
     margin-top: 30px;
