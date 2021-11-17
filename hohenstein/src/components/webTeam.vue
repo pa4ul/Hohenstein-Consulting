@@ -139,13 +139,13 @@ export default {
 
         <div class="teamBox">
           <div class="person1">
-            <img src="@/assets/steiningerCut.png" class="imageTeam" style="width: 125px"/>
+            <img src="@/assets/steiningerCut_compressed.png" class="imageTeam" style="width: 125px"/>
             <p class="person1text">Gerald Steininger, MBA</p>
             <p class="person1text"><a href="tel:+436769115110" style="text-decoration:none;color:white;">+43 676 911 511 0 </a></p>
             <p class="person1text"><a style="color:white" href="mailto:gerald.steininger@hohenstein-consulting.at">gerald.steininger@hohenstein-consulting.at </a></p>
           </div>
           <div class="person2">
-            <img src="@/assets/chalupaCut.png" class="imageTeam"/>
+            <img src="@/assets/chalupaCut_compressed.png" class="imageTeam"/>
 
             <p class="person1text">Boris Chalupa</p>
             <p class="person1text"><a href="tel:+436608106408" style="text-decoration:none;color:white;">+43 660 810 6408</a></p>
@@ -243,13 +243,13 @@ export default {
       <div class="mobileContent">
 
         <div class="person1mobile">
-          <img src="@/assets/Steininger2.jpg" class="mobileImageTeam"/>
+          <img src="@/assets/Steininger2_compressed.jpg" class="mobileImageTeam"/>
           <p class="person1text">Gerald Steininger, MBA</p>
           <a href="tel:+436769115110" style="text-decoration:none;"><p class="person1text">+43 676 911 511 0</p></a>
           <a style="color:white" href="mailto:gerald.steininger@hohenstein-consulting.at"><p class="person1text">gerald.steininger@hohenstein-consulting.at</p></a>
         </div>
         <div class="person2mobile">
-          <img src="@/assets/Chalupa2.jpg" class="mobileImageTeam"/>
+          <img src="@/assets/Chalupa2_compressed.jpg" class="mobileImageTeam"/>
           <p class="person1text">Boris Chalupa</p>
           <a href="tel:+436608106408" style="text-decoration:none;"><p class="person1text">+43 660 8106 408</p></a>
          <a style="color:white" href="mailto:boris.chalupa@hohenstein-consulting.at"> <p class="person1text">boris.chalupa@hohenstein-consulting.at</p></a>

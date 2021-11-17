@@ -144,7 +144,7 @@ export default {
             </ul>
           </nav>
           <div>
-            <img src="@/assets/imageLandingpage.jpg" class="landingPageImage"/>
+            <img src="@/assets/imageLandingpage_compressed.jpg" class="landingPageImage"/>
             <div class="whiteBox1">
               <img
                   src="@/assets/HohensteinLogoText.png"
