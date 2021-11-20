@@ -11,7 +11,7 @@ export default {
 <template>
   <div class="mobileTopic">
     <div class="wrapper">
-      <img src="@/assets/mobileFinance.png" class="image" />
+      <img src="@/assets/mobileFinance2.png" class="image" />
       <div class="mobileWhiteBox">
         <div class="mobileWhiteBoxContent">
           <p class="header">Financial Advise</p>

@@ -7,6 +7,7 @@ import webRealestate from "@/components/webRealestate.vue"
 import webCars from "@/components/webCars.vue"
 import webBusiness from "@/components/webBusiness.vue"
 import mobileSwiper from "@/components/mobileSwiper.vue"
+import imprint from "../components/imprint";
 
 const routes = [
   {
@@ -48,6 +49,11 @@ const routes = [
     path: '/demo',
     name: 'demo',
     component: mobileSwiper
+  },
+  {
+    path: '/impressum',
+    name: 'imprint',
+    component: imprint
   },
 
 ]

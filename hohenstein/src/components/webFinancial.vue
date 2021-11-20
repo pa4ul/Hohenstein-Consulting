@@ -5,7 +5,7 @@ import mobileFooter from "@/components/mobileFooter.vue";
 export default {
   data() {
     return {
-      isMobile: true,
+      isMobile: false,
       greeting: "Hello World!",
     };
   },
@@ -33,6 +33,12 @@ export default {
     },
     changePathtoBusiness: function () {
       this.$router.push({path: "/business-consulting"});
+    },
+    changePathtoTeam: function () {
+      this.$router.push({path: "/team"});
+    },
+    changePathtoImprint: function () {
+      this.$router.push({path: "/impressum"});
     },
   },
   components: {
@@ -140,27 +146,28 @@ export default {
         </nav>
 
 
-
-
         <img src="@/assets/financeImage.png" class="carimage"/>
         <div class="blueStrike"></div>
         <div class="firstText">
 
           <p>
             <span style="font-size: 25px; color: #30375a"></span>
-            <ul class="checkList">
+          <ul class="checkList">
             <li style="padding-bottom:10px;">Finanzpläne</li>
             <li style="padding-bottom:10px;">Kreditvermittlung</li>
             <li style="padding-bottom:10px;">Mezzaninkapital</li>
-            </ul>
+          </ul>
           </p>
-          <p><span style="font-size: 27px;">S</span>ie benötigen für Ihr Projekt einen Mix aus Eigen- und Fremdkapital? Wir beraten Sie gerne und finden mit Ihnen die rentabelste Variante für Ihre Finanzierung. </p>
+          <p><span style="font-size: 27px;">S</span>ie benötigen für Ihr Projekt einen Mix aus Eigen- und Fremdkapital?
+            Wir beraten Sie gerne und finden mit Ihnen die rentabelste Variante für Ihre Finanzierung. </p>
         </div>
 
         <div class="secondText">
 
           <p>
-            Wir setzen Sie in Verbindung mit Eigenkapitalgeber und Bankberater, welche Ihnen Kredite bzw. Darlehen mit attraktiv niedrigen Zinsen und Laufzeit finanzieren. Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten. Wir freuen uns auf Ihr Projekt.
+            Wir setzen Sie in Verbindung mit Eigenkapitalgeber und Bankberater, welche Ihnen Kredite bzw. Darlehen mit
+            attraktiv niedrigen Zinsen und Laufzeit finanzieren. Kontaktieren Sie uns und vereinbaren Sie ein
+            Erstgespräch mit unseren Experten. Wir freuen uns auf Ihr Projekt.
           </p>
           <div class="buttonDiv">
             <a href="tel:+43 676 911 511 0" class="btn btn3" title="+43 676 911 511 0">Rufe uns an!</a>
@@ -210,7 +217,8 @@ export default {
           >
           <span v-else @click="languageEN()">EN</span>
           /
-          <span v-if="this.$store.state.language == 'ru'" @click="languageRU()" style="font-weight: bold;font-size:24px">RU</span>
+          <span v-if="this.$store.state.language == 'ru'" @click="languageRU()"
+                style="font-weight: bold;font-size:24px">RU</span>
           <span v-else @click="languageRU()">RU</span>
         </a>
         <Slide right width="250" class="Slide">
@@ -236,10 +244,10 @@ export default {
             <span class="secondHeader">Pages</span>
 
           </a>
-          <a id="home" href="#">
-            <span>Teams</span>
+          <a id="home" href="#" @click="changePathtoTeam()">
+            <span>Team</span>
           </a>
-          <a id="home" href="#">
+          <a id="home" href="#" @click="changePathtoImprint()">
             <span>Imprint</span>
           </a>
           <img src="@/assets/HohensteinWhite.png" class="sliderImage">
@@ -252,15 +260,18 @@ export default {
         <div class="mobileText-container-helper">
           <div class="mobileText-container">
             <ul class="item1">
-              <li>  Finanzpläne </li>
-              <li>  Kreditvermittlung</li>
+              <li> Finanzpläne</li>
+              <li> Kreditvermittlung</li>
               <li> Mezzaninkapital</li>
             </ul>
             <p class="item2">
-              <span style="font-size: 27px;">S</span>ie benötigen für Ihr Projekt einen Mix aus Eigen- und Fremdkapital? Wir beraten Sie gerne und finden mit Ihnen die rentabelste Variante für Ihre Finanzierung.
+              <span style="font-size: 27px;">S</span>ie benötigen für Ihr Projekt einen Mix aus Eigen- und Fremdkapital?
+              Wir beraten Sie gerne und finden mit Ihnen die rentabelste Variante für Ihre Finanzierung.
             </p>
             <p class="item3">
-              Wir setzen Sie in Verbindung mit Eigenkapitalgeber und Bankberater, welche Ihnen Kredite bzw. Darlehen mit attraktiv niedrigen Zinsen und Laufzeit finanzieren. Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten. Wir freuen uns auf Ihr Projekt.
+              Wir setzen Sie in Verbindung mit Eigenkapitalgeber und Bankberater, welche Ihnen Kredite bzw. Darlehen mit
+              attraktiv niedrigen Zinsen und Laufzeit finanzieren. Kontaktieren Sie uns und vereinbaren Sie ein
+              Erstgespräch mit unseren Experten. Wir freuen uns auf Ihr Projekt.
             </p>
           </div>
         </div>
@@ -307,35 +318,34 @@ export default {
 .mobileText-container {
   display: flex;
   flex-wrap: wrap;
-  margin-top:-20px;
+  margin-top: -20px;
 }
 
 .item1 {
   width: 100%;
-  list-style-type:none;
-  font-size:18px;
+  list-style-type: none;
+  font-size: 18px;
 }
 
 .item1 li::before {
   content: "■";
   color: #30375a;
-  padding:5px;
+  padding: 5px;
 }
 
 .item2 {
   width: 100%;
   text-align: justify;
-  font-size:18px;
+  font-size: 18px;
 
 }
 
 .item3 {
   width: 100%;
   text-align: justify;
-  font-size:18px;
+  font-size: 18px;
 
 }
-
 
 
 .footer {
@@ -344,8 +354,8 @@ export default {
 
   font-size: 15px;
   position: static;
-  bottom:0px;
-  margin-top:150px;
+  bottom: 0px;
+  margin-top: 150px;
   border: 1px solid black;
   border-bottom: 0px;
   border-left: 0px;
@@ -605,7 +615,7 @@ a {
   height: 1px;
   background-color: #30375a;
   width: 80%;
-  margin-top:3vh;
+  margin-top: 3vh;
 }
 
 .buttonDiv {
@@ -617,8 +627,8 @@ a {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  gap:10px;
-  margin-left:80px;
+  gap: 10px;
+  margin-left: 80px;
 }
 
 .firstText {

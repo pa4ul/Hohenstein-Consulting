@@ -46,7 +46,7 @@ export default {
           />
           
           <router-link to="/team"> <li style="float:right"><a>Team</a></li></router-link>
-          <li style="float:right;"><a>Imprint</a></li>
+          <router-link to="/impressum"><li style="float:right;"><a>Imprint</a></li></router-link>
           <li style="float:right;"><a>Weihburggasse 22/5 1010 Wien </a></li> 
         </ul>
     </footer>

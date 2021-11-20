@@ -14,7 +14,7 @@ export default {
   data() {
     return {
 
-      isMobile: true,
+      isMobile: false,
     };
   },
   methods: {
@@ -38,6 +38,12 @@ export default {
     },
     changePathtoBusiness: function () {
       this.$router.push({path: "/business-consulting"});
+    },
+    changePathtoTeam: function () {
+      this.$router.push({path: "/team"});
+    },
+    changePathtoImprint: function () {
+      this.$router.push({path: "/impressum"});
     },
   },
   components: {
@@ -77,7 +83,7 @@ export default {
     <div v-if="this.isMobile">
       <div class="masterDiv">
         <div class="landingPage">
-          <nav>
+          <nav class="nav">
             <ul v-if="this.$store.state.language == 'en'">
               <router-link to="/finance"
               >
@@ -223,7 +229,7 @@ export default {
           <span
               v-if="this.$store.state.language == 'de'"
               @click="languageDE()"
-              style="font-weight: bold"
+              style="font-weight: bold;font-size:24px"
           >DE</span
           >
           <span v-else @click="languageDE()">DE</span>
@@ -231,12 +237,12 @@ export default {
           <span
               v-if="this.$store.state.language == 'en'"
               @click="languageEN()"
-              style="font-weight: bold"
+              style="font-weight: bold;font-size:24px"
           >EN</span
           >
           <span v-else @click="languageEN()">EN</span>
           /
-          <span v-if="this.$store.state.language == 'ru'" @click="languageRU()" style="font-weight:bold">RU</span>
+          <span v-if="this.$store.state.language == 'ru'" @click="languageRU()" style="font-weight: bold;font-size:24px">RU</span>
           <span v-else @click="languageRU()">RU</span>
         </a>
         <Slide right width="250" class="Slide">
@@ -262,10 +268,10 @@ export default {
             <span class="secondHeader">Pages</span>
 
           </a>
-          <a id="home" href="#">
-            <span>Teams</span>
+          <a id="home" href="#" @click="changePathtoTeam()">
+            <span>Team</span>
           </a>
-          <a id="home" href="#">
+          <a id="home" href="#" @click="changePathtoImprint()">
             <span>Imprint</span>
           </a>
           <img src="@/assets/HohensteinWhite.png" class="sliderImage">
@@ -312,7 +318,7 @@ export default {
 .secondHeader {
   font-size: 28px;
   border-bottom: 2px solid white;
-  padding-top: 30px;
+  padding-top: 15px;
 }
 
 .bm-burger-button {
@@ -455,7 +461,7 @@ a {
   color: black;
 }
 
-nav {
+. nav {
   font-size: 20px;
   position: fixed;
   z-index: 999999999;
@@ -673,7 +679,7 @@ li {
 }
 
 @media only screen and (max-width: 1150px), screen and (max-height: 850px) {
-  nav {
+  .nav {
     font-size: 19px;
     position: fixed;
     z-index: 999999999;
@@ -689,7 +695,7 @@ li {
     height: 80px;
     width: 100%;
   }
-  nav a{
+  .nav a{
     font-size:16px;
   }
   ul {

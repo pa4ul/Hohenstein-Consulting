@@ -5,7 +5,7 @@ import mobileFooter from "@/components/mobileFooter.vue";
 export default {
   data() {
     return {
-      isMobile: true,
+      isMobile: false,
       greeting: "Hello World!",
     };
   },
@@ -33,6 +33,12 @@ export default {
     },
     changePathtoBusiness: function () {
       this.$router.push({path: "/business-consulting"});
+    },
+    changePathtoTeam: function () {
+      this.$router.push({path: "/team"});
+    },
+    changePathtoImprint: function () {
+      this.$router.push({path: "/impressum"});
     },
   },
   components: {
@@ -240,10 +246,10 @@ export default {
             <span class="secondHeader">Pages</span>
 
           </a>
-          <a id="home" href="#">
-            <span>Teams</span>
+          <a id="home" href="#" @click="changePathtoTeam()">
+            <span>Team</span>
           </a>
-          <a id="home" href="#">
+          <a id="home" href="#" @click="changePathtoImprint()">
             <span>Imprint</span>
           </a>
           <img src="@/assets/HohensteinWhite.png" class="sliderImage">

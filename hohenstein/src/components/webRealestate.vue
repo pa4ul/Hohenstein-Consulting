@@ -5,7 +5,7 @@ import mobileFooter from "@/components/mobileFooter.vue";
 export default {
   data() {
     return {
-      isMobile: true
+      isMobile: false
     };
   },
   methods: {
@@ -246,8 +246,8 @@ export default {
       </div>
       <img src="@/assets/house1.png" class="mobileImage"/>
       <div class="mobileContent">
-        <p class="mobileText">Classic Cars</p>
-        <p class="mobileSlogan">Not just a car</p>
+        <p class="mobileText">Real Estate</p>
+        <p class="mobileSlogan">Invest in Real Estate</p>
         <div class="mobileText-container-helper">
           <div class="mobileText-container">
             <ul class="item1">

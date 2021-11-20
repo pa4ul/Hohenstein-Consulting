@@ -5,7 +5,7 @@ import mobileFooter from "@/components/mobileFooter.vue";
 export default {
   data() {
     return {
-      isMobile: true,
+      isMobile: false,
       greeting: "Hello World!",
     };
   },
@@ -50,7 +50,7 @@ export default {
     } else {
       // false for not mobile device
       this.isMobile = false;
-    } 
+    }
   },*/
 };
 </script>
@@ -68,7 +68,7 @@ export default {
         </div>
       </router-link>
       <div class="wrapper1">
-        <nav>
+        <nav class="nav">
           <ul v-if="this.$store.state.language == 'en'">
             <router-link to="/finance"
             >
@@ -134,31 +134,38 @@ export default {
             </li>
           </ul>
         </nav>
-
         <div class="content">
-
-        <div class="teamBox">
-          <div class="person1">
-            <img src="@/assets/steiningerCut_compressed.png" class="imageTeam" style="width: 125px"/>
-            <p class="person1text">Gerald Steininger, MBA</p>
-            <p class="person1text"><a href="tel:+436769115110" style="text-decoration:none;color:white;">+43 676 911 511 0 </a></p>
-            <p class="person1text"><a style="color:white" href="mailto:gerald.steininger@hohenstein-consulting.at">gerald.steininger@hohenstein-consulting.at </a></p>
+          <div class="item1">
+            <p> Jahrzehnte lange Praxiserfahrung bündelt sich zu einem Netzwerk, welches sensationelle Lösungen für
+              jegliche Anwendungen schafft. Unser Team berät Sie gerne und geht auf Ihren Fall ernsthaft ein. Etliche
+              zufriedene Kunden bestätigen den Erfolg unseres Teams.</p>
           </div>
-          <div class="person2">
-            <img src="@/assets/chalupaCut_compressed.png" class="imageTeam"/>
+          <div class="item2">
+            <div class="person1">
+              <img src="@/assets/steiningerCut_compressed.png" class="imageTeam"/>
+              <div class="person1Banner">
+                <p class="person1text">Gerald Steininger, MBA</p>
+                <p class="person1text"><a href="tel:+436769115110" style="text-decoration:none;color:white;">+43 676 911
+                  511 0 </a></p>
+                <p class="person1text"><a style="color:white" href="mailto:gerald.steininger@hohenstein-consulting.at">gerald.steininger@hohenstein-consulting.at </a>
+                </p>
+              </div>
+            </div>
+            <div class="person2">
+              <img src="@/assets/chalupaCut_compressed.png" class="imageTeam"/>
+              <div class="person1Banner">
 
-            <p class="person1text">Boris Chalupa</p>
-            <p class="person1text"><a href="tel:+436608106408" style="text-decoration:none;color:white;">+43 660 810 6408</a></p>
-            <p class="person1text"><a style="color:white" href="mailto:boris.chalupa@hohenstein-consulting.at"> boris.chalupa@hohenstein-consulting.at</a></p>
+                <p class="person1text">Boris Chalupa</p>
+                <p class="person1text"><a href="tel:+436608106408" style="text-decoration:none;color:white;">+43 660 810
+                  6408</a></p>
+                <p class="person1text"><a style="color:white" href="mailto:boris.chalupa@hohenstein-consulting.at">
+                  boris.chalupa@hohenstein-consulting.at</a></p>
+              </div>
+            </div>
           </div>
+
+
         </div>
-
-          <div class="descriptionTeam-wrapper">
-            <p class="descriptionTeam">Jahrzehnte lange Praxiserfahrung bündelt sich zu einem Netzwerk, welches
-              sensationelle Lösungen für jegliche Anwendungen schafft. Unser Team berät Sie gerne und geht auf Ihren Fall
-              ernsthaft ein. Etliche zufriedene Kunden bestätigen den Erfolg unseres Teams.</p>
-          </div>
-
         <footer class="footer">
           <ul class="ul">
             <li class="li" style="float: left;"><a>office@hohenstein-consulting.at</a></li>
@@ -175,9 +182,8 @@ export default {
           </ul>
         </footer>
       </div>
-      </div>
     </div>
-     <div v-if="!this.isMobile">
+    <div v-if="!this.isMobile">
       <div class="navbar">
         <router-link to="/">
           <img src="@/assets/arrow.png" class="backButton"/>
@@ -246,22 +252,24 @@ export default {
           <img src="@/assets/Steininger2_compressed.jpg" class="mobileImageTeam"/>
           <p class="person1text">Gerald Steininger, MBA</p>
           <a href="tel:+436769115110" style="text-decoration:none;"><p class="person1text">+43 676 911 511 0</p></a>
-          <a style="color:white" href="mailto:gerald.steininger@hohenstein-consulting.at"><p class="person1text">gerald.steininger@hohenstein-consulting.at</p></a>
+          <a style="color:white" href="mailto:gerald.steininger@hohenstein-consulting.at"><p class="person1text">
+            gerald.steininger@hohenstein-consulting.at</p></a>
         </div>
         <div class="person2mobile">
           <img src="@/assets/Chalupa2_compressed.jpg" class="mobileImageTeam"/>
           <p class="person1text">Boris Chalupa</p>
           <a href="tel:+436608106408" style="text-decoration:none;"><p class="person1text">+43 660 8106 408</p></a>
-         <a style="color:white" href="mailto:boris.chalupa@hohenstein-consulting.at"> <p class="person1text">boris.chalupa@hohenstein-consulting.at</p></a>
+          <a style="color:white" href="mailto:boris.chalupa@hohenstein-consulting.at"><p class="person1text">
+            boris.chalupa@hohenstein-consulting.at</p></a>
 
         </div>
-                <mobileFooter/>
+        <mobileFooter/>
 
       </div>
-    </div> 
-    
+    </div>
+
   </div>
-  
+
 </template>
 
 
@@ -269,15 +277,63 @@ export default {
 * {
   font-family: "Miller Display";
 }
+.imageTeam{
+  height: 150px;
+  margin:-5px;
+}
+.person1{
+  margin:10px;
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.person2{
+  margin:10px;
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.person1:hover {
+  transform: translateX(0px) scale(1.05);
+}
 
-.wrapper1 {
+.person2:hover {
+  transform: translateX(0px) scale(1.05);
+}
+.person1Banner {
+  background-color: #30375a;
+  height: 80px;
+  padding:10px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+  rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.content {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: center;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 100px;
+  margin-left: 80px;
+  height:120vh;
+  gap:20px;
+}
+
+.item1 {
+  margin-top:40px;
+  width: 60%;
+  padding:10px;
+  background-color: #e3e5e6;
 
 }
 
-nav {
+.item2 {
+  width: 70%;
+  height: 300px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
+.nav {
   position: fixed;
   left: calc(50% + 40px);
   transform: translateX(-50%);
@@ -304,27 +360,23 @@ li:hover {
   cursor: pointer;
 }
 
-nav li {
+.nav li {
   display: inline;
   margin: 3%;
 }
 
 .footer {
   font-size: 15px;
-  position: absolute;
-  bottom: -120px;
   border: 1px solid black;
   border-bottom: 0px;
   border-left: 0px;
   border-right: 0px;
-  width: 80%;
   background-color: #30375a;
   height: 90px;
-  left: calc(50% + 40px);
-  transform: translateX(-50%);
+
   padding-top: 10px;
   padding-bottom: 15px;
-
+  margin-left:80px;
 }
 
 
@@ -340,11 +392,9 @@ footer ul li a {
 }
 
 .hohenSteinLogoText {
-  position: absolute;
-  height: 70px;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -20%);
+  height: 100px;
+  margin:-40px;
+
 }
 
 .li {
@@ -420,35 +470,6 @@ a {
   transform: rotate(90deg);
 }
 
-.header {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: -150px;
-  font-size: 40px;
-  border-bottom: 5px solid #30375a;
-}
-
-.teamBox {
-  position: absolute;
-  left: calc(50% + 40px);
-  bottom: 10%;
-  transform: translate(-50%);
-  width: 70%;
-  min-width: 700px;
-  height: 300px;
-  max-height: 50%;
-  background-color: #e3e5e6;
-}
-
-.descriptionTeam {
-  position: absolute;
-  width: 50%;
-  left: calc(50% + 40px);
-  transform: translateX(-50%);
-  top: 20%;
-  text-align: justify;
-}
 
 .person1mobile {
   position: absolute;
@@ -481,35 +502,6 @@ a {
   rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
-.person1 {
-  position: absolute;
-  height: 125px;
-  width: 300px;
-  background-color: #30375a;
-  left: 10%;
-  bottom: 30px;
-  display: flex;
-  justify-content: center;
-  flex-flow: column wrap;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-  rgba(0, 0, 0, 0.22) 0px 15px 12px;
-  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.person2 {
-  position: absolute;
-  height: 125px;
-  width: 300px;
-  background-color: #30375a;
-  right: 10%;
-  bottom: 30px;
-  display: flex;
-  justify-content: center;
-  flex-flow: column wrap;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-  rgba(0, 0, 0, 0.22) 0px 15px 12px;
-  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
-}
 
 .person1text {
   color: white;
@@ -518,14 +510,6 @@ a {
   margin: 4px;
 }
 
-.person2text {
-  color: white;
-  text-align: center;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
 
 .arrowBack {
   height: 13px;
@@ -535,14 +519,6 @@ a {
   left: 25px;
 }
 
-.imageTeam {
-  width: 140px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 124px;
-
-}
 
 .mobileImageTeam {
   width: 290px;
@@ -553,17 +529,10 @@ a {
   bottom: 125px;
 }
 
-.person1:hover {
-  transform: translateX(0px) scale(1.05);
-}
-
-.person2:hover {
-  transform: translateX(0px) scale(1.05);
-}
 
 @media only screen and (max-width: 1250px) {
 
-  nav li {
+  .nav li {
     margin: 2%;
     font-size: 16px;
   }
@@ -581,59 +550,24 @@ a {
     color: black;
   }
 }
+
 @media only screen and (max-width: 1100px), screen and (max-height: 600px) {
-  .descriptionTeam {
-    position: absolute;
-    font-size:14px;
-    width: 60%;
-    left: calc(50% + 40px);
-    transform: translateX(-50%);
-    top: 20%;
-    text-align: justify;
-  }
-  .person1 {
-    position: absolute;
-    height: 125px;
-    width: 250px;
-    background-color: #30375a;
-    left: 10%;
-    bottom: 30px;
-    display: flex;
-    justify-content: center;
-    flex-flow: column wrap;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .person2 {
-    position: absolute;
-    height: 125px;
-    width: 250px;
-    background-color: #30375a;
-    right: 10%;
-    bottom: 30px;
-    display: flex;
-    justify-content: center;
-    flex-flow: column wrap;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
   .person1text {
     color: white;
     text-align: center;
     text-decoration: none;
     margin: 4px;
-    font-size:12px;
+    font-size: 12px;
   }
 
 
-  nav a{
-    font-size:13px;
-    margin:0;
+  .nav a {
+    font-size: 13px;
+    margin: 0;
   }
-  footer a{
-    font-size:12px;
+
+  footer a {
+    font-size: 12px;
   }
 }
 </style>
