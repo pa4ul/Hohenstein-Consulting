@@ -34,6 +34,12 @@ export default {
     changePathtoBusiness: function () {
       this.$router.push({path: "/business-consulting"});
     },
+    changePathtoTeam: function () {
+      this.$router.push({path: "/team"});
+    },
+    changePathtoImprint: function () {
+      this.$router.push({path: "/impressum"});
+    },
   },
   components: {
     Slide,
@@ -68,7 +74,7 @@ export default {
         </div>
       </router-link>
       <div class="wrapper1">
-        <nav class="nav">
+        <nav>
           <ul v-if="this.$store.state.language == 'en'">
             <router-link to="/finance"
             >
@@ -82,6 +88,9 @@ export default {
             </router-link>
             <router-link to="/business-consulting">
               <li><a>Business Consulting</a></li>
+            </router-link>
+            <router-link to="/team">
+              <li><a>Team</a></li>
             </router-link>
             <li>
               <a
@@ -135,7 +144,10 @@ export default {
           </ul>
         </nav>
         <div class="content">
-          <div class="item1">
+          <div class="item1" v-if="this.$store.state.language == 'en'">
+            <p> Decades of practical experience combine to form a network that creates sensational solutions for any application. Our team will be happy to advise you and will take care of your case. Numerous satisfied customers confirm the success of our team.</p>
+          </div>
+          <div class="item1" v-if="this.$store.state.language == 'de'">
             <p> Jahrzehnte lange Praxiserfahrung bündelt sich zu einem Netzwerk, welches sensationelle Lösungen für
               jegliche Anwendungen schafft. Unser Team berät Sie gerne und geht auf Ihren Fall ernsthaft ein. Etliche
               zufriedene Kunden bestätigen den Erfolg unseres Teams.</p>
@@ -166,22 +178,24 @@ export default {
 
 
         </div>
-        <footer class="footer">
-          <ul class="ul">
-            <li class="li" style="float: left;"><a>office@hohenstein-consulting.at</a></li>
-            <li class="li" style="float: left;"><a>+43 676 911 511 0</a></li>
-            <img
-                src="@/assets/HohensteinWhite.png"
-                class="hohenSteinLogoText"
-            />
-            <li class="li" style="float:right;"><a>Weihburggasse 22/5 1010 Wien </a></li>
-            <router-link to="/team">
-              <li class="li" style="float:right"><a>Team</a></li>
-            </router-link>
-            <li class="li" style="float:right;"><a>Imprint</a></li>
-          </ul>
-        </footer>
+
       </div>
+      <footer class="footer">
+        <ul class="ul">
+          <li class="li" style="float: left;"><a>office@hohenstein-consulting.at</a></li>
+          <li class="li" style="float: left;"><a>+43 676 911 511 0</a></li>
+          <img
+              src="@/assets/HohensteinWhite.png"
+              class="hohenSteinLogoText"
+          />
+          <li class="li" style="float:right;"><a>Weihburggasse 22/5 1010 Wien </a></li>
+          <router-link to="/team">
+            <li class="li" style="float:right"><a>Team</a></li>
+          </router-link>
+          <li v-if="this.$store.state.language == 'en'" class="li" style="float:right;"><a>Imprint</a></li>
+          <li v-if="this.$store.state.language == 'de'" class="li" style="float:right;"><a>Impressum</a></li>
+        </ul>
+      </footer>
     </div>
     <div v-if="!this.isMobile">
       <div class="navbar">
@@ -192,7 +206,7 @@ export default {
           <span
               v-if="this.$store.state.language == 'de'"
               @click="languageDE()"
-              style="font-weight: bold"
+              style="font-weight: bold;font-size:24px"
           >DE</span
           >
           <span v-else @click="languageDE()">DE</span>
@@ -200,7 +214,7 @@ export default {
           <span
               v-if="this.$store.state.language == 'en'"
               @click="languageEN()"
-              style="font-weight: bold"
+              style="font-weight: bold;font-size:24px"
           >EN</span
           >
           <span v-else @click="languageEN()">EN</span>
@@ -208,12 +222,12 @@ export default {
           <span
               v-if="this.$store.state.language == 'ru'"
               @click="languageRU()"
-              style="font-weight: bold"
+              style="font-weight: bold;font-size:24px"
           >RU</span
           >
           <span v-else @click="languageRU()">RU</span>
         </a>
-        <Slide right width="250" class="Slide">
+        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'en'">
           <a id="home" href="#">
             <span class="firstHeader">Services</span>
           </a>
@@ -232,34 +246,65 @@ export default {
           </a>
           <a id="home" href="#">
             <span class="secondHeader">Pages</span>
+
           </a>
-          <a id="home" href="#">
-            <span>Teams</span>
+          <a id="home" href="#" @click="changePathtoTeam()">
+            <span>Team</span>
           </a>
-          <a id="home" href="#">
+          <a id="home" href="#" @click="changePathtoImprint()">
             <span>Imprint</span>
           </a>
-          <img src="@/assets/HohensteinWhite.png" class="sliderImage"/>
+          <img src="@/assets/HohensteinWhite.png" class="sliderImage">
+        </Slide>
+        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'de'">
+          <a id="home" href="#">
+            <span class="firstHeader">Service</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoFinance()">
+            <span>Finanzberatung</span>
+          </a>
+
+          <a id="" href="#" @click="changePathtoRealEstate()">
+            <span>Immobilien</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoCars()">
+            <span>Oldtimer</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoBusiness()">
+            <span>Unternehmensberatung</span>
+          </a>
+          <a id="home" href="#">
+            <span class="secondHeader">Seiten</span>
+
+          </a>
+          <a id="home" href="#" @click="changePathtoTeam()">
+            <span>Team</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoImprint()">
+            <span>Impressum</span>
+          </a>
+          <img src="@/assets/HohensteinWhite.png" class="sliderImage">
         </Slide>
       </div>
       <p class="slogan">team</p>
-      <p class="text">Jahrzehnte lange Praxiserfahrung bündelt sich zu einem Netzwerk, welches sensationelle Lösungen
+      <p class="text" v-if="this.$store.state.language == 'de'">Jahrzehnte lange Praxiserfahrung bündelt sich zu einem Netzwerk, welches sensationelle Lösungen
         für jegliche Anwendungen schafft. <br/><br/> Unser Team berät Sie gerne und geht auf Ihren Fall ernsthaft ein.
         Etliche zufriedene Kunden bestätigen den Erfolg unseres Teams.</p>
+      <p class="text" v-if="this.$store.state.language == 'en'"> Decades of practical experience combine to form a network that creates sensational solutions for any application. Our team will be happy to advise you and will take care of your case. Numerous satisfied customers confirm the success of our team.</p>
       <div class="mobileContent">
 
         <div class="person1mobile">
           <img src="@/assets/Steininger2_compressed.jpg" class="mobileImageTeam"/>
-          <p class="person1text">Gerald Steininger, MBA</p>
-          <a href="tel:+436769115110" style="text-decoration:none;"><p class="person1text">+43 676 911 511 0</p></a>
-          <a style="color:white" href="mailto:gerald.steininger@hohenstein-consulting.at"><p class="person1text">
+          <p class="person1textMobile">Gerald Steininger, MBA</p>
+          <a href="tel:+436769115110" style="text-decoration:none;"><p class="person1textMobile">+43 676 911 511 0</p></a>
+          <a style="color:white" href="mailto:gerald.steininger@hohenstein-consulting.at"><p class="person1textMobile">
             gerald.steininger@hohenstein-consulting.at</p></a>
         </div>
         <div class="person2mobile">
           <img src="@/assets/Chalupa2_compressed.jpg" class="mobileImageTeam"/>
-          <p class="person1text">Boris Chalupa</p>
-          <a href="tel:+436608106408" style="text-decoration:none;"><p class="person1text">+43 660 8106 408</p></a>
-          <a style="color:white" href="mailto:boris.chalupa@hohenstein-consulting.at"><p class="person1text">
+          <p class="person1textMobile">Boris Chalupa</p>
+          <a href="tel:+436608106408" style="text-decoration:none;"><p class="person1textMobile">+43 660 8106 408</p></a>
+          <a style="color:white" href="mailto:boris.chalupa@hohenstein-consulting.at"><p class="person1textMobile">
             boris.chalupa@hohenstein-consulting.at</p></a>
 
         </div>
@@ -276,6 +321,13 @@ export default {
 <style scoped>
 * {
   font-family: "Miller Display";
+}
+.wrapper1{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap:10px;
+  margin-left:80px;
 }
 .imageTeam{
   height: 150px;
@@ -332,11 +384,9 @@ export default {
   align-items: center;
   flex-wrap: wrap;
 }
-
-.nav {
+nav {
+  font-size: 18px;
   position: fixed;
-  left: calc(50% + 40px);
-  transform: translateX(-50%);
   z-index: 999999999;
   background-color: white;
   top: 0;
@@ -346,22 +396,22 @@ export default {
   border-left: 0px;
   border-right: 0px;
   height: 90px;
-  width: calc(75% - 13px);
+  width: 75%;
 }
 
 ul {
   list-style-type: none;
   margin-top: 40px;
   padding: 0;
-
 }
 
 li:hover {
   cursor: pointer;
 }
 
-.nav li {
+nav li {
   display: inline;
+
   margin: 3%;
 }
 
@@ -510,7 +560,12 @@ a {
   margin: 4px;
 }
 
-
+.person1textMobile {
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  margin: 4px;
+}
 .arrowBack {
   height: 13px;
   position: absolute;

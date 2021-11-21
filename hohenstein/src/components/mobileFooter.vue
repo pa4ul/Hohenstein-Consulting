@@ -20,9 +20,8 @@ export default {
       <router-link class="router-link" to="/team"> Team </router-link>
     </p>
 
-    <p class="center">Imprint</p>
+    <p class="center"> <router-link class="router-link" to="/impressum"> Imprint </router-link></p>
     <br />
-
     <img src="@/assets/HohensteinWhite.png" class="logo center" />
   </div>
 </template>

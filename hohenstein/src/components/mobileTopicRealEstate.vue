@@ -31,6 +31,7 @@ export default {
 }
 .wrapper{
   padding:0px;
+  width: 100%;
   top:600px;
   position: absolute;
 }

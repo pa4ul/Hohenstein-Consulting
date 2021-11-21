@@ -35,6 +35,7 @@ html {
 .wrapper{
   padding:0px;
   top:300px;
+  width: 100%;
   position: absolute;
 }
 .mobileTopic {

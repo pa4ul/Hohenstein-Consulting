@@ -54,7 +54,7 @@ html {
 .whiteBox {
   position: absolute;
   height: 250px;
-  width: 450px;
+  width: 650px;
   background-color: white;
   transform: translateY(50%);
   bottom: 50%;

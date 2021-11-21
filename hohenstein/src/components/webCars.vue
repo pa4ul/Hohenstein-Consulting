@@ -143,33 +143,39 @@ export default {
             </li>
           </ul>
         </nav>
-
-
-
-
         <img src="@/assets/car1.png" class="carimage"/>
         <div class="blueStrike"></div>
         <div class="firstText">
 
           <p>
-            <ul class="checkList">
+            <ul class="checkList" v-if="this.$store.state.language == 'de'">
             <li style="padding-bottom:10px;">Oldtimervermittlung</li>
             <li style="padding-bottom:10px;">Oldtimerfinanzierung</li>
-            <li style="padding-bottom:10px;">Beratung in Management und Mitarbeiterführung</li>
-            <li style="padding-bottom:10px;">Oldtimervermietung</li>  
+            <li style="padding-bottom:10px;">Oldtimervermietung</li>
             </ul>
+            <ul class="checkList" v-if="this.$store.state.language == 'en'">
+            <li style="padding-bottom:10px;">Classic car brokerage</li>
+            <li style="padding-bottom:10px;">Classic car financing</li>
+            <li style="padding-bottom:10px;">Classic car rental</li>
+          </ul>
           </p>
-          <p> <span style="font-size: 27px;">F</span>ahren Sie jetzt Ihren Traumwagen. Heben Sie sich durch den klassisch eleganten Stil der Oldtimer von der Masse ab. 
-          </p>
+          <p v-if="this.$store.state.language == 'de'"> <span style="font-size: 27px;">F</span>ahren Sie jetzt Ihren Traumwagen. Heben Sie sich durch den klassisch eleganten Stil der Oldtimer von der Masse ab. </p>
+          <p v-if="this.$store.state.language == 'en'"> <span style="font-size: 27px;">D</span>rive your dream car now. Stand out from the crowd with the elegant style of classic cars. We help you to find, finance or simply rent the car of your dreams.</p>
         </div>
 
         <div class="secondText">
-          <p>
+          <p v-if="this.$store.state.language == 'de'">
              Wir unterstützen Sie bei der Suche, Finanzierung oder der simplen Miete Ihres Wunschautos. Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten. Wir freuen uns auf Ihr Projekt.
           </p>
-          <div class="buttonDiv">
+          <p v-if="this.$store.state.language == 'en'">
+            Contact us and arrange a meeting with our experts. We look forward to your project.          </p>
+          <div class="buttonDiv" v-if="this.$store.state.language == 'de'">
             <a href="tel:+43 676 911 511 0" class="btn btn3" title="+43 676 911 511 0">Rufe uns an!</a>
             <a href="" class="btn btn3" @click="changePath()">Kontaktieren uns!</a>
+          </div>
+          <div class="buttonDiv" v-if="this.$store.state.language == 'en'">
+            <a href="tel:+43 676 911 511 0" class="btn btn3" title="+43 676 911 511 0">Call us!</a>
+            <a href="" class="btn btn3" @click="changePath()">Contact Us!</a>
           </div>
 
         </div>
@@ -185,7 +191,8 @@ export default {
             <router-link to="/team">
               <li class="li" style="float:right"><a>Team</a></li>
             </router-link>
-            <li class="li" style="float:right;"><a>Imprint</a></li>
+            <li v-if="this.$store.state.language == 'de'" class="li" style="float:right;"><a>Impressum</a></li>
+            <li v-if="this.$store.state.language == 'en'" class="li" style="float:right;"><a>Imprint</a></li>
           </ul>
         </footer>
       </div>
@@ -215,17 +222,15 @@ export default {
           <span v-if="this.$store.state.language == 'ru'" @click="languageRU()" style="font-weight: bold;font-size:24px">RU</span>
           <span v-else @click="languageRU()">RU</span>
         </a>
-        <Slide right width="250" class="Slide">
+        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'en'">
           <a id="home" href="#">
-
             <span class="firstHeader">Services</span>
-
           </a>
           <a id="home" href="#" @click="changePathtoFinance()">
             <span>Financial Advise</span>
           </a>
 
-          <a id="home" href="#" @click="changePathtoRealEstate()">
+          <a id="" href="#" @click="changePathtoRealEstate()">
             <span>Real Estate</span>
           </a>
           <a id="home" href="#" @click="changePathtoCars()">
@@ -246,28 +251,69 @@ export default {
           </a>
           <img src="@/assets/HohensteinWhite.png" class="sliderImage">
         </Slide>
+        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'de'">
+          <a id="home" href="#">
+            <span class="firstHeader">Service</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoFinance()">
+            <span>Finanzberatung</span>
+          </a>
+
+          <a id="" href="#" @click="changePathtoRealEstate()">
+            <span>Immobilien</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoCars()">
+            <span>Oldtimer</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoBusiness()">
+            <span>Unternehmensberatung</span>
+          </a>
+          <a id="home" href="#">
+            <span class="secondHeader">Seiten</span>
+
+          </a>
+          <a id="home" href="#" @click="changePathtoTeam()">
+            <span>Team</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoImprint()">
+            <span>Impressum</span>
+          </a>
+          <img src="@/assets/HohensteinWhite.png" class="sliderImage">
+        </Slide>
       </div>
       <img src="@/assets/car1.png" class="mobileImage"/>
       <div class="mobileContent">
-        <p class="mobileText">Classic Cars</p>
-        <p class="mobileSlogan">Not just a car</p>
+        <p v-if="this.$store.state.language == 'en'" class="mobileText">Classic Cars</p>
+        <p v-if="this.$store.state.language == 'en'" class="mobileSlogan">Not just a car</p>
+        <p v-if="this.$store.state.language == 'de'" class="mobileText">Oldtimer</p>
+        <p v-if="this.$store.state.language == 'de'" class="mobileSlogan">Nicht nur ein Auto.</p>
         <div class="mobileText-container-helper">
           <div class="mobileText-container">
-            <ul class="item1">
+            <ul class="item1" v-if="this.$store.state.language == 'de'">
               <li>  Oldtimervermittlung </li>
               <li>  Oldtimervermietung</li>
+              <li> Classic car rental</li>
+            </ul>
+            <ul class="item1" v-if="this.$store.state.language == 'en'">
+              <li>  Classic car brokerage </li>
+              <li>  Classic car brokerage</li>
               <li> Oldtimerfinanzierung</li>
             </ul>
-             <p class="item2"> <span style="font-size: 27px;">F</span>ahren Sie jetzt Ihren Traumwagen. Heben Sie sich durch den klassisch eleganten Stil der Oldtimer von der Masse ab. 
-          </p>
-            <p class="item3">
+            <p v-if="this.$store.state.language == 'de'" class="item2"> <span style="font-size: 27px;">F</span>ahren Sie jetzt Ihren Traumwagen. Heben Sie sich durch den klassisch eleganten Stil der Oldtimer von der Masse ab.</p>
+
+            <p v-if="this.$store.state.language == 'en'" class="item2"> <span style="font-size: 27px;">D</span>rive your dream car now. Stand out from the crowd with the elegant style of classic cars. We help you to find, finance or simply rent the car of your dreams.</p>
+
+            <p class="item3" v-if="this.$store.state.language == 'de'">
              Wir unterstützen Sie bei der Suche, Finanzierung oder der simplen Miete Ihres Wunschautos. Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten. Wir freuen uns auf Ihr Projekt.
           </p>
+            <p class="item3" v-if="this.$store.state.language == 'en'">
+              Contact us and arrange a meeting with our experts. We look forward to your project. </p>
           </div>
         </div>
 
 
         <input
+            v-if="this.$store.state.language == 'de'"
             type="button"
             value="Konaktiere uns!"
             @click="changePath()"
@@ -275,8 +321,21 @@ export default {
             style="-webkit-appearance: none;
        border-radius: 0;"
         />
-        <a href="tel:+43 676 911 511 0">
+        <input
+            v-if="this.$store.state.language == 'de'"
+            type="button"
+            value="Contact us!"
+            @click="changePath()"
+            class="inputButton3"
+            style="-webkit-appearance: none;
+       border-radius: 0;"
+        />
+        <a href="tel:+43 676 911 511 0" v-if="this.$store.state.language == 'de'">
           <input type="button" value="Ruf uns an!" class="inputButton2" style="-webkit-appearance: none;
+       border-radius: 0;">
+        </a>
+        <a href="tel:+43 676 911 511 0" v-if="this.$store.state.language == 'en'">
+          <input type="button" value="Call us!" class="inputButton2" style="-webkit-appearance: none;
        border-radius: 0;">
         </a>
       </div>
@@ -378,7 +437,7 @@ nav {
   border-left: 0px;
   border-right: 0px;
   height: 90px;
-  width: calc(75% - 13px);
+  width: 75%;
 }
 
 ul {

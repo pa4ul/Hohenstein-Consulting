@@ -14,8 +14,10 @@ export default {
     <img src="@/assets/car1Cut.png" class="image" />
     <div class="mobileWhiteBox">
       <div class="mobileWhiteBoxContent">
-        <p class="header">Classic Cars</p>
-        <p class="slogan">What a Luxury Car Should Be.</p>
+        <p class="header" v-if="this.$store.state.language == 'en'">Classic Cars</p>
+        <p class="slogan" v-if="this.$store.state.language == 'en'">What a Luxury Car Should Be.</p>
+        <p class="header" v-if="this.$store.state.language == 'de'">Oldtimer</p>
+        <p class="slogan" v-if="this.$store.state.language == 'de'">Was ein Luxusauto sein sollte.</p>
         <img src="@/assets/arrow.png" class="mobileArrow" />
       </div>
     </div>
@@ -35,6 +37,7 @@ html {
 }
 .wrapper{
   padding:0px;
+  width: 100%;
   z-index: 1000000;
   position: absolute;
 }

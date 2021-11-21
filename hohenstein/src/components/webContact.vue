@@ -76,32 +76,61 @@ export default {
           <span style="font-family: 'Helvetica'"> / </span> Contact
         </p>
       </router-link>
-      <div class="wrapper">
-        <div class="div">
-          <div class="textBox">
-            <p class="Headline">Contact Us</p>
-            <p class="text">How can we help?</p>
-            <form action="https://formsubmit.co/paulherbich1@gmail.com" method="POST">
-              <input type="text" name="Name" placeholder="Full name" class="inputName"/>
-              <br/>
-              <input type="text" name="E-Mail" placeholder="Your Email" class="inputEmail"/>
-              <br/>
-              <input type="text" name="Nachricht" placeholder="Message" class="inputText"/>
-              <br/>
-              <input type="submit" value="Submit" class="inputButton"/>
-            </form>
-          </div>
-        </div>
-        <div class="maps">
+      <div class="wrapper1">
+        <div class="webContact">
+          <p class="header" v-if="this.$store.state.language == 'en'">Contact us</p>
+          <p class="text" v-if="this.$store.state.language == 'en'">How can we help?</p>
+          <p class="header" v-if="this.$store.state.language == 'de'">Contact us</p>
+          <p class="text" v-if="this.$store.state.language == 'de'">How can we help?</p>
+          <form action="https://formsubmit.co/paulherbich1@gmail.com" method="POST">
+            <input
+                name="Name"
+                type="text"
+                placeholder="Name"
+                class="inputNameMobile"
+            />
+            <br/>
+            <input
+                name="E-Mail"
+                type="text"
+                placeholder="E-Mail"
+                class="inputEmailMobile"
+            />
+            <br/>
+            <input v-if="this.$store.state.language == 'en'" type="text" placeholder="Message" name="Nachricht" class="inputTextMobile"/>
+            <br/>
+            <input v-if="this.$store.state.language == 'en'" type="submit" value="Submit" class="inputButtonMobile" style="-webkit-appearance: none;
+            border-radius: 0;"/>
+            <input v-if="this.$store.state.language == 'de'" type="text" placeholder="Nachricht" name="Nachricht" class="inputTextMobile"/>
+            <br/>
+            <input v-if="this.$store.state.language == 'de'" type="submit" value="Absenden" class="inputButtonMobile" style="-webkit-appearance: none;
+            border-radius: 0;"/>
+          </form>
           <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.0531195811523!2d16.37277211569394!3d48.20559275440027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d079e6c60ca6f%3A0xa3afc3a3cb04134d!2sWeihburggasse%2022%2C%201010%20Wien!5e0!3m2!1sde!2sat!4v1635066761214!5m2!1sde!2sat"
-
-              height="450"
-              style="border: 0; z-index: 10"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10636.210315711996!2d16.36620604147663!3d48.205603168378175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d079e6c60ca6f%3A0xa3afc3a3cb04134d!2sWeihburggasse%2022%2C%201010%20Wien!5e0!3m2!1sde!2sat!4v1635526907467!5m2!1sde!2sat"
+              width="100%"
+              height="400"
+              style="border: 0"
               allowfullscreen=""
               loading="lazy"
+              class="iframe"
           ></iframe>
         </div>
+        <footer class="footer1">
+          <ul>
+            <li style="float: left;"><a>office@hohenstein-consulting.at</a></li>
+            <li style="float: left;"><a>+43 650 123 4567</a></li>
+            <img
+                src="@/assets/HohensteinWhite.png"
+                class="hohenSteinLogoText"
+            />
+
+            <router-link to="/team"> <li style="float:right"><a>Team</a></li></router-link>
+            <router-link v-if="this.$store.state.language == 'en'" to="/impressum"><li style="float:right;"><a>Imprint</a></li></router-link>
+            <router-link v-if="this.$store.state.language == 'de'" to="/impressum"><li style="float:right;"><a>Impressum</a></li></router-link>
+            <li style="float:right;"><a>Weihburggasse 22/5 1010 Wien </a></li>
+          </ul>
+        </footer>
       </div>
     </div>
     <div v-if="!this.isMobile">
@@ -129,11 +158,9 @@ export default {
           <span v-if="this.$store.state.language == 'ru'" @click="languageRU()" style="font-weight:bold">RU</span>
           <span v-else @click="languageRU()">RU</span>
         </a>
-        <Slide right width="250" class="Slide">
+        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'en'">
           <a id="home" href="#">
-
             <span class="firstHeader">Services</span>
-
           </a>
           <a id="home" href="#" @click="changePathtoFinance()">
             <span>Financial Advise</span>
@@ -160,29 +187,62 @@ export default {
           </a>
           <img src="@/assets/HohensteinWhite.png" class="sliderImage">
         </Slide>
+        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'de'">
+          <a id="home" href="#">
+            <span class="firstHeader">Service</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoFinance()">
+            <span>Finanzberatung</span>
+          </a>
+
+          <a id="" href="#" @click="changePathtoRealEstate()">
+            <span>Immobilien</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoCars()">
+            <span>Oldtimer</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoBusiness()">
+            <span>Unternehmensberatung</span>
+          </a>
+          <a id="home" href="#">
+            <span class="secondHeader">Seiten</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoTeam()">
+            <span>Team</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoImprint()">
+            <span>Impressum</span>
+          </a>
+          <img src="@/assets/HohensteinWhite.png" class="sliderImage">
+        </Slide>
       </div>
       <div class="mobileContent">
         <div class="contact">
-          <p class="header">Contact us</p>
-          <p class="text">How can we help?</p>
+          <p class="header" v-if="this.$store.state.language == 'en'">Contact us</p>
+          <p class="text" v-if="this.$store.state.language == 'en'">How can we help?</p>
+          <p class="header" v-if="this.$store.state.language == 'de'">Kontaktiere uns!</p>
+          <p class="text" v-if="this.$store.state.language == 'de'">Wie können wir helfen?</p>
           <form action="https://formsubmit.co/paulherbich1@gmail.com" method="POST">
             <input
                 name="Name"
                 type="text"
-                placeholder="Full name"
+                placeholder="Name"
                 class="inputNameMobile"
             />
             <br/>
             <input
                 name="E-Mail"
                 type="text"
-                placeholder="Your Email"
+                placeholder="E-Mail"
                 class="inputEmailMobile"
             />
             <br/>
-            <input type="text" placeholder="Message" name="Nachricht" class="inputTextMobile"/>
+            <input v-if="this.$store.state.language == 'en'" type="text" placeholder="Message" name="Nachricht" class="inputTextMobile"/>
+            <input v-if="this.$store.state.language == 'de'" type="text" placeholder="Nachricht" name="Nachricht" class="inputTextMobile"/>
             <br/>
-            <input type="submit" value="Submit" class="inputButtonMobile" style="-webkit-appearance: none;
+            <input v-if="this.$store.state.language == 'en'" type="submit" value="Submit" class="inputButtonMobile" style="-webkit-appearance: none;
+       border-radius: 0;"/>
+            <input v-if="this.$store.state.language == 'de'" type="submit" value="Absenden" class="inputButtonMobile" style="-webkit-appearance: none;
        border-radius: 0;"/>
           </form>
           <iframe
@@ -205,16 +265,50 @@ export default {
 * {
   font-family: "Miller Display";
 }
-.wrapper{
-  justify-content: space-between;
+.webContact{
+  display: flex;
+}
+.wrapper1 {
+  position: absolute;
+  width: calc(100% - 160px);
+  left:120px;
+}
+.footer1{
+  font-size: 16px;
+  position: absolute;
+  bottom:-1050px;
+  border: 1px solid black;
+  border-bottom: 0px;
+  border-left: 0px;
+  border-right: 0px;
   width: 100%;
+  padding-top:10px;
+  padding-bottom:15px;
+  background-color:#30375a;
+
 }
-.div {
-  z-index: 1;
+.hohenSteinLogoText{
+  position: absolute;
+  height: 100px;
+  left: 50%;
+  transform: translate(-50%, -20%);
 }
+ul {
+  list-style-type: none;
+  padding: 0;
+
+  text-align: center;
+}
+li {
+  display: inline;
+  margin: 2%;
+  color:white;
+}
+
 .iframe {
   position: absolute;
-  top:550px;
+  top: 550px;
+
 }
 
 .header {
@@ -335,10 +429,11 @@ input {
   transform: translate(-50%);
   left: 25px;
 }
+
 .Headline {
   position: absolute;
   top: 10px;
-  left:140px;
+  left: 140px;
   font-family: "Miller Display";
   font-size: 25px;
   border-bottom: 3px solid #30375a;
@@ -397,13 +492,17 @@ input {
 .maps {
 
 }
-.maps iframe{
+
+.maps iframe {
   width: 450px;
   position: absolute;
-  top:500px;
+  top: 500px;
 }
+
 @media only screen and (max-width: 1100px), screen and (max-height: 600px) {
 
-
+.hohenSteinLogoText{
+  display: none;
+}
 }
 </style>

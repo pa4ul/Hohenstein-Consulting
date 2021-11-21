@@ -64,9 +64,6 @@ export default {
 </script>
 
 <style>
-.swiper-container {
-  margin-top:1300px;
-}
 .swiper_content {
     width: calc(100% - 150px);
     margin: auto;

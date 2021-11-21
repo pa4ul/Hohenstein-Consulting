@@ -152,7 +152,7 @@ export default {
         <div class="blueStrike"></div>
         <div class="firstText">
 
-          <p>
+          <p v-if="this.$store.state.language == 'de'">
             <span style="font-size: 25px; color: #30375a"></span>
             <ul class="checkList">
             <li style="padding-bottom:10px;">Prozessoptimierung</li>
@@ -162,9 +162,19 @@ export default {
             <li style="padding-bottom:10px;">Steuerberatung</li>
             </ul>
           </p>
+          <p v-if="this.$store.state.language == 'en'">
+            <span style="font-size: 25px; color: #30375a"></span>
+          <ul class="checkList">
+            <li style="padding-bottom:10px;">Process optimisation</li>
+            <li style="padding-bottom:10px;">Legal advice</li>
+            <li style="padding-bottom:10px;">Advice on management and leadership</li>
+            <li style="padding-bottom:10px;">Company formations throughout Europe</li>
+            <li style="padding-bottom:10px;">Tax advice</li>
+          </ul>
+          </p>
         </div>
 
-        <div class="secondText">
+        <div class="secondText" v-if="this.$store.state.language == 'de'">
 
           <p>
             <span style="font-size: 27px;">W</span>ir arbeiten mit Ihnen gemeinsam, um Ihr bestehendes oder neu
@@ -181,6 +191,21 @@ export default {
           </div>
 
         </div>
+        <div class="secondText" v-if="this.$store.state.language == 'en'">
+
+          <p>
+            <span style="font-size: 27px;">W</span>e work with you to bring your existing or newly established company to peak performance. Let us help you discover new possibilities and opportunities by optimising your processes and tax issues.
+            Contact us and arrange a meeting with our experts. We look forward to your project.
+          </p>
+          <div class="buttonDiv">
+            <a href="tel:+43 676 911 511 0" class="btn btn3" title="+43 676 911 511 0">Call us!</a>
+
+
+            <a href="" class="btn btn3" @click="changePath()">Contact us!</a>
+
+          </div>
+
+        </div>
         <footer class="footer">
           <ul class="ul">
             <li class="li" style="float: left;"><a>office@hohenstein-consulting.at</a></li>
@@ -193,7 +218,8 @@ export default {
             <router-link to="/team">
               <li class="li" style="float:right"><a>Team</a></li>
             </router-link>
-            <li class="li" style="float:right;"><a>Imprint</a></li>
+            <li class="li" style="float:right;" v-if="this.$store.state.language == 'de'"><a>Impressum</a></li>
+            <li class="li" style="float:right;" v-if="this.$store.state.language == 'en'"><a>Imprint</a></li>
           </ul>
         </footer>
       </div>
@@ -223,17 +249,15 @@ export default {
           <span v-if="this.$store.state.language == 'ru'" @click="languageRU()" style="font-weight: bold;font-size:24px">RU</span>
           <span v-else @click="languageRU()">RU</span>
         </a>
-        <Slide right width="250" class="Slide">
+        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'en'">
           <a id="home" href="#">
-
             <span class="firstHeader">Services</span>
-
           </a>
           <a id="home" href="#" @click="changePathtoFinance()">
             <span>Financial Advise</span>
           </a>
 
-          <a id="home" href="#" @click="changePathtoRealEstate()">
+          <a id="" href="#" @click="changePathtoRealEstate()">
             <span>Real Estate</span>
           </a>
           <a id="home" href="#" @click="changePathtoCars()">
@@ -254,6 +278,35 @@ export default {
           </a>
           <img src="@/assets/HohensteinWhite.png" class="sliderImage">
         </Slide>
+        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'de'">
+          <a id="home" href="#">
+            <span class="firstHeader">Service</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoFinance()">
+            <span>Finanzberatung</span>
+          </a>
+
+          <a id="" href="#" @click="changePathtoRealEstate()">
+            <span>Immobilien</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoCars()">
+            <span>Oldtimer</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoBusiness()">
+            <span>Unternehmensberatung</span>
+          </a>
+          <a id="home" href="#">
+            <span class="secondHeader">Seiten</span>
+
+          </a>
+          <a id="home" href="#" @click="changePathtoTeam()">
+            <span>Team</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoImprint()">
+            <span>Impressum</span>
+          </a>
+          <img src="@/assets/HohensteinWhite.png" class="sliderImage">
+        </Slide>
       </div>
       <img src="@/assets/businessImage.png" class="mobileImage"/>
       <div class="mobileContent">
@@ -261,7 +314,7 @@ export default {
         <p class="mobileSlogan">All it takes</p>
         <div class="mobileText-container-helper">
           <div class="mobileText-container">
-            <ul class="item1">
+            <ul class="item1" v-if="this.$store.state.language == 'de'">
               <li>  Prozessoptimierung </li>
               <li>  Rechtliche Beratung</li>
               <li> Beratung in Management</li>
@@ -269,10 +322,21 @@ export default {
               <li> Firmengründung europaweit</li>
               <li> Steuerberatung</li>
             </ul>
-            <p class="item2">
+            <ul class="item1" v-if="this.$store.state.language == 'en'">
+              <li>  Process optimisation </li>
+              <li>  Legal advice</li>
+              <li> Advice on management and leadership</li>
+              <li> Company formations throughout Europe</li>
+              <li> Tax advice</li>
+            </ul>
+            <p class="item2" v-if="this.$store.state.language == 'en'">
+              <span style="font-size: 27px;">W</span>e work with you to bring your existing or newly established company to peak performance. Let us help you discover new possibilities and opportunities by optimising your processes and tax issues. </p>
+            <p class="item3" v-if="this.$store.state.language == 'en'">
+              Contact us and arrange a meeting with our experts. We look forward to your project. </p>
+            <p class="item2" v-if="this.$store.state.language == 'de'">
               <span style="font-size: 27px;">W</span>ir arbeiten mit Ihnen gemeinsam, um Ihr bestehendes oder neu
               gegründetes Unternehmen auf Spitzenleistung zu bringen. </p>
-            <p class="item3">
+            <p class="item3" v-if="this.$store.state.language == 'de'">
               Entdecken Sie durch uns neue Möglichkeiten und Chancen durch Optimierung Ihrer Prozesse sowie
               steuerrechtliche Belange.
 
@@ -284,6 +348,7 @@ export default {
 
 
         <input
+            v-if="this.$store.state.language == 'de'"
             type="button"
             value="Konaktiere uns!"
             @click="changePath()"
@@ -291,8 +356,21 @@ export default {
             style="-webkit-appearance: none;
        border-radius: 0;"
         />
-        <a href="tel:+43 676 911 511 0">
+        <a href="tel:+43 676 911 511 0" v-if="this.$store.state.language == 'de'">
           <input type="button" value="Ruf uns an!" class="inputButton2" style="-webkit-appearance: none;
+       border-radius: 0;">
+        </a>
+        <input
+            v-if="this.$store.state.language == 'en'"
+            type="button"
+            value="Contact us!"
+            @click="changePath()"
+            class="inputButton3"
+            style="-webkit-appearance: none;
+       border-radius: 0;"
+        />
+        <a href="tel:+43 676 911 511 0" v-if="this.$store.state.language == 'en'">
+          <input type="button" value="Call us!" class="inputButton2" style="-webkit-appearance: none;
        border-radius: 0;">
         </a>
       </div>
@@ -394,7 +472,7 @@ nav {
   border-left: 0px;
   border-right: 0px;
   height: 90px;
-  width: calc(75% - 13px);
+  width: 75%;
 }
 
 ul {

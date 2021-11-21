@@ -94,8 +94,8 @@ export default {
               <li><a>Team</a></li>
             </router-link>
             <li>
-              <a
-              ><span v-if="this.$store.state.language == 'de'" style="font-weight:bold"
+              <a>
+              <span v-if="this.$store.state.language == 'de'" style="font-weight:bold"
                      @click="languageDE()">DE</span>
                 <span v-else @click="languageDE()">DE</span> /
                 <span v-if="this.$store.state.language == 'en'" style="font-weight:bold"
@@ -152,18 +152,23 @@ export default {
 
           <p>
             <span style="font-size: 25px; color: #30375a"></span>
-          <ul class="checkList">
+          <ul class="checkList" v-if="this.$store.state.language == 'de'">
             <li style="padding-bottom:10px;">Finanzpläne</li>
             <li style="padding-bottom:10px;">Kreditvermittlung</li>
             <li style="padding-bottom:10px;">Mezzaninkapital</li>
           </ul>
+          <ul class="checkList" v-if="this.$store.state.language == 'en'">
+            <li style="padding-bottom:10px;">Financial plans</li>
+            <li style="padding-bottom:10px;">Credit Intermediation</li>
+            <li style="padding-bottom:10px;">Mezzanine capital</li>
+          </ul>
           </p>
-          <p><span style="font-size: 27px;">S</span>ie benötigen für Ihr Projekt einen Mix aus Eigen- und Fremdkapital?
+          <p v-if="this.$store.state.language == 'de'"><span style="font-size: 27px;">S</span>ie benötigen für Ihr Projekt einen Mix aus Eigen- und Fremdkapital?
             Wir beraten Sie gerne und finden mit Ihnen die rentabelste Variante für Ihre Finanzierung. </p>
+          <p v-if="this.$store.state.language == 'en'"><span style="font-size: 27px;">D</span>o you need a mix of equity and debt capital for your project? We will be happy to advise you, and work with you to find the most profitable option for your financing. </p>
         </div>
 
-        <div class="secondText">
-
+        <div class="secondText" v-if="this.$store.state.language == 'de'">
           <p>
             Wir setzen Sie in Verbindung mit Eigenkapitalgeber und Bankberater, welche Ihnen Kredite bzw. Darlehen mit
             attraktiv niedrigen Zinsen und Laufzeit finanzieren. Kontaktieren Sie uns und vereinbaren Sie ein
@@ -175,6 +180,17 @@ export default {
 
             <a href="" class="btn btn3" @click="changePath()">Kontaktieren uns!</a>
 
+          </div>
+
+        </div>
+        <div class="secondText" v-if="this.$store.state.language == 'en'">
+          <p>
+            We put you in touch with equity providers and bank advisors who will offer loans or credits at attractively low interest rates and good terms. Contact us and arrange a meeting with our experts. We are looking forward to your project.
+
+          </p>
+          <div class="buttonDiv">
+            <a href="tel:+43 676 911 511 0" class="btn btn3" title="+43 676 911 511 0">Call us!</a>
+            <a href="" class="btn btn3" @click="changePath()">Contact us!</a>
           </div>
 
         </div>
@@ -190,7 +206,8 @@ export default {
             <router-link to="/team">
               <li class="li" style="float:right"><a>Team</a></li>
             </router-link>
-            <li class="li" style="float:right;"><a>Imprint</a></li>
+            <li class="li" style="float:right;" v-if="this.$store.state.language == 'de'"><a>Impressum</a></li>
+            <li class="li" style="float:right;" v-if="this.$store.state.language == 'en'"><a>Imprint</a></li>
           </ul>
         </footer>
       </div>
@@ -221,17 +238,15 @@ export default {
                 style="font-weight: bold;font-size:24px">RU</span>
           <span v-else @click="languageRU()">RU</span>
         </a>
-        <Slide right width="250" class="Slide">
+        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'en'">
           <a id="home" href="#">
-
             <span class="firstHeader">Services</span>
-
           </a>
           <a id="home" href="#" @click="changePathtoFinance()">
             <span>Financial Advise</span>
           </a>
 
-          <a id="home" href="#" @click="changePathtoRealEstate()">
+          <a id="" href="#" @click="changePathtoRealEstate()">
             <span>Real Estate</span>
           </a>
           <a id="home" href="#" @click="changePathtoCars()">
@@ -252,32 +267,70 @@ export default {
           </a>
           <img src="@/assets/HohensteinWhite.png" class="sliderImage">
         </Slide>
+        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'de'">
+          <a id="home" href="#">
+            <span class="firstHeader">Service</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoFinance()">
+            <span>Finanzberatung</span>
+          </a>
+
+          <a id="" href="#" @click="changePathtoRealEstate()">
+            <span>Immobilien</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoCars()">
+            <span>Oldtimer</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoBusiness()">
+            <span>Unternehmensberatung</span>
+          </a>
+          <a id="home" href="#">
+            <span class="secondHeader">Seiten</span>
+
+          </a>
+          <a id="home" href="#" @click="changePathtoTeam()">
+            <span>Team</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoImprint()">
+            <span>Impressum</span>
+          </a>
+          <img src="@/assets/HohensteinWhite.png" class="sliderImage">
+        </Slide>
       </div>
       <img src="@/assets/financeImage.png" class="mobileImage"/>
       <div class="mobileContent">
-        <p class="mobileText">Financial Advise</p>
-        <p class="mobileSlogan">Conquer the market</p>
+        <p class="mobileText" v-if="this.$store.state.language == 'de'">Finanzberatung</p>
+        <p class="mobileSlogan" v-if="this.$store.state.language == 'de'">Erobere den Markt.</p>
+        <p class="mobileText" v-if="this.$store.state.language == 'en'">Financial Advise</p>
+        <p class="mobileSlogan" v-if="this.$store.state.language == 'en'">Conquer the market</p>
         <div class="mobileText-container-helper">
           <div class="mobileText-container">
-            <ul class="item1">
+            <ul class="item1" v-if="this.$store.state.language == 'de'">
               <li> Finanzpläne</li>
               <li> Kreditvermittlung</li>
               <li> Mezzaninkapital</li>
             </ul>
-            <p class="item2">
+            <ul class="item1" v-if="this.$store.state.language == 'en'">
+              <li> Financial plans</li>
+              <li> Credit Intermediation</li>
+              <li> Mezzanine capital</li>
+            </ul>
+            <p class="item2" v-if="this.$store.state.language == 'de'">
               <span style="font-size: 27px;">S</span>ie benötigen für Ihr Projekt einen Mix aus Eigen- und Fremdkapital?
               Wir beraten Sie gerne und finden mit Ihnen die rentabelste Variante für Ihre Finanzierung.
             </p>
-            <p class="item3">
-              Wir setzen Sie in Verbindung mit Eigenkapitalgeber und Bankberater, welche Ihnen Kredite bzw. Darlehen mit
-              attraktiv niedrigen Zinsen und Laufzeit finanzieren. Kontaktieren Sie uns und vereinbaren Sie ein
-              Erstgespräch mit unseren Experten. Wir freuen uns auf Ihr Projekt.
+            <p class="item2" v-if="this.$store.state.language == 'en'">
+              <span style="font-size: 27px;">D</span>o you need a mix of equity and debt capital for your project? We will be happy to advise you, and work with you to find the most profitable option for your financing. We put you in touch with equity providers and bank advisors who will offer loans or credits at attractively low interest rates and good terms.
+            </p>
+            <p class="item3" v-if="this.$store.state.language == 'de'">
+              Contact us and arrange a meeting with our experts. We are looking forward to your project.
             </p>
           </div>
         </div>
 
 
         <input
+            v-if="this.$store.state.language == 'de'"
             type="button"
             value="Konaktiere uns!"
             @click="changePath()"
@@ -285,8 +338,21 @@ export default {
             style="-webkit-appearance: none;
        border-radius: 0;"
         />
-        <a href="tel:+43 676 911 511 0">
+        <input
+            v-if="this.$store.state.language == 'en'"
+            type="button"
+            value="Contact us!"
+            @click="changePath()"
+            class="inputButton3"
+            style="-webkit-appearance: none;
+       border-radius: 0;"
+        />
+        <a href="tel:+43 676 911 511 0" v-if="this.$store.state.language == 'de'">
           <input type="button" value="Ruf uns an!" class="inputButton2" style="-webkit-appearance: none;
+       border-radius: 0;">
+        </a>
+        <a href="tel:+43 676 911 511 0" v-if="this.$store.state.language == 'en'">
+          <input type="button" value="Call us!" class="inputButton2" style="-webkit-appearance: none;
        border-radius: 0;">
         </a>
       </div>
@@ -387,7 +453,7 @@ nav {
   border-left: 0px;
   border-right: 0px;
   height: 90px;
-  width: calc(75% - 13px);
+  width: 75%;
 }
 
 ul {

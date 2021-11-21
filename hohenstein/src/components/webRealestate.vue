@@ -87,9 +87,9 @@ export default {
               <li><a>Team</a></li>
             </router-link>
             <li>
-              <a
-              ><span v-if="this.$store.state.language == 'de'" style="font-weight:bold"
-                     @click="languageDE()">DE</span>
+              <a>
+              <span v-if="this.$store.state.language == 'de'" style="font-weight:bold"
+                    @click="languageDE()">DE</span>
                 <span v-else @click="languageDE()">DE</span> /
                 <span v-if="this.$store.state.language == 'en'" style="font-weight:bold"
                       @click="languageEN()">EN</span>
@@ -139,34 +139,49 @@ export default {
         </nav>
 
 
-
-
         <img src="@/assets/house1.png" class="carimage"/>
         <div class="blueStrike"></div>
         <div class="firstText">
-            <p> <span style="font-size: 27px;">W</span>ir vermitteln Ihnen Immobilien mit Potenzial. Von dem Erwerb eines Gewerbegrunds bis hin zur privaten Investitionsanlage finden wir für Sie attraktive Immobilien. Sie möchten Ihr Immobilienprojekt finanzieren lassen? Dann erfahren sie hier (link), wie Sie in dem Aspekt bei uns beraten lassen können. 
-            </p>  
-          <p>
-              Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten. Wir freuen uns auf Ihr Projekt.
+          <p v-if="this.$store.state.language == 'de'"><span style="font-size: 27px;">W</span>ir vermitteln Ihnen
+            Immobilien mit Potenzial. Von dem Erwerb eines Gewerbegrunds bis hin zur privaten Investitionsanlage finden
+            wir für Sie attraktive Immobilien. Sie möchten Ihr Immobilienprojekt finanzieren lassen? Dann erfahren sie
+            hier (link), wie Sie in dem Aspekt bei uns beraten lassen können.
           </p>
-          
+          <p v-if="this.$store.state.language == 'en'"><span style="font-size: 27px;">W</span>e work with you to bring
+            your existing or newly established company to peak performance. Let us help you discover new possibilities
+            and opportunities by optimising your processes and tax issues.
+          </p>
+          <p v-if="this.$store.state.language == 'de'">
+            Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten. Wir freuen uns auf Ihr
+            Projekt.
+          </p>
+          <p v-if="this.$store.state.language == 'en'">
+            Contact us and arrange a meeting with our experts. We look forward to your project.</p>
         </div>
 
         <div class="secondText">
-        <p>
-            <ul class="checkList">
-              <li style="padding-bottom:10px;">Immadfsadfobilienerwerb</li>
-              <li style="padding-bottom:10px;">Immobilienverkauf</li>
-              <li style="padding-bottom:10px;">Immobilenvermittlung</li>
-              <li style="padding-bottom:10px;">Immobilienfinanzierung</li>  
-              <li style="padding-bottom:0px;">Soziale Aspekte</li>  
-            </ul>
-          
+          <p>
+          <ul class="checkList" v-if="this.$store.state.language == 'de'">
+            <li style="padding-bottom:10px;">Immobilienerwerb</li>
+            <li style="padding-bottom:10px;">Immobilienverkauf</li>
+            <li style="padding-bottom:10px;">Immobilenvermittlung</li>
+            <li style="padding-bottom:10px;">Immobilienfinanzierung</li>
+            <li style="padding-bottom:0px;">Soziale Aspekte</li>
+          </ul>
+          <ul class="checkList" v-if="this.$store.state.language == 'en'">
+            <li style="padding-bottom:10px;">Real estate acquisition</li>
+            <li style="padding-bottom:10px;">Real estate sale</li>
+            <li style="padding-bottom:10px;">Real estate brokerage</li>
+            <li style="padding-bottom:10px;">Real estate financing</li>
+            <li style="padding-bottom:0px;">Social projects</li>
+          </ul>
           </p>
-           
+
           <div class="buttonDiv">
-            <a href="tel:+43 676 911 511 0" class="btn btn3" title="+43 676 911 511 0">Rufe uns an!</a>
-            <a href="" class="btn btn3" @click="changePath()">Kontaktieren uns!</a>
+            <a v-if="this.$store.state.language == 'de'" href="tel:+43 676 911 511 0" class="btn btn3" title="+43 676 911 511 0">Rufe uns an!</a>
+            <a  v-if="this.$store.state.language == 'de'" href="" class="btn btn3" @click="changePath()">Kontaktieren uns!</a>
+            <a v-if="this.$store.state.language == 'en'" href="tel:+43 676 911 511 0" class="btn btn3" title="+43 676 911 511 0">Call us!</a>
+            <a  v-if="this.$store.state.language == 'en'" href="" class="btn btn3" @click="changePath()">Contact us!</a>
           </div>
 
         </div>
@@ -182,7 +197,8 @@ export default {
             <router-link to="/team">
               <li class="li" style="float:right"><a>Team</a></li>
             </router-link>
-            <li class="li" style="float:right;"><a>Imprint</a></li>
+            <li v-if="this.$store.state.language == 'en'" class="li" style="float:right;"><a>Imprint</a></li>
+            <li v-if="this.$store.state.language == 'de'" class="li" style="float:right;"><a>Impressum</a></li>
           </ul>
         </footer>
       </div>
@@ -209,20 +225,19 @@ export default {
           >
           <span v-else @click="languageEN()">EN</span>
           /
-          <span v-if="this.$store.state.language == 'ru'" @click="languageRU()" style="font-weight: bold;font-size:24px">RU</span>
+          <span v-if="this.$store.state.language == 'ru'" @click="languageRU()"
+                style="font-weight: bold;font-size:24px">RU</span>
           <span v-else @click="languageRU()">RU</span>
         </a>
-        <Slide right width="250" class="Slide">
+        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'en'">
           <a id="home" href="#">
-
             <span class="firstHeader">Services</span>
-
           </a>
           <a id="home" href="#" @click="changePathtoFinance()">
             <span>Financial Advise</span>
           </a>
 
-          <a id="home" href="#" @click="changePathtoRealEstate()">
+          <a id="" href="#" @click="changePathtoRealEstate()">
             <span>Real Estate</span>
           </a>
           <a id="home" href="#" @click="changePathtoCars()">
@@ -235,33 +250,80 @@ export default {
             <span class="secondHeader">Pages</span>
 
           </a>
+          <a id="home" href="#" @click="changePathtoTeam()">
+            <span>Team</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoImprint()">
+            <span>Imprint</span>
+          </a>
+          <img src="@/assets/HohensteinWhite.png" class="sliderImage">
+        </Slide>
+        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'de'">
           <a id="home" href="#">
-            <span>Teams</span>
+            <span class="firstHeader">Service</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoFinance()">
+            <span>Finanzberatung</span>
+          </a>
+
+          <a id="" href="#" @click="changePathtoRealEstate()">
+            <span>Immobilien</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoCars()">
+            <span>Oldtimer</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoBusiness()">
+            <span>Unternehmensberatung</span>
           </a>
           <a id="home" href="#">
-            <span>Imprint</span>
+            <span class="secondHeader">Seiten</span>
+
+          </a>
+          <a id="home" href="#" @click="changePathtoTeam()">
+            <span>Team</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoImprint()">
+            <span>Impressum</span>
           </a>
           <img src="@/assets/HohensteinWhite.png" class="sliderImage">
         </Slide>
       </div>
       <img src="@/assets/house1.png" class="mobileImage"/>
       <div class="mobileContent">
-        <p class="mobileText">Real Estate</p>
-        <p class="mobileSlogan">Invest in Real Estate</p>
+        <p class="mobileText" v-if="this.$store.state.language == 'en'">Real Estate</p>
+        <p class="mobileSlogan" v-if="this.$store.state.language == 'en'">Invest in Real Estate</p>
+        <p class="mobileText" v-if="this.$store.state.language == 'de'">Immobilien</p>
+        <p class="mobileSlogan" v-if="this.$store.state.language == 'de'">Investiere in Immobilien</p>
         <div class="mobileText-container-helper">
           <div class="mobileText-container">
-            <ul class="item1">
-              <li>  Immobilienerwerb   </li>
-              <li>  Immobilienverkauf</li>
+            <ul class="item1" v-if="this.$store.state.language == 'en'">
+              <li> Real estate acquisition</li>
+              <li> Real estate sale</li>
+              <li> Real estate brokerage</li>
+              <li> Real estate financing</li>
+              <li> Social projects</li>
+            </ul>
+            <ul class="item1" v-if="this.$store.state.language == 'de'">
+              <li> Immobilienerwerb</li>
+              <li> Immobilienverkauf</li>
               <li> Immobilenvermittlung</li>
               <li> Immobilienfinanzierung</li>
               <li> Soziale Aspekte</li>
             </ul>
-             <p class="item2"> <span style="font-size: 27px;">W</span>ir vermitteln Ihnen Immobilien mit Potenzial. Von dem Erwerb eines Gewerbegrunds bis hin zur privaten Investitionsanlage finden wir für Sie attraktive Immobilien. Sie möchten Ihr Immobilienprojekt finanzieren lassen? Dann erfahren sie hier (link), wie Sie in dem Aspekt bei uns beraten lassen können. 
-          </p>
-            <p class="item3">
-              Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten. Wir freuen uns auf Ihr Projekt.
-              </p>
+            <p class="item2" v-if="this.$store.state.language == 'de'"><span style="font-size: 27px;">W</span>ir vermitteln Ihnen Immobilien mit Potenzial. Von
+              dem Erwerb eines Gewerbegrunds bis hin zur privaten Investitionsanlage finden wir für Sie attraktive
+              Immobilien. Sie möchten Ihr Immobilienprojekt finanzieren lassen? Dann erfahren sie hier (link), wie Sie
+              in dem Aspekt bei uns beraten lassen können.
+            </p>
+            <p class="item3" v-if="this.$store.state.language == 'de'">
+              Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten. Wir freuen uns auf Ihr
+              Projekt.
+            </p>
+            <p class="item2" v-if="this.$store.state.language == 'en'"><span style="font-size: 27px;">W</span>e work with you to bring your existing or newly established company to peak performance. Let us help you discover new possibilities and opportunities by optimising your processes and tax issues.
+            </p>
+            <p class="item3" v-if="this.$store.state.language == 'en'">
+              Contact us and arrange a meeting with our experts. We look forward to your project.
+            </p>
           </div>
         </div>
 
@@ -273,9 +335,23 @@ export default {
             class="inputButton3"
             style="-webkit-appearance: none;
        border-radius: 0;"
+            v-if="this.$store.state.language == 'de'"
         />
         <a href="tel:+43 676 911 511 0">
-          <input type="button" value="Ruf uns an!" class="inputButton2" style="-webkit-appearance: none;
+          <input v-if="this.$store.state.language == 'de'" type="button" value="Ruf uns an!" class="inputButton2" style="-webkit-appearance: none;
+       border-radius: 0;">
+        </a>
+        <input
+            type="button"
+            value="Contact us!"
+            @click="changePath()"
+            class="inputButton3"
+            style="-webkit-appearance: none;
+       border-radius: 0;"
+            v-if="this.$store.state.language == 'en'"
+        />
+        <a href="tel:+43 676 911 511 0">
+          <input v-if="this.$store.state.language == 'en'" type="button" value="Call us!" class="inputButton2" style="-webkit-appearance: none;
        border-radius: 0;">
         </a>
       </div>
@@ -295,7 +371,7 @@ export default {
 .checkList {
   padding-top: 5px;
   margin-top: 5px;
-  margin-left:15px;
+  margin-left: 15px;
   padding-bottom: 5px;
   list-style-type: square;
 }
@@ -308,35 +384,34 @@ export default {
 .mobileText-container {
   display: flex;
   flex-wrap: wrap;
-  margin-top:-20px;
+  margin-top: -20px;
 }
 
 .item1 {
   width: 100%;
-  list-style-type:none;
-  font-size:18px;
+  list-style-type: none;
+  font-size: 18px;
 }
 
 .item1 li::before {
   content: "■";
   color: #30375a;
-  padding:5px;
+  padding: 5px;
 }
 
 .item2 {
   width: 100%;
   text-align: justify;
-  font-size:18px;
+  font-size: 18px;
 
 }
 
 .item3 {
   width: 100%;
   text-align: justify;
-  font-size:18px;
+  font-size: 18px;
 
 }
-
 
 
 .footer {
@@ -345,8 +420,8 @@ export default {
 
   font-size: 15px;
   position: static;
-  bottom:0px;
-  margin-top:150px;
+  bottom: 0px;
+  margin-top: 150px;
   border: 1px solid black;
   border-bottom: 0px;
   border-left: 0px;
@@ -378,7 +453,7 @@ nav {
   border-left: 0px;
   border-right: 0px;
   height: 90px;
-  width: calc(75% - 13px);
+  width: 75%;
 }
 
 ul {
@@ -606,7 +681,7 @@ a {
   height: 1px;
   background-color: #30375a;
   width: 80%;
-  margin-top:3vh;
+  margin-top: 3vh;
 }
 
 .buttonDiv {
@@ -618,8 +693,8 @@ a {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  gap:10px;
-  margin-left:80px;
+  gap: 10px;
+  margin-left: 80px;
 }
 
 .firstText {

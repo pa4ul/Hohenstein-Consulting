@@ -12,14 +12,25 @@ export default {
 <div>
   <div class="div">
     <div class="textBox">
-      <p class="Headline">Contact Us</p>
-      <p class="text">How can we help?</p>
-      <form>
+      <p class="Headline" v-if="this.$store.state.language == 'en'">Contact Us</p>
+      <p class="text" v-if="this.$store.state.language == 'en'">How can we help?</p>
+      <p class="Headline" v-if="this.$store.state.language == 'de'">Kontaktiere uns</p>
+      <p class="text" v-if="this.$store.state.language == 'de'">Wie können wir helfen?</p>
+      <form v-if="this.$store.state.language == 'en'">
         <input type="text" placeholder="Full name" class="inputName" />
         <br />
-        <input type="text" placeholder="Your Email" class="inputEmail" />
+        <input type="text" placeholder="Your E-Mail" class="inputEmail" />
         <br />
         <input type="text" placeholder="Message" class="inputText" />
+        <br />
+        <input type="button" value="Submit" class="inputButton" />
+      </form>
+      <form v-if="this.$store.state.language == 'de'">
+        <input type="text" placeholder="Ganzer Name" class="inputName" />
+        <br />
+        <input type="text" placeholder="Deine E-Mail" class="inputEmail" />
+        <br />
+        <input type="text" placeholder="Nachricht" class="inputText" />
         <br />
         <input type="button" value="Submit" class="inputButton" />
       </form>
@@ -46,8 +57,9 @@ export default {
           />
           
           <router-link to="/team"> <li style="float:right"><a>Team</a></li></router-link>
-          <router-link to="/impressum"><li style="float:right;"><a>Imprint</a></li></router-link>
-          <li style="float:right;"><a>Weihburggasse 22/5 1010 Wien </a></li> 
+          <router-link v-if="this.$store.state.language == 'en'" to="/impressum"><li style="float:right;"><a>Imprint</a></li></router-link>
+          <router-link v-if="this.$store.state.language == 'de'" to="/impressum"><li style="float:right;"><a>Impressum</a></li></router-link>
+          <li style="float:right;"><a>Weihburggasse 22/5 1010 Wien </a></li>
         </ul>
     </footer>
 </div>

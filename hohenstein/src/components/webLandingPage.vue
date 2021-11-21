@@ -73,7 +73,7 @@ export default {
     } else {
       // false for not mobile device
       this.isMobile = false;
-    } 
+    }
   },*/
 };
 </script>
@@ -81,6 +81,17 @@ export default {
 <template>
   <div>
     <div v-if="this.isMobile">
+      <div>
+        <div class="imageWrapper">
+          <img src="@/assets/imageLandingpage_compressed.jpg" class="landingPageImage"/>
+        </div>
+        <div class="whiteBox1">
+          <img
+              src="@/assets/HohensteinLogoText.png"
+              class="hohenSteinLogoText"
+          />
+        </div>
+      </div>
       <div class="masterDiv">
         <div class="landingPage">
           <nav class="nav">
@@ -96,7 +107,7 @@ export default {
                 <li><a>Classic Cars</a></li>
               </router-link>
               <router-link to="/business-consulting">
-                <li><a>Business Consulting</a></li>
+                <li><a>Business Consultancy</a></li>
               </router-link>
               <li>
                 <a
@@ -149,36 +160,7 @@ export default {
               </li>
             </ul>
           </nav>
-          <div>
-            <img src="@/assets/imageLandingpage_compressed.jpg" class="landingPageImage"/>
-            <div class="whiteBox1">
-              <img
-                  src="@/assets/HohensteinLogoText.png"
-                  class="hohenSteinLogoText"
-              />
-              <!--
-              <p
-                v-if="this.$store.state.language == 'en'"
-                class="whiteBox1Slogan"
-              >
-                Making Your Ideas Come True
-              </p>
-              <p
-                v-if="this.$store.state.language == 'de'"
-                class="whiteBox1Slogan"
-              >
-                Wir verwirklichen ihre Ideen
-              </p>
-              <p
-                v-if="this.$store.state.language == 'ru'"
-                class="whiteBox1Slogan"
-              >
-                Воплощение ваших идей в жизнь
-              </p>
--->
-              <div class="whiteBox1BlueLine"></div>
-            </div>
-          </div>
+
           <a href="#content">
             <img src="@/assets/arrow.png" class="landingPageArrow"/>
           </a>
@@ -188,6 +170,14 @@ export default {
 
           <router-link to="/cars">
             <webTopicRight
+                v-if="this.$store.state.language == 'de'"
+                :name="'Oldtimer'"
+                :slogan="'Nicht nur ein Auto.'"
+                :img="require('@/assets/car1.png')"
+                :type="true"
+            />
+            <webTopicRight
+                v-if="this.$store.state.language == 'en'"
                 :name="'Classic Cars'"
                 :slogan="'What a Luxury Car Should Be.'"
                 :img="require('@/assets/car1.png')"
@@ -196,24 +186,48 @@ export default {
           </router-link>
           <router-link to="/business-consulting">
             <webTopicLeft
-                :name="'Business Consulting'"
+                v-if="this.$store.state.language == 'en'"
+                :name="'Business Consultancy'"
                 :slogan="'Consulting is the secret to unlocking your vision.'"
+                :img="require('@/assets/businessImage.png')"
+                :type="true"
+            />
+            <webTopicLeft
+                v-if="this.$store.state.language == 'de'"
+                :name="'Unternehmensberatung'"
+                :slogan="'Beratung ist das Geheimnis, um Ihre Vision zu verwirklichen.'"
                 :img="require('@/assets/businessImage.png')"
                 :type="true"
             />
           </router-link>
           <router-link to="real-estate">
             <webTopicRight
+                v-if="this.$store.state.language == 'en'"
                 :name="'Real Estate'"
                 :slogan="'A Local Expert.'"
+                :img="require('@/assets/house1.png')"
+                :type="false"
+            />
+            <webTopicRight
+                v-if="this.$store.state.language == 'de'"
+                :name="'Immobilien'"
+                :slogan="'Ein lokaler Experte'"
                 :img="require('@/assets/house1.png')"
                 :type="false"
             />
           </router-link>
           <router-link to="/finance">
             <webTopicLeft
+                v-if="this.$store.state.language == 'en'"
                 :name="'Financial Advise'"
                 :slogan="'Live comfortably and better.'"
+                :img="require('@/assets/financeImage.png')"
+                :type="false"
+            />
+            <webTopicLeft
+                v-if="this.$store.state.language == 'de'"
+                :name="'Finanzberatung'"
+                :slogan="'Bequemer und besser leben.'"
                 :img="require('@/assets/financeImage.png')"
                 :type="false"
             />
@@ -238,18 +252,16 @@ export default {
               v-if="this.$store.state.language == 'en'"
               @click="languageEN()"
               style="font-weight: bold;font-size:24px"
-          >EN</span
-          >
+          >EN</span>
           <span v-else @click="languageEN()">EN</span>
           /
-          <span v-if="this.$store.state.language == 'ru'" @click="languageRU()" style="font-weight: bold;font-size:24px">RU</span>
+          <span v-if="this.$store.state.language == 'ru'" @click="languageRU()"
+                style="font-weight: bold;font-size:24px">RU</span>
           <span v-else @click="languageRU()">RU</span>
         </a>
-        <Slide right width="250" class="Slide">
+        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'en'">
           <a id="home" href="#">
-
             <span class="firstHeader">Services</span>
-
           </a>
           <a id="home" href="#" @click="changePathtoFinance()">
             <span>Financial Advise</span>
@@ -273,6 +285,35 @@ export default {
           </a>
           <a id="home" href="#" @click="changePathtoImprint()">
             <span>Imprint</span>
+          </a>
+          <img src="@/assets/HohensteinWhite.png" class="sliderImage">
+        </Slide>
+        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'de'">
+          <a id="home" href="#">
+            <span class="firstHeader">Service</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoFinance()">
+            <span>Finanzberatung</span>
+          </a>
+
+          <a id="" href="#" @click="changePathtoRealEstate()">
+            <span>Immobilien</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoCars()">
+            <span>Oldtimer</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoBusiness()">
+            <span>Unternehmensberatung</span>
+          </a>
+          <a id="home" href="#">
+            <span class="secondHeader">Seiten</span>
+
+          </a>
+          <a id="home" href="#" @click="changePathtoTeam()">
+            <span>Team</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoImprint()">
+            <span>Impressum</span>
           </a>
           <img src="@/assets/HohensteinWhite.png" class="sliderImage">
         </Slide>
@@ -307,9 +348,10 @@ export default {
 </template>
 
 <style>
-.Slide{
+.Slide {
   white-space: nowrap;
 }
+
 .firstHeader {
   font-size: 28px;
   border-bottom: 2px solid white;
@@ -461,7 +503,7 @@ a {
   color: black;
 }
 
-. nav {
+.nav {
   font-size: 20px;
   position: fixed;
   z-index: 999999999;
@@ -470,13 +512,14 @@ a {
   left: 50%;
   transform: translateX(-50%);
   top: 0;
+  width: 100%;
   text-align: center;
   border: 1px solid black;
   border-top: 0px;
   border-left: 0px;
   border-right: 0px;
   height: 90px;
-  width: 100%;
+
 }
 
 ul {
@@ -516,17 +559,19 @@ li {
 
   margin-bottom: 130px;
 }
-.servicesText:before{
+
+.servicesText:before {
   content: "";
   display: block;
   width: 60px;
   height: 2px;
   background: #30375a;
-  left:0px;
+  left: 0px;
   top: 50%;
   position: absolute;
 }
-.servicesText:after{
+
+.servicesText:after {
   content: "";
   display: block;
   width: 60px;
@@ -536,28 +581,31 @@ li {
   top: 50%;
   position: absolute;
 }
+
 .landingPageImage {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 0;
   width: 100%;
-  max-width: 1000px;
-  max-height: 80%;
-  height: auto;
- box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
   rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
   rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
+.imageWrapper {
+  left: 0;
+  position: absolute;
+  height: 80%;
+  top: 120px;
+  width: 100%;
+  overflow: hidden;
+}
+
 .whiteBox1 {
   position: absolute;
-  height: 500px;
-  width: 500px;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 230px;
+  width: 700px;
   background-color: white;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 50%;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
   rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
   rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -565,33 +613,20 @@ li {
 
 .hohenSteinLogoText {
   height: 200px;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 0%;
+  left: 50%;
+  top: 10%;
+
+  transform: translateX(-50%);
   position: absolute;
 }
 
-.whiteBox1BlueLine {
-  position: absolute;
-  top: 50%;
-  right: -15%;
-  height: 8px;
-  width: 150px;
-  background-color: #30375a;
-}
-
-.whiteBox1Slogan {
-  transform: translate(12%, 1050%);
-  letter-spacing: 1px;
-  opacity: 70%;
-  font-size: 20px;
-}
 
 .landingPageArrow {
   position: absolute;
   height: 20px;
   left: 15%;
   bottom: 20px;
+  display: none;
 }
 
 .f::before,
@@ -628,55 +663,6 @@ li {
   opacity: 1;
 }
 
-@media only screen and (max-width: 1500px) {
-  .landingPageImage {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 0;
-    width: 60%;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  }
-
-  .whiteBox1 {
-    position: absolute;
-    height: 40%;
-    width: 450px;
-    background-color: white;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 50%;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  }
-
-  .hohenSteinLogoText {
-    height: 160px;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 0%;
-    position: absolute;
-  }
-
-  .whiteBox1BlueLine {
-    position: absolute;
-    top: 50%;
-    right: -15%;
-    height: 6px;
-    width: 150px;
-    background-color: #30375a;
-  }
-
-  .whiteBox1Slogan {
-    transform: translate(12%, 1150%);
-    letter-spacing: 1px;
-    opacity: 70%;
-    font-size: 15px;
-  }
-}
 
 @media only screen and (max-width: 1150px), screen and (max-height: 850px) {
   .nav {
@@ -695,9 +681,11 @@ li {
     height: 80px;
     width: 100%;
   }
-  .nav a{
-    font-size:16px;
+
+  .nav a {
+    font-size: 16px;
   }
+
   ul {
     list-style-type: none;
     margin-top: 30px;
@@ -707,70 +695,6 @@ li {
   li {
     display: inline;
     margin: 3%;
-  }
-
-  .landingPageImage {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 100px;
-    width: 50%;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  }
-
-  .whiteBox1 {
-    position: absolute;
-    height: 40%;
-    width: 350px;
-    background-color: white;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 50%;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  }
-
-  .hohenSteinLogoText {
-    height: 130px;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 0%;
-    position: absolute;
-  }
-
-  .whiteBox1BlueLine {
-    position: absolute;
-    top: 50%;
-    right: -15%;
-    height: 6px;
-    width: 110px;
-    background-color: #30375a;
-  }
-
-  .whiteBox1Slogan {
-    transform: translate(12%, 1150%);
-    letter-spacing: 1px;
-    opacity: 70%;
-    font-size: 13px;
-  }
-}
-
-@media only screen and (min-width: 2150px) {
-  .landingPageImage {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 200px;
-    width: 100%;
-    max-width: 1000px;
-    max-height: 80%;
-    height: auto;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   }
 }
 </style>
