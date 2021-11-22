@@ -63,17 +63,12 @@ export default {
 
   },
   created() {
-    if (
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      )
-    ) {
-      // true for mobile device
-      this.isMobile = true;
-    } else {
-      // false for not mobile device
-      this.isMobile = false;
-    }
+      if( screen.width <= 760 ) {
+        this.isMobile=false;
+      }
+      else {
+        this.isMobile=true;
+      }
   },
 };
 </script>
@@ -413,7 +408,7 @@ export default {
 
       <div class="mobileContent">
         <p class="servicesText" v-if="this.$store.state.language == 'ru'">Наши услуги</p>
-        <p class="servicesText" v-if="this.$store.state.language == 'de'">Unsere Service</p>
+        <p class="servicesText" v-if="this.$store.state.language == 'de'">Unser Service</p>
         <p class="servicesText" v-if="this.$store.state.language == 'en'">Our Services </p>
         <router-link to="/cars">
           <mobileTopicCar/>

@@ -45,20 +45,14 @@ export default {
     Slide,
     mobileFooter
   },
-  /*
   created() {
-    if (
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      )
-    ) {
-      // true for mobile device
-      this.isMobile = true;
-    } else {
-      // false for not mobile device
-      this.isMobile = false;
-    } 
-  },*/
+    if( screen.width <= 760 ) {
+      this.isMobile=false;
+    }
+    else {
+      this.isMobile=true;
+    }
+  },
 };
 </script>
 

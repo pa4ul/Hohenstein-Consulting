@@ -45,19 +45,14 @@ export default {
     Slide,
     mobileFooter,
   },
-  /*created() {
-    if (
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      )
-    ) {
-      // true for mobile device
-      this.isMobile = true;
-    } else {
-      // false for not mobile device
-      this.isMobile = false;
+  created() {
+    if( screen.width <= 760 ) {
+      this.isMobile=false;
     }
-  },*/
+    else {
+      this.isMobile=true;
+    }
+  },
 };
 </script>
 
@@ -80,8 +75,8 @@ export default {
         <div class="webContact">
           <p class="header" v-if="this.$store.state.language == 'en'">Contact us</p>
           <p class="text" v-if="this.$store.state.language == 'en'">How can we help?</p>
-          <p class="header" v-if="this.$store.state.language == 'de'">Contact us</p>
-          <p class="text" v-if="this.$store.state.language == 'de'">How can we help?</p>
+          <p class="header" v-if="this.$store.state.language == 'de'">Kontaktiere uns!</p>
+          <p class="text" v-if="this.$store.state.language == 'de'">Wie können wir ihnen helfen?</p>
           <p class="header" v-if="this.$store.state.language == 'ru'">Свяжитесь с нами</p>
           <p class="text" v-if="this.$store.state.language == 'ru'">Как мы можем помочь?</p>
           <form action="https://formsubmit.co/paulherbich1@gmail.com" method="POST">
