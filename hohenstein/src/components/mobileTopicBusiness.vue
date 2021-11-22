@@ -14,8 +14,12 @@ export default {
     <img src="@/assets/mobileBusiness.png" class="image" />
     <div class="mobileWhiteBox">
       <div class="mobileWhiteBoxContent">
-        <p class="header">Business Consulting</p>
-        <p class="slogan">Consulting is the secret to unlucking your vision.</p>
+        <p v-if="this.$store.state.language == 'ru'" class="header">Бизнес консалтинг</p>
+        <p v-if="this.$store.state.language == 'ru'" class="slogan"> все, что нужно </p>
+        <p v-if="this.$store.state.language == 'en'" class="header">Business Consulting</p>
+        <p v-if="this.$store.state.language == 'en'" class="slogan">All it takes</p>
+        <p v-if="this.$store.state.language == 'de'" class="header">Unternehmensberatung</p>
+        <p v-if="this.$store.state.language == 'de'" class="slogan">Alles was Sie brauchen</p>
       </div>
       <img src="@/assets/arrow.png" class="mobileArrow" />
     </div>

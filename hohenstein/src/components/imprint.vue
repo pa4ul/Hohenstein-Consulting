@@ -10,12 +10,11 @@ export default {
 
 <template>
   <div class="wrapper">
-  <p class="item1">Hohenstein - Consulting s.r.o. (GmbH)
-    vertreten durch: Gerald Steininger, Geschäftsführer
+  <p class="item1">Gerald Steininger, Geschäftsführer, 01 7746910
 
   </p>
-  <p class="item2">Firmensitz: Lidická 700/19, Veveří, 602 00 Brno
-    Tschechische Republik</p>
+  <p class="item2">Kaschauerplatz 3A
+    1220 Wien</p>
   </div>
 </template>
 

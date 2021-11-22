@@ -5,7 +5,7 @@ import mobileFooter from "@/components/mobileFooter.vue";
 export default {
   data() {
     return {
-      isMobile: false,
+      isMobile: true,
       greeting: "Hello World!",
     };
   },
@@ -108,6 +108,35 @@ export default {
               >
             </li>
           </ul>
+          <ul v-if="this.$store.state.language == 'ru'">
+            <router-link to="/finance"
+            >
+              <li><a>Финансовое консультирование</a></li>
+            </router-link>
+            <router-link to="/real-estate">
+              <li><a>Недвижимость</a></li>
+            </router-link>
+            <router-link to="/cars">
+              <li><a>Винтажные автомобили</a></li>
+            </router-link>
+            <router-link to="/business-consulting">
+              <li><a>Бизнес консалтинг</a></li>
+            </router-link>
+            <li>
+              <a
+              ><span v-if="this.$store.state.language == 'de'" style="font-weight:bold"
+                     @click="languageDE()">DE</span>
+                <span v-else @click="languageDE()">DE</span> /
+                <span v-if="this.$store.state.language == 'en'" style="font-weight:bold"
+                      @click="languageEN()">EN</span>
+                <span v-else @click="languageEN()">EN</span> /
+                <span v-if="this.$store.state.language == 'ru'" style="font-weight:bold"
+                      @click="languageRU()">RU</span>
+                <span v-else @click="languageRU()">RU</span>
+              </a
+              >
+            </li>
+          </ul>
           <ul v-if="this.$store.state.language == 'de'">
             <router-link to="/finance"
             >
@@ -162,6 +191,16 @@ export default {
             <li style="padding-bottom:10px;">Steuerberatung</li>
             </ul>
           </p>
+          <p v-if="this.$store.state.language == 'ru'">
+            <span style="font-size: 25px; color: #30375a"></span>
+          <ul class="checkList">
+            <li style="padding-bottom:10px;">Оптимизация процесса</li>
+            <li style="padding-bottom:10px;">Юридическое консультирование</li>
+            <li style="padding-bottom:10px;">Консультации по руководству и эффективному менеджменту </li>
+            <li style="padding-bottom:10px;">Регистрация компании по всей Европе</li>
+            <li style="padding-bottom:10px;">Налоговое консультирование</li>
+          </ul>
+          </p>
           <p v-if="this.$store.state.language == 'en'">
             <span style="font-size: 25px; color: #30375a"></span>
           <ul class="checkList">
@@ -177,10 +216,10 @@ export default {
         <div class="secondText" v-if="this.$store.state.language == 'de'">
 
           <p>
-            <span style="font-size: 27px;">W</span>ir arbeiten mit Ihnen gemeinsam, um Ihr bestehendes oder neu
-            gegründetes Unternehmen auf Spitzenleistung zu bringen.
-            Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten. Wir freuen uns auf Ihr
-            Projekt.
+            <span style="font-size: 27px;">W</span>ir arbeiten mit Ihnen gemeinsam, um Ihr bestehendes oder neu gegründetes Unternehmen auf Spitzenleistung zu bringen. Entdecken Sie durch uns neue Möglichkeiten und Chancen durch Optimierung Ihrer Prozesse sowie steuerrechtliche Belange.
+
+            Kontaktieren Sie uns und vereinbaren Sie ein Erstgespräch mit unseren Experten. Wir freuen uns auf Ihr Projekt.
+
           </p>
           <div class="buttonDiv">
             <a href="tel:+43 676 911 511 0" class="btn btn3" title="+43 676 911 511 0">Rufe uns an!</a>
@@ -190,6 +229,16 @@ export default {
 
           </div>
 
+        </div>
+        <div class="secondText" v-if="this.$store.state.language == 'ru'">
+
+          <p>
+            <span style="font-size: 27px;">M</span>ы будем рады сотрудничеству с Вами в выведении Вашей уже существующей или недавно созданной компании на пик производительности. Откройте для себя новые возможности оптимизации работы предприятия, а также консультирование по вопросам налогового законодательства. Вы можете связаться с нами и договориться о записи на первый разговор с нашими экспертами. Будем рады сотрудничеству с Вами в Вашем проекте.
+          </p>
+          <div class="buttonDiv">
+            <a href="tel:+43 676 911 511 0" class="btn btn3" title="+43 676 911 511 0">Позвоните нам!</a>
+            <a href="" class="btn btn3" @click="changePath()">Свяжитесь с нами!</a>
+          </div>
         </div>
         <div class="secondText" v-if="this.$store.state.language == 'en'">
 
@@ -219,6 +268,7 @@ export default {
               <li class="li" style="float:right"><a>Team</a></li>
             </router-link>
             <li class="li" style="float:right;" v-if="this.$store.state.language == 'de'"><a>Impressum</a></li>
+            <li class="li" style="float:right;" v-if="this.$store.state.language == 'ru'"><a>Оттиск</a></li>
             <li class="li" style="float:right;" v-if="this.$store.state.language == 'en'"><a>Imprint</a></li>
           </ul>
         </footer>
@@ -307,20 +357,60 @@ export default {
           </a>
           <img src="@/assets/HohensteinWhite.png" class="sliderImage">
         </Slide>
+        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'ru'">
+          <a id="home" href="#">
+            <span class="firstHeader">Сервис</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoFinance()">
+            <span>Финансовый совет</span>
+          </a>
+
+          <a id="" href="#" @click="changePathtoRealEstate()">
+            <span>Недвижимость</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoCars()">
+            <span>Винтажные автомобили</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoBusiness()">
+            <span>Бизнес консалтинг</span>
+          </a>
+          <a id="home" href="#">
+            <span class="secondHeader">Страницы</span>
+
+          </a>
+          <a id="home" href="#" @click="changePathtoTeam()">
+            <span>Команда</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoImprint()">
+            <span>Импрессум</span>
+          </a>
+          <img src="@/assets/HohensteinWhite.png" class="sliderImage">
+        </Slide>
       </div>
       <img src="@/assets/businessImage.png" class="mobileImage"/>
       <div class="mobileContent">
-        <p class="mobileText">Business Consulting</p>
-        <p class="mobileSlogan">All it takes</p>
+        <p class="mobileText" v-if="this.$store.state.language == 'en'">Business Consulting</p>
+        <p class="mobileSlogan" v-if="this.$store.state.language == 'en'">All it takes</p>
+        <p class="mobileText" v-if="this.$store.state.language == 'de'">Unternehmensberatung</p>
+        <p class="mobileSlogan" v-if="this.$store.state.language == 'de'">Alles was es braucht</p>
+        <p class="mobileText" v-if="this.$store.state.language == 'ru'">Бизнес консалтинг</p>
+        <p class="mobileSlogan" v-if="this.$store.state.language == 'ru'">все, что нужно </p>
         <div class="mobileText-container-helper">
           <div class="mobileText-container">
             <ul class="item1" v-if="this.$store.state.language == 'de'">
-              <li>  Prozessoptimierung </li>
-              <li>  Rechtliche Beratung</li>
+              <li> Prozessoptimierung </li>
+              <li> Rechtliche Beratung</li>
               <li> Beratung in Management</li>
               <li> Beratung in Mitarbeiterführung</li>
               <li> Firmengründung europaweit</li>
               <li> Steuerberatung</li>
+            </ul>
+            <ul class="item1" v-if="this.$store.state.language == 'ru'">
+              <li> Оптимизация процесса </li>
+              <li> Юридическое консультирование </li>
+              <li> Консультации по руководству и эффективному менеджменту </li>
+              <li> Регистрация компании по всей Европе</li>
+              <li> Налоговое консультирование </li>
             </ul>
             <ul class="item1" v-if="this.$store.state.language == 'en'">
               <li>  Process optimisation </li>
@@ -333,6 +423,11 @@ export default {
               <span style="font-size: 27px;">W</span>e work with you to bring your existing or newly established company to peak performance. Let us help you discover new possibilities and opportunities by optimising your processes and tax issues. </p>
             <p class="item3" v-if="this.$store.state.language == 'en'">
               Contact us and arrange a meeting with our experts. We look forward to your project. </p>
+            <p class="item2" v-if="this.$store.state.language == 'ru'">
+              <span style="font-size: 27px;">M</span>ы будем рады сотрудничеству с Вами в выведении Вашей уже существующей или недавно созданной компании на пик производительности. Откройте для себя новые возможности оптимизации работы предприятия, а также консультирование по вопросам налогового законодательства. </p>
+            <p class="item3" v-if="this.$store.state.language == 'ru'">
+              Вы можете связаться с нами и договориться о записи на первый разговор с нашими экспертами. Будем рады сотрудничеству с Вами в Вашем проекте.
+            </p>
             <p class="item2" v-if="this.$store.state.language == 'de'">
               <span style="font-size: 27px;">W</span>ir arbeiten mit Ihnen gemeinsam, um Ihr bestehendes oder neu
               gegründetes Unternehmen auf Spitzenleistung zu bringen. </p>
@@ -371,6 +466,19 @@ export default {
         />
         <a href="tel:+43 676 911 511 0" v-if="this.$store.state.language == 'en'">
           <input type="button" value="Call us!" class="inputButton2" style="-webkit-appearance: none;
+       border-radius: 0;">
+        </a>
+        <input
+            v-if="this.$store.state.language == 'ru'"
+            type="button"
+            value="Свяжитесь с нами!"
+            @click="changePath()"
+            class="inputButton3"
+            style="-webkit-appearance: none;
+       border-radius: 0;"
+        />
+        <a href="tel:+43 676 911 511 0" v-if="this.$store.state.language == 'ru'">
+          <input type="button" value="Позвоните нам!" class="inputButton2" style="-webkit-appearance: none;
        border-radius: 0;">
         </a>
       </div>
@@ -526,7 +634,7 @@ a {
 
 .mobileContentDiv {
   position: absolute;
-  height: 1450px;
+  height: 1500px;
   width: 100%;
   left: 0;
 
@@ -554,7 +662,7 @@ a {
 .inputButton3 {
   position: absolute;
   left: 0;
-  top: 800px;
+  top: 870px;
   box-sizing: border-box;
   width: 100%;
   height: 40px;
@@ -567,7 +675,7 @@ a {
 .inputButton2 {
   position: absolute;
   left: 0;
-  top: 880px;
+  top: 950px;
   box-sizing: border-box;
   width: 100%;
   height: 40px;

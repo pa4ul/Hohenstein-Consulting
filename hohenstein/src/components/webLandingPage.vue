@@ -14,7 +14,7 @@ export default {
   data() {
     return {
 
-      isMobile: false,
+      isMobile: true,
     };
   },
   methods: {
@@ -62,7 +62,7 @@ export default {
 
 
   },
-  /*created() {
+  created() {
     if (
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
         navigator.userAgent
@@ -74,7 +74,7 @@ export default {
       // false for not mobile device
       this.isMobile = false;
     }
-  },*/
+  },
 };
 </script>
 
@@ -159,6 +159,35 @@ export default {
                 >
               </li>
             </ul>
+            <ul v-if="this.$store.state.language == 'ru'">
+              <router-link to="/finance"
+              >
+                <li><a>Финансовое консультирование</a></li>
+              </router-link>
+              <router-link to="/real-estate">
+                <li><a>Недвижимость</a></li>
+              </router-link>
+              <router-link to="/cars">
+                <li><a>Винтажные автомобили</a></li>
+              </router-link>
+              <router-link to="/business-consulting">
+                <li><a>Бизнес консалтинг</a></li>
+              </router-link>
+              <li>
+                <a
+                ><span v-if="this.$store.state.language == 'de'" style="font-weight:bold"
+                       @click="languageDE()">DE</span>
+                  <span v-else @click="languageDE()">DE</span> /
+                  <span v-if="this.$store.state.language == 'en'" style="font-weight:bold"
+                        @click="languageEN()">EN</span>
+                  <span v-else @click="languageEN()">EN</span> /
+                  <span v-if="this.$store.state.language == 'ru'" style="font-weight:bold"
+                        @click="languageRU()">RU</span>
+                  <span v-else @click="languageRU()">RU</span>
+                </a
+                >
+              </li>
+            </ul>
           </nav>
 
           <a href="#content">
@@ -170,9 +199,16 @@ export default {
 
           <router-link to="/cars">
             <webTopicRight
-                v-if="this.$store.state.language == 'de'"
-                :name="'Oldtimer'"
-                :slogan="'Nicht nur ein Auto.'"
+              v-if="this.$store.state.language == 'de'"
+              :name="'Oldtimer'"
+              :slogan="'Nicht nur ein Auto.'"
+              :img="require('@/assets/car1.png')"
+              :type="true"
+           />
+            <webTopicRight
+                v-if="this.$store.state.language == 'ru'"
+                :name="'Винтажные автомобили.'"
+                :slogan="'это не просто машина.'"
                 :img="require('@/assets/car1.png')"
                 :type="true"
             />
@@ -187,14 +223,21 @@ export default {
           <router-link to="/business-consulting">
             <webTopicLeft
                 v-if="this.$store.state.language == 'en'"
-                :name="'Business Consultancy'"
+                :name="'Business Consultancy.'"
                 :slogan="'Consulting is the secret to unlocking your vision.'"
                 :img="require('@/assets/businessImage.png')"
                 :type="true"
             />
             <webTopicLeft
+                v-if="this.$store.state.language == 'ru'"
+                :name="'Бизнес консалтинг.'"
+                :slogan="'все, что нужно.'"
+                :img="require('@/assets/businessImage.png')"
+                :type="true"
+            />
+            <webTopicLeft
                 v-if="this.$store.state.language == 'de'"
-                :name="'Unternehmensberatung'"
+                :name="'Unternehmensberatung.'"
                 :slogan="'Beratung ist das Geheimnis, um Ihre Vision zu verwirklichen.'"
                 :img="require('@/assets/businessImage.png')"
                 :type="true"
@@ -215,6 +258,13 @@ export default {
                 :img="require('@/assets/house1.png')"
                 :type="false"
             />
+            <webTopicRight
+                v-if="this.$store.state.language == 'ru'"
+                :name="'Недвижимость.'"
+                :slogan="'инвестиции и капитальные вложения.'"
+                :img="require('@/assets/house1.png')"
+                :type="false"
+            />
           </router-link>
           <router-link to="/finance">
             <webTopicLeft
@@ -228,6 +278,13 @@ export default {
                 v-if="this.$store.state.language == 'de'"
                 :name="'Finanzberatung'"
                 :slogan="'Bequemer und besser leben.'"
+                :img="require('@/assets/financeImage.png')"
+                :type="false"
+            />
+            <webTopicLeft
+                v-if="this.$store.state.language == 'ru'"
+                :name="'Финансовая консультация.'"
+                :slogan="'экспансия на рынке.'"
                 :img="require('@/assets/financeImage.png')"
                 :type="false"
             />
@@ -317,6 +374,35 @@ export default {
           </a>
           <img src="@/assets/HohensteinWhite.png" class="sliderImage">
         </Slide>
+        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'ru'">
+          <a id="home" href="#">
+            <span class="firstHeader">Сервис</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoFinance()">
+            <span>Финансовый совет</span>
+          </a>
+
+          <a id="" href="#" @click="changePathtoRealEstate()">
+            <span>Недвижимость</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoCars()">
+            <span>Винтажные автомобили</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoBusiness()">
+            <span>Бизнес консалтинг</span>
+          </a>
+          <a id="home" href="#">
+            <span class="secondHeader">Страницы</span>
+
+          </a>
+          <a id="home" href="#" @click="changePathtoTeam()">
+            <span>Команда</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoImprint()">
+            <span>Импрессум</span>
+          </a>
+          <img src="@/assets/HohensteinWhite.png" class="sliderImage">
+        </Slide>
       </div>
       <div style="display: flex; justify-content: center">
         <div class="mobileWhiteBox">
@@ -326,7 +412,9 @@ export default {
       </div>
 
       <div class="mobileContent">
-        <p class="servicesText">Our Services </p>
+        <p class="servicesText" v-if="this.$store.state.language == 'ru'">Наши услуги</p>
+        <p class="servicesText" v-if="this.$store.state.language == 'de'">Unsere Service</p>
+        <p class="servicesText" v-if="this.$store.state.language == 'en'">Our Services </p>
         <router-link to="/cars">
           <mobileTopicCar/>
         </router-link>
@@ -469,7 +557,7 @@ html {
   position: absolute;
   background-color: white;
   width: 90%;
-  height: 2600px;
+  height: 2800px;
   left: 50%;
   top: 525px;
   transform: translateX(-50%);

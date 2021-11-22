@@ -16,37 +16,48 @@ export default {
       <p class="text" v-if="this.$store.state.language == 'en'">How can we help?</p>
       <p class="Headline" v-if="this.$store.state.language == 'de'">Kontaktiere uns</p>
       <p class="text" v-if="this.$store.state.language == 'de'">Wie können wir helfen?</p>
-      <form v-if="this.$store.state.language == 'en'">
+      <p class="Headline" v-if="this.$store.state.language == 'ru'">Свяжитесь с нами!</p>
+      <p class="text" v-if="this.$store.state.language == 'ru'">Как мы можем помочь?</p>
+      <form v-if="this.$store.state.language == 'en'" action="https://formsubmit.co/office@hohenstein-consulting.at" method="post">
         <input type="text" placeholder="Full name" class="inputName" />
         <br />
         <input type="text" placeholder="Your E-Mail" class="inputEmail" />
         <br />
         <input type="text" placeholder="Message" class="inputText" />
         <br />
-        <input type="button" value="Submit" class="inputButton" />
+        <input type="submit" value="Submit" class="inputButton" />
       </form>
-      <form v-if="this.$store.state.language == 'de'">
+      <form v-if="this.$store.state.language == 'ru'" action="https://formsubmit.co/office@hohenstein-consulting.at" method="post">
+        <input type="text" placeholder="Полное имя" class="inputName" />
+        <br />
+        <input type="text" placeholder="Ваш e-mail" class="inputEmail" />
+        <br />
+        <input type="text" placeholder="Сообщение" class="inputText" />
+        <br />
+        <input type="submit" value="Отправить" class="inputButton" />
+      </form>
+      <form v-if="this.$store.state.language == 'de'" action="https://formsubmit.co/office@hohenstein-consulting.at" method="post">
         <input type="text" placeholder="Ganzer Name" class="inputName" />
         <br />
         <input type="text" placeholder="Deine E-Mail" class="inputEmail" />
         <br />
         <input type="text" placeholder="Nachricht" class="inputText" />
         <br />
-        <input type="button" value="Submit" class="inputButton" />
+        <input type="submit" value="Submit" class="inputButton" />
       </form>
     </div>
     
   </div>
   <div class="maps">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.0531195811523!2d16.37277211569394!3d48.20559275440027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d079e6c60ca6f%3A0xa3afc3a3cb04134d!2sWeihburggasse%2022%2C%201010%20Wien!5e0!3m2!1sde!2sat!4v1635066761214!5m2!1sde!2sat"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.4457262017168!2d16.375373615651174!3d48.19802997922831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d0779ed2e7fcf%3A0xf7a713c48a91a7ce!2sPalais%20Hoyos!5e0!3m2!1sde!2sat!4v1637581158376!5m2!1sde!2sat"
         width="700"
         height="450"
         style="border: 0; z-index: 10"
         allowfullscreen=""
         loading="lazy"
       ></iframe>
-    </div>
+  </div>
   <footer class="footer">
         <ul>
           <li style="float: left;"><a>office@hohenstein-consulting.at</a></li>
@@ -55,9 +66,9 @@ export default {
             src="@/assets/HohensteinWhite.png"
             class="hohenSteinLogoText"
           />
-          
           <router-link to="/team"> <li style="float:right"><a>Team</a></li></router-link>
           <router-link v-if="this.$store.state.language == 'en'" to="/impressum"><li style="float:right;"><a>Imprint</a></li></router-link>
+          <router-link v-if="this.$store.state.language == 'ru'" to="/impressum"><li style="float:right;"><a>Оттиск</a></li></router-link>
           <router-link v-if="this.$store.state.language == 'de'" to="/impressum"><li style="float:right;"><a>Impressum</a></li></router-link>
           <li style="float:right;"><a>Weihburggasse 22/5 1010 Wien </a></li>
         </ul>

@@ -5,7 +5,7 @@ import mobileFooter from "@/components/mobileFooter.vue";
 export default {
   data() {
     return {
-      isMobile: false,
+      isMobile: true,
       greeting: "Hello World!",
     };
   },
@@ -76,6 +76,35 @@ export default {
       </router-link>
       <div class="contentDiv">
         <nav>
+          <ul v-if="this.$store.state.language == 'ru'">
+            <router-link to="/finance"
+            >
+              <li><a>Финансовое консультирование</a></li>
+            </router-link>
+            <router-link to="/real-estate">
+              <li><a>Недвижимость</a></li>
+            </router-link>
+            <router-link to="/cars">
+              <li><a>Винтажные автомобили</a></li>
+            </router-link>
+            <router-link to="/business-consulting">
+              <li><a>Бизнес консалтинг</a></li>
+            </router-link>
+            <li>
+              <a
+              ><span v-if="this.$store.state.language == 'de'" style="font-weight:bold"
+                     @click="languageDE()">DE</span>
+                <span v-else @click="languageDE()">DE</span> /
+                <span v-if="this.$store.state.language == 'en'" style="font-weight:bold"
+                      @click="languageEN()">EN</span>
+                <span v-else @click="languageEN()">EN</span> /
+                <span v-if="this.$store.state.language == 'ru'" style="font-weight:bold"
+                      @click="languageRU()">RU</span>
+                <span v-else @click="languageRU()">RU</span>
+              </a
+              >
+            </li>
+          </ul>
           <ul v-if="this.$store.state.language == 'en'">
             <router-link to="/finance"
             >
@@ -157,6 +186,11 @@ export default {
             <li style="padding-bottom:10px;">Kreditvermittlung</li>
             <li style="padding-bottom:10px;">Mezzaninkapital</li>
           </ul>
+          <ul class="checkList" v-if="this.$store.state.language == 'ru'">
+            <li style="padding-bottom:10px;">Финансовые планы </li>
+            <li style="padding-bottom:10px;">Кредитное посредничество </li>
+            <li style="padding-bottom:10px;">Мезонинный кредит </li>
+          </ul>
           <ul class="checkList" v-if="this.$store.state.language == 'en'">
             <li style="padding-bottom:10px;">Financial plans</li>
             <li style="padding-bottom:10px;">Credit Intermediation</li>
@@ -166,6 +200,7 @@ export default {
           <p v-if="this.$store.state.language == 'de'"><span style="font-size: 27px;">S</span>ie benötigen für Ihr Projekt einen Mix aus Eigen- und Fremdkapital?
             Wir beraten Sie gerne und finden mit Ihnen die rentabelste Variante für Ihre Finanzierung. </p>
           <p v-if="this.$store.state.language == 'en'"><span style="font-size: 27px;">D</span>o you need a mix of equity and debt capital for your project? We will be happy to advise you, and work with you to find the most profitable option for your financing. </p>
+          <p v-if="this.$store.state.language == 'ru'"><span style="font-size: 27px;">B</span>ам необходима смесь из собственного и заемного капитала для Вашего  проекта? Мы с удовольствием проконсультируем Вас и найдем с Вами наиболее рентабельный вариант Вашего финансирования.  </p>
         </div>
 
         <div class="secondText" v-if="this.$store.state.language == 'de'">
@@ -179,6 +214,21 @@ export default {
 
 
             <a href="" class="btn btn3" @click="changePath()">Kontaktieren uns!</a>
+
+          </div>
+
+        </div>
+        <div class="secondText" v-if="this.$store.state.language == 'ru'">
+          <p>
+            Мы свяжем Вас с подходящими инвесторами и инвестиционными советниками, предлагающими кредит или займ с минимальной процентной ставкой.
+
+            Вы можете связаться с нами и договориться о записи на первый разговор с нашими экспертами. Будем рады сотрудничеству с Вами в Вашем проекте.
+          </p>
+          <div class="buttonDiv">
+            <a href="tel:+43 676 911 511 0" class="btn btn3" title="+43 676 911 511 0">Позвоните нам!</a>
+
+
+            <a href="" class="btn btn3" @click="changePath()">Свяжитесь с нами!</a>
 
           </div>
 
@@ -208,6 +258,7 @@ export default {
             </router-link>
             <li class="li" style="float:right;" v-if="this.$store.state.language == 'de'"><a>Impressum</a></li>
             <li class="li" style="float:right;" v-if="this.$store.state.language == 'en'"><a>Imprint</a></li>
+            <li class="li" style="float:right;" v-if="this.$store.state.language == 'ru'"><a>Оттиск</a></li>
           </ul>
         </footer>
       </div>
@@ -267,6 +318,35 @@ export default {
           </a>
           <img src="@/assets/HohensteinWhite.png" class="sliderImage">
         </Slide>
+        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'ru'">
+          <a id="home" href="#">
+            <span class="firstHeader">Сервис</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoFinance()">
+            <span>Финансовый совет</span>
+          </a>
+
+          <a id="" href="#" @click="changePathtoRealEstate()">
+            <span>Недвижимость</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoCars()">
+            <span>Винтажные автомобили</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoBusiness()">
+            <span>Бизнес консалтинг</span>
+          </a>
+          <a id="home" href="#">
+            <span class="secondHeader">Страницы</span>
+
+          </a>
+          <a id="home" href="#" @click="changePathtoTeam()">
+            <span>Команда</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoImprint()">
+            <span>Импрессум</span>
+          </a>
+          <img src="@/assets/HohensteinWhite.png" class="sliderImage">
+        </Slide>
         <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'de'">
           <a id="home" href="#">
             <span class="firstHeader">Service</span>
@@ -303,12 +383,19 @@ export default {
         <p class="mobileSlogan" v-if="this.$store.state.language == 'de'">Erobere den Markt.</p>
         <p class="mobileText" v-if="this.$store.state.language == 'en'">Financial Advise</p>
         <p class="mobileSlogan" v-if="this.$store.state.language == 'en'">Conquer the market</p>
+        <p class="mobileText" v-if="this.$store.state.language == 'ru'">Финансовое консультирование</p>
+        <p class="mobileSlogan" v-if="this.$store.state.language == 'ru'">экспансия на рынке </p>
         <div class="mobileText-container-helper">
           <div class="mobileText-container">
             <ul class="item1" v-if="this.$store.state.language == 'de'">
               <li> Finanzpläne</li>
               <li> Kreditvermittlung</li>
               <li> Mezzaninkapital</li>
+            </ul>
+            <ul class="item1" v-if="this.$store.state.language == 'ru'">
+              <li> Финансовые планы </li>
+              <li> Кредитное посредничество </li>
+              <li> Мезонинный кредит </li>
             </ul>
             <ul class="item1" v-if="this.$store.state.language == 'en'">
               <li> Financial plans</li>
@@ -322,8 +409,17 @@ export default {
             <p class="item2" v-if="this.$store.state.language == 'en'">
               <span style="font-size: 27px;">D</span>o you need a mix of equity and debt capital for your project? We will be happy to advise you, and work with you to find the most profitable option for your financing. We put you in touch with equity providers and bank advisors who will offer loans or credits at attractively low interest rates and good terms.
             </p>
+            <p class="item2" v-if="this.$store.state.language == 'ru'">
+              <span style="font-size: 27px;">B</span>ам необходима смесь из собственного и заемного капитала для Вашего  проекта? Мы с удовольствием проконсультируем Вас и найдем с Вами наиболее рентабельный вариант Вашего финансирования. Мы свяжем Вас с подходящими инвесторами и инвестиционными советниками, предлагающими кредит или займ с минимальной процентной ставкой.
+            </p>
             <p class="item3" v-if="this.$store.state.language == 'de'">
+              Kontaktieren Sie uns und vereinbaren Sie einen Termin mit unseren Experten. Wir freuen uns auf Ihr Projekt.
+            </p>
+            <p class="item3" v-if="this.$store.state.language == 'en'">
               Contact us and arrange a meeting with our experts. We are looking forward to your project.
+            </p>
+            <p class="item3" v-if="this.$store.state.language == 'ru'">
+              Вы можете связаться с нами и договориться о записи на первый разговор с нашими экспертами. Будем рады сотрудничеству с Вами в Вашем проекте.
             </p>
           </div>
         </div>
@@ -347,8 +443,21 @@ export default {
             style="-webkit-appearance: none;
        border-radius: 0;"
         />
+        <input
+            v-if="this.$store.state.language == 'ru'"
+            type="button"
+            value="Свяжитесь с нами!"
+            @click="changePath()"
+            class="inputButton3"
+            style="-webkit-appearance: none;
+       border-radius: 0;"
+        />
         <a href="tel:+43 676 911 511 0" v-if="this.$store.state.language == 'de'">
           <input type="button" value="Ruf uns an!" class="inputButton2" style="-webkit-appearance: none;
+       border-radius: 0;">
+        </a>
+        <a href="tel:+43 676 911 511 0" v-if="this.$store.state.language == 'ru'">
+          <input type="button" value="Позвоните нам!" class="inputButton2" style="-webkit-appearance: none;
        border-radius: 0;">
         </a>
         <a href="tel:+43 676 911 511 0" v-if="this.$store.state.language == 'en'">
@@ -531,11 +640,10 @@ a {
   font-family: Montserrat;
   font-weight: bold;
 }
-
 .inputButton3 {
   position: absolute;
   left: 0;
-  top: 800px;
+  top: 830px;
   box-sizing: border-box;
   width: 100%;
   height: 40px;
@@ -548,7 +656,7 @@ a {
 .inputButton2 {
   position: absolute;
   left: 0;
-  top: 880px;
+  top: 910px;
   box-sizing: border-box;
   width: 100%;
   height: 40px;

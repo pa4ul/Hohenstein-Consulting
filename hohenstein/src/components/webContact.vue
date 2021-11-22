@@ -82,6 +82,8 @@ export default {
           <p class="text" v-if="this.$store.state.language == 'en'">How can we help?</p>
           <p class="header" v-if="this.$store.state.language == 'de'">Contact us</p>
           <p class="text" v-if="this.$store.state.language == 'de'">How can we help?</p>
+          <p class="header" v-if="this.$store.state.language == 'ru'">Свяжитесь с нами</p>
+          <p class="text" v-if="this.$store.state.language == 'ru'">Как мы можем помочь?</p>
           <form action="https://formsubmit.co/paulherbich1@gmail.com" method="POST">
             <input
                 name="Name"
@@ -105,6 +107,11 @@ export default {
             <br/>
             <input v-if="this.$store.state.language == 'de'" type="submit" value="Absenden" class="inputButtonMobile" style="-webkit-appearance: none;
             border-radius: 0;"/>
+            <input v-if="this.$store.state.language == 'ru'" type="text" placeholder="Сообщение" name="Nachricht" class="inputTextMobile"/>
+            <br/>
+            <input v-if="this.$store.state.language == 'ru'" type="submit" value="Отправить" class="inputButtonMobile" style="-webkit-appearance: none;
+            border-radius: 0;"/>
+
           </form>
           <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10636.210315711996!2d16.36620604147663!3d48.205603168378175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d079e6c60ca6f%3A0xa3afc3a3cb04134d!2sWeihburggasse%2022%2C%201010%20Wien!5e0!3m2!1sde!2sat!4v1635526907467!5m2!1sde!2sat"
@@ -128,6 +135,7 @@ export default {
             <router-link to="/team"> <li style="float:right"><a>Team</a></li></router-link>
             <router-link v-if="this.$store.state.language == 'en'" to="/impressum"><li style="float:right;"><a>Imprint</a></li></router-link>
             <router-link v-if="this.$store.state.language == 'de'" to="/impressum"><li style="float:right;"><a>Impressum</a></li></router-link>
+            <router-link v-if="this.$store.state.language == 'ru'" to="/impressum"><li style="float:right;"><a>Импрессум</a></li></router-link>
             <li style="float:right;"><a>Weihburggasse 22/5 1010 Wien </a></li>
           </ul>
         </footer>
@@ -187,6 +195,35 @@ export default {
           </a>
           <img src="@/assets/HohensteinWhite.png" class="sliderImage">
         </Slide>
+        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'ru'">
+          <a id="home" href="#">
+            <span class="firstHeader">Сервис</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoFinance()">
+            <span>Финансовый совет</span>
+          </a>
+
+          <a id="" href="#" @click="changePathtoRealEstate()">
+            <span>Недвижимость</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoCars()">
+            <span>Винтажные автомобили</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoBusiness()">
+            <span>Бизнес консалтинг</span>
+          </a>
+          <a id="home" href="#">
+            <span class="secondHeader">Страницы</span>
+
+          </a>
+          <a id="home" href="#" @click="changePathtoTeam()">
+            <span>Команда</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoImprint()">
+            <span>Импрессум</span>
+          </a>
+          <img src="@/assets/HohensteinWhite.png" class="sliderImage">
+        </Slide>
         <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'de'">
           <a id="home" href="#">
             <span class="firstHeader">Service</span>
@@ -218,10 +255,12 @@ export default {
       </div>
       <div class="mobileContent">
         <div class="contact">
-          <p class="header" v-if="this.$store.state.language == 'en'">Contact us</p>
+          <p class="header" v-if="this.$store.state.language == 'en'">Contact us!</p>
           <p class="text" v-if="this.$store.state.language == 'en'">How can we help?</p>
           <p class="header" v-if="this.$store.state.language == 'de'">Kontaktiere uns!</p>
           <p class="text" v-if="this.$store.state.language == 'de'">Wie können wir helfen?</p>
+          <p class="header" v-if="this.$store.state.language == 'ru'">Свяжитесь с нами!</p>
+          <p class="text" v-if="this.$store.state.language == 'ru'">Как мы можем помочь?</p>
           <form action="https://formsubmit.co/paulherbich1@gmail.com" method="POST">
             <input
                 name="Name"
@@ -239,9 +278,13 @@ export default {
             <br/>
             <input v-if="this.$store.state.language == 'en'" type="text" placeholder="Message" name="Nachricht" class="inputTextMobile"/>
             <input v-if="this.$store.state.language == 'de'" type="text" placeholder="Nachricht" name="Nachricht" class="inputTextMobile"/>
+            <input v-if="this.$store.state.language == 'ru'" type="text" placeholder="Сообщение" name="Nachricht" class="inputTextMobile"/>
             <br/>
             <input v-if="this.$store.state.language == 'en'" type="submit" value="Submit" class="inputButtonMobile" style="-webkit-appearance: none;
        border-radius: 0;"/>
+            <input v-if="this.$store.state.language == 'ru'" type="submit" value="Отправить" class="inputButtonMobile" style="-webkit-appearance: none;
+       border-radius: 0;"/>
+
             <input v-if="this.$store.state.language == 'de'" type="submit" value="Absenden" class="inputButtonMobile" style="-webkit-appearance: none;
        border-radius: 0;"/>
           </form>

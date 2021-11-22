@@ -18,6 +18,8 @@ export default {
         <p class="slogan" v-if="this.$store.state.language == 'en'">What a Luxury Car Should Be.</p>
         <p class="header" v-if="this.$store.state.language == 'de'">Oldtimer</p>
         <p class="slogan" v-if="this.$store.state.language == 'de'">Was ein Luxusauto sein sollte.</p>
+        <p class="header" v-if="this.$store.state.language == 'ru'">Винтажные автомобили</p>
+        <p class="slogan" v-if="this.$store.state.language == 'ru'">это не просто машина</p>
         <img src="@/assets/arrow.png" class="mobileArrow" />
       </div>
     </div>

@@ -20,7 +20,9 @@ export default {
       <router-link class="router-link" to="/team"> Team </router-link>
     </p>
 
-    <p class="center"> <router-link class="router-link" to="/impressum"> Imprint </router-link></p>
+    <p class="center"> <router-link class="router-link" to="/impressum" v-if="this.$store.state.language == 'en'"> Imprint </router-link></p>
+    <p class="center"> <router-link class="router-link" to="/impressum" v-if="this.$store.state.language == 'de'"> Impressum </router-link></p>
+    <p class="center"> <router-link class="router-link" to="/impressum" v-if="this.$store.state.language == 'ru'"> Оттиск </router-link></p>
     <br />
     <img src="@/assets/HohensteinWhite.png" class="logo center" />
   </div>

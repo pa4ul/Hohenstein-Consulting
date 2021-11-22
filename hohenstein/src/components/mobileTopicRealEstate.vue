@@ -14,8 +14,12 @@ export default {
     <img src="@/assets/mobileRealEstate.png" class="image" />
     <div class="mobileWhiteBox">
       <div class="mobileWhiteBoxContent">
-        <p class="header">Real Estate</p>
-        <p class="slogan">A Local Expert.</p>
+        <p v-if="this.$store.state.language == 'ru'" class="header">Недвижимость</p>
+        <p v-if="this.$store.state.language == 'ru'" class="slogan">инвестиции и капитальные вложения </p>
+        <p v-if="this.$store.state.language == 'en'" class="header">Real Estate</p>
+        <p v-if="this.$store.state.language == 'en'" class="slogan">A Local Expert</p>
+        <p v-if="this.$store.state.language == 'de'" class="header">Immobilien</p>
+        <p v-if="this.$store.state.language == 'de'" class="slogan">Ein lokaler Experte</p>
      <img src="@/assets/arrow.png" class="mobileArrow">
       </div>
     </div>

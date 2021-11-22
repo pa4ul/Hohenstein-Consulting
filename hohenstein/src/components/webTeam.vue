@@ -5,7 +5,7 @@ import mobileFooter from "@/components/mobileFooter.vue";
 export default {
   data() {
     return {
-      isMobile: false,
+      isMobile: true,
       greeting: "Hello World!",
     };
   },
@@ -142,6 +142,35 @@ export default {
               >
             </li>
           </ul>
+          <ul v-if="this.$store.state.language == 'ru'">
+            <router-link to="/finance"
+            >
+              <li><a>Финансовое консультирование</a></li>
+            </router-link>
+            <router-link to="/real-estate">
+              <li><a>Недвижимость</a></li>
+            </router-link>
+            <router-link to="/cars">
+              <li><a>Винтажные автомобили</a></li>
+            </router-link>
+            <router-link to="/business-consulting">
+              <li><a>Бизнес консалтинг</a></li>
+            </router-link>
+            <li>
+              <a
+              ><span v-if="this.$store.state.language == 'de'" style="font-weight:bold"
+                     @click="languageDE()">DE</span>
+                <span v-else @click="languageDE()">DE</span> /
+                <span v-if="this.$store.state.language == 'en'" style="font-weight:bold"
+                      @click="languageEN()">EN</span>
+                <span v-else @click="languageEN()">EN</span> /
+                <span v-if="this.$store.state.language == 'ru'" style="font-weight:bold"
+                      @click="languageRU()">RU</span>
+                <span v-else @click="languageRU()">RU</span>
+              </a
+              >
+            </li>
+          </ul>
         </nav>
         <div class="content">
           <div class="item1" v-if="this.$store.state.language == 'en'">
@@ -151,6 +180,9 @@ export default {
             <p> Jahrzehnte lange Praxiserfahrung bündelt sich zu einem Netzwerk, welches sensationelle Lösungen für
               jegliche Anwendungen schafft. Unser Team berät Sie gerne und geht auf Ihren Fall ernsthaft ein. Etliche
               zufriedene Kunden bestätigen den Erfolg unseres Teams.</p>
+          </div>
+          <div class="item1" v-if="this.$store.state.language == 'ru'">
+            <p> Десятилетия практического опыта образовали рабочую сеть, которая создает сенсационные решения для любых задач. Мы будем рады проконсультировать Вас и серьезно отнестись к Вашему делу. Многочисленные довольные клиенты подтверждают успех нашей фирмы</p>
           </div>
           <div class="item2">
             <div class="person1">
@@ -193,6 +225,7 @@ export default {
             <li class="li" style="float:right"><a>Team</a></li>
           </router-link>
           <li v-if="this.$store.state.language == 'en'" class="li" style="float:right;"><a>Imprint</a></li>
+          <li v-if="this.$store.state.language == 'ru'" class="li" style="float:right;"><a>Оттиск</a></li>
           <li v-if="this.$store.state.language == 'de'" class="li" style="float:right;"><a>Impressum</a></li>
         </ul>
       </footer>
@@ -256,6 +289,35 @@ export default {
           </a>
           <img src="@/assets/HohensteinWhite.png" class="sliderImage">
         </Slide>
+        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'ru'">
+          <a id="home" href="#">
+            <span class="firstHeader">Сервис</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoFinance()">
+            <span>Финансовый совет</span>
+          </a>
+
+          <a id="" href="#" @click="changePathtoRealEstate()">
+            <span>Недвижимость</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoCars()">
+            <span>Винтажные автомобили</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoBusiness()">
+            <span>Бизнес консалтинг</span>
+          </a>
+          <a id="home" href="#">
+            <span class="secondHeader">Страницы</span>
+
+          </a>
+          <a id="home" href="#" @click="changePathtoTeam()">
+            <span>Команда</span>
+          </a>
+          <a id="home" href="#" @click="changePathtoImprint()">
+            <span>Импрессум</span>
+          </a>
+          <img src="@/assets/HohensteinWhite.png" class="sliderImage">
+        </Slide>
         <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'de'">
           <a id="home" href="#">
             <span class="firstHeader">Service</span>
@@ -286,11 +348,14 @@ export default {
           <img src="@/assets/HohensteinWhite.png" class="sliderImage">
         </Slide>
       </div>
-      <p class="slogan">team</p>
+      <p class="slogan" v-if="this.$store.state.language == 'de'">team</p>
+      <p class="slogan" v-if="this.$store.state.language == 'en'">team</p>
+      <p class="slogan" v-if="this.$store.state.language == 'ru'">команда</p>
       <p class="text" v-if="this.$store.state.language == 'de'">Jahrzehnte lange Praxiserfahrung bündelt sich zu einem Netzwerk, welches sensationelle Lösungen
         für jegliche Anwendungen schafft. <br/><br/> Unser Team berät Sie gerne und geht auf Ihren Fall ernsthaft ein.
         Etliche zufriedene Kunden bestätigen den Erfolg unseres Teams.</p>
       <p class="text" v-if="this.$store.state.language == 'en'"> Decades of practical experience combine to form a network that creates sensational solutions for any application. Our team will be happy to advise you and will take care of your case. Numerous satisfied customers confirm the success of our team.</p>
+      <p class="text" v-if="this.$store.state.language == 'ru'"> Десятилетия практического опыта образовали рабочую сеть, которая создает сенсационные решения для любых задач. Мы будем рады проконсультировать Вас и серьезно отнестись к Вашему делу. Многочисленные довольные клиенты подтверждают успех нашей фирмы</p>
       <div class="mobileContent">
 
         <div class="person1mobile">

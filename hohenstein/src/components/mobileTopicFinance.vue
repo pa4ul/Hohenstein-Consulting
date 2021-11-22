@@ -14,8 +14,12 @@ export default {
       <img src="@/assets/mobileFinance2.png" class="image" />
       <div class="mobileWhiteBox">
         <div class="mobileWhiteBoxContent">
-          <p class="header">Financial Advise</p>
-          <p class="slogan">Live comfortably and better.</p>
+          <p v-if="this.$store.state.language == 'ru'" class="header">Финансовое консультирование</p>
+          <p v-if="this.$store.state.language == 'ru'" class="slogan">экспансия на рынке </p>
+          <p v-if="this.$store.state.language == 'de'" class="header">Finanzberatung</p>
+          <p v-if="this.$store.state.language == 'de'" class="slogan">Bequemer und besser leben</p>
+          <p v-if="this.$store.state.language == 'en'" class="header">Financial Advise</p>
+          <p v-if="this.$store.state.language == 'en'" class="slogan">Live comfortably and better</p>
         </div>
         <img src="@/assets/arrow.png" class="mobileArrow" />
       </div>
