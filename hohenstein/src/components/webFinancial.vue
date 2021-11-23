@@ -5,8 +5,7 @@ import mobileFooter from "@/components/mobileFooter.vue";
 export default {
   data() {
     return {
-      isMobile: true,
-      greeting: "Hello World!",
+      isMobile: true
     };
   },
   methods: {
@@ -44,6 +43,9 @@ export default {
   components: {
     Slide,
     mobileFooter
+  },
+  mounted () {
+    window.scrollTo(0, 0);
   },
   created() {
     if( screen.width <= 760 ) {
@@ -204,10 +206,10 @@ export default {
             Erstgespräch mit unseren Experten. Wir freuen uns auf Ihr Projekt.
           </p>
           <div class="buttonDiv">
-            <a href="tel:+43 676 911 511 0" class="btn btn3" title="+43 676 911 511 0">Rufe uns an!</a>
+            <a href="tel:+43 676 911 511 0" class="btn btn3" title="+43 676 911 511 0">Rufen Sie uns an!</a>
 
 
-            <a href="" class="btn btn3" @click="changePath()">Kontaktieren uns!</a>
+            <router-link to="/contact" class="btn btn3"> Kontaktieren Sie uns! </router-link>
 
           </div>
 
@@ -240,19 +242,21 @@ export default {
         </div>
         <footer class="footer">
           <ul class="ul">
-            <li class="li" style="float: left;"><a>office@hohenstein-consulting.at</a></li>
-            <li class="li" style="float: left;"><a>+43 676 911 511 0</a></li>
+            <li class="li" style="float: left;"><a href="mailto:office@hohenstein-consulting.at">office@hohenstein-consulting.at</a></li>
+            <li class="li" style="float: left;"><a href="tel:01 4230033">01 4230033</a></li>
             <img
                 src="@/assets/HohensteinWhite.png"
                 class="hohenSteinLogoText"
             />
-            <li class="li" style="float:right;"><a>Weihburggasse 22/5 1010 Wien </a></li>
+            <li class="li" style="float:right;"><a>Rennweg 3, 1030 Wien </a></li>
             <router-link to="/team">
               <li class="li" style="float:right"><a>Team</a></li>
             </router-link>
+            <router-link to="/impressum">
             <li class="li" style="float:right;" v-if="this.$store.state.language == 'de'"><a>Impressum</a></li>
             <li class="li" style="float:right;" v-if="this.$store.state.language == 'en'"><a>Imprint</a></li>
             <li class="li" style="float:right;" v-if="this.$store.state.language == 'ru'"><a>Оттиск</a></li>
+            </router-link>
           </ul>
         </footer>
       </div>
@@ -283,91 +287,90 @@ export default {
                 style="font-weight: bold;font-size:24px">RU</span>
           <span v-else @click="languageRU()">RU</span>
         </a>
-        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'en'">
+        <Slide right width="300" class="Slide" v-if="this.$store.state.language == 'en'">
           <a id="home" href="#">
             <span class="firstHeader">Services</span>
           </a>
-          <a id="home" href="#" @click="changePathtoFinance()">
+          <router-link to="/finance">
             <span>Financial Advise</span>
-          </a>
+          </router-link>
 
-          <a id="" href="#" @click="changePathtoRealEstate()">
+          <router-link to="/real-estate">
             <span>Real Estate</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoCars()">
+          </router-link>
+          <router-link to="/cars">
             <span>Classic Cars</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoBusiness()">
+          </router-link>
+          <router-link to="/business-consulting">
             <span>Business Consulting</span>
-          </a>
+          </router-link>
           <a id="home" href="#">
             <span class="secondHeader">Pages</span>
 
           </a>
-          <a id="home" href="#" @click="changePathtoTeam()">
+          <router-link to="/team">
             <span>Team</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoImprint()">
+          </router-link>
+          <router-link to="/impressum">
             <span>Imprint</span>
-          </a>
+          </router-link>
           <img src="@/assets/HohensteinWhite.png" class="sliderImage">
         </Slide>
-        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'ru'">
-          <a id="home" href="#">
-            <span class="firstHeader">Сервис</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoFinance()">
-            <span>Финансовый совет</span>
-          </a>
-
-          <a id="" href="#" @click="changePathtoRealEstate()">
-            <span>Недвижимость</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoCars()">
-            <span>Винтажные автомобили</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoBusiness()">
-            <span>Бизнес консалтинг</span>
-          </a>
-          <a id="home" href="#">
-            <span class="secondHeader">Страницы</span>
-
-          </a>
-          <a id="home" href="#" @click="changePathtoTeam()">
-            <span>Команда</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoImprint()">
-            <span>Импрессум</span>
-          </a>
-          <img src="@/assets/HohensteinWhite.png" class="sliderImage">
-        </Slide>
-        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'de'">
+        <Slide right width="300" class="Slide" v-if="this.$store.state.language == 'de'">
           <a id="home" href="#">
             <span class="firstHeader">Service</span>
           </a>
-          <a id="home" href="#" @click="changePathtoFinance()">
+          <router-link to="/finance">
             <span>Finanzberatung</span>
-          </a>
-
-          <a id="" href="#" @click="changePathtoRealEstate()">
+          </router-link>
+          <router-link to="/real-estate">
             <span>Immobilien</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoCars()">
+          </router-link>
+          <router-link to="/cars">
             <span>Oldtimer</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoBusiness()">
+          </router-link>
+          <router-link to="/business-consulting">
             <span>Unternehmensberatung</span>
-          </a>
+          </router-link>
           <a id="home" href="#">
             <span class="secondHeader">Seiten</span>
 
           </a>
-          <a id="home" href="#" @click="changePathtoTeam()">
+          <router-link to="/team">
             <span>Team</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoImprint()">
+          </router-link>
+          <router-link to="/impressum">
             <span>Impressum</span>
+          </router-link>
+          <img src="@/assets/HohensteinWhite.png" class="sliderImage">
+        </Slide>
+        <Slide right width="300" class="Slide" v-if="this.$store.state.language == 'ru'">
+          <a id="home" href="#">
+            <span class="firstHeader">Сервис</span>
           </a>
+          <router-link to="/finance">
+            <span>Финансовый совет</span>
+          </router-link>
+
+          <router-link to="/real-estate">
+            <span>Недвижимость</span>
+          </router-link>
+          <router-link to="/cars">
+            <span>Винтажные автомобили</span>
+          </router-link>
+          <router-link to="/business-consulting">
+            <span>Бизнес консалтинг</span>
+          </router-link>
+          <a id="home" href="#">
+            <span class="secondHeader">Страницы</span>
+
+          </a>
+          <router-link to="/team">
+            <span>Команда</span>
+          </router-link>
+          <router-link to="/impressum">
+            <span>Импрессум</span>
+          </router-link>
           <img src="@/assets/HohensteinWhite.png" class="sliderImage">
         </Slide>
       </div>
@@ -422,7 +425,7 @@ export default {
         <input
             v-if="this.$store.state.language == 'de'"
             type="button"
-            value="Konaktiere uns!"
+            value="Konaktieren Sie uns!"
             @click="changePath()"
             class="inputButton3"
             style="-webkit-appearance: none;
@@ -447,7 +450,7 @@ export default {
        border-radius: 0;"
         />
         <a href="tel:+43 676 911 511 0" v-if="this.$store.state.language == 'de'">
-          <input type="button" value="Ruf uns an!" class="inputButton2" style="-webkit-appearance: none;
+          <input type="button" value="Rufen Sie uns an!" class="inputButton2" style="-webkit-appearance: none;
        border-radius: 0;">
         </a>
         <a href="tel:+43 676 911 511 0" v-if="this.$store.state.language == 'ru'">

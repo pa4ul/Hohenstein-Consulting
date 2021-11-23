@@ -14,7 +14,7 @@ export default {
     <div class="textBox">
       <p class="Headline" v-if="this.$store.state.language == 'en'">Contact Us</p>
       <p class="text" v-if="this.$store.state.language == 'en'">How can we help?</p>
-      <p class="Headline" v-if="this.$store.state.language == 'de'">Kontaktiere uns</p>
+      <p class="Headline" v-if="this.$store.state.language == 'de'">Kontaktieren Sie uns</p>
       <p class="text" v-if="this.$store.state.language == 'de'">Wie können wir helfen?</p>
       <p class="Headline" v-if="this.$store.state.language == 'ru'">Свяжитесь с нами!</p>
       <p class="text" v-if="this.$store.state.language == 'ru'">Как мы можем помочь?</p>
@@ -60,8 +60,8 @@ export default {
   </div>
   <footer class="footer">
         <ul>
-          <li style="float: left;"><a>office@hohenstein-consulting.at</a></li>
-          <li style="float: left;"><a>+43 650 123 4567</a></li>
+          <li style="float: left;"><a href="mailto:office@hohenstein-consulting.at">office@hohenstein-consulting.at</a></li>
+          <li style="float: left;"><a href="tel:01 4230033">01 4230033</a></li>
           <img
             src="@/assets/HohensteinWhite.png"
             class="hohenSteinLogoText"
@@ -70,7 +70,7 @@ export default {
           <router-link v-if="this.$store.state.language == 'en'" to="/impressum"><li style="float:right;"><a>Imprint</a></li></router-link>
           <router-link v-if="this.$store.state.language == 'ru'" to="/impressum"><li style="float:right;"><a>Оттиск</a></li></router-link>
           <router-link v-if="this.$store.state.language == 'de'" to="/impressum"><li style="float:right;"><a>Impressum</a></li></router-link>
-          <li style="float:right;"><a>Weihburggasse 22/5 1010 Wien </a></li>
+          <li style="float:right;"><a>Rennweg 3, 1030 Wien </a></li>
         </ul>
     </footer>
 </div>
@@ -82,6 +82,10 @@ export default {
 }
 html {
   scroll-behavior: smooth;
+}
+a{
+  color:white;
+  text-decoration: none;
 }
 .div {
   position: absolute;

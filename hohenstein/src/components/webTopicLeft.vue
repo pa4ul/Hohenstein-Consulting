@@ -81,7 +81,7 @@ box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rg
   position: absolute;
   transform: translateY(50%);
    bottom: 40%;
-   opacity: 70%;
+   color:#808080;
    right:30px;
 }
 .arrow2{

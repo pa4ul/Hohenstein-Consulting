@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory  } from 'vue-router'
 import webLandingPage from "@/components/webLandingPage"
 import webTeam from "@/components/webTeam.vue"
 import webFinancial from "@/components/webFinancial.vue"
@@ -57,10 +57,12 @@ const routes = [
   },
 
 ]
-
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes
+  history: createWebHashHistory(process.env.BASE_URL),
+  routes,
+  scrollBehavior () {
+    return { x: 0, y: 0 };
+  }
 })
 
 export default router

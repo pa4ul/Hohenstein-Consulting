@@ -29,6 +29,7 @@ export default {
     },
     changePathtoFinance: function () {
       this.$router.push({path: "/finance"});
+      console.log("message1");
     },
     changePathtoRealEstate: function () {
       this.$router.push({path: "/real-estate"});
@@ -61,6 +62,9 @@ export default {
     mobileFooter,
 
 
+  },
+  mounted () {
+    window.scrollTo(0, 0);
   },
   created() {
       if( screen.width <= 760 ) {
@@ -311,91 +315,90 @@ export default {
                 style="font-weight: bold;font-size:24px">RU</span>
           <span v-else @click="languageRU()">RU</span>
         </a>
-        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'en'">
+        <Slide right width="300" class="Slide" v-if="this.$store.state.language == 'en'">
           <a id="home" href="#">
             <span class="firstHeader">Services</span>
           </a>
-          <a id="home" href="#" @click="changePathtoFinance()">
+          <router-link to="/finance">
             <span>Financial Advise</span>
-          </a>
+          </router-link>
 
-          <a id="" href="#" @click="changePathtoRealEstate()">
+          <router-link to="/real-estate">
             <span>Real Estate</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoCars()">
+          </router-link>
+          <router-link to="/cars">
             <span>Classic Cars</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoBusiness()">
+          </router-link>
+          <router-link to="/business-consulting">
             <span>Business Consulting</span>
-          </a>
+          </router-link>
           <a id="home" href="#">
             <span class="secondHeader">Pages</span>
 
           </a>
-          <a id="home" href="#" @click="changePathtoTeam()">
+          <router-link to="/team">
             <span>Team</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoImprint()">
+          </router-link>
+          <router-link to="/impressum">
             <span>Imprint</span>
-          </a>
+          </router-link>
           <img src="@/assets/HohensteinWhite.png" class="sliderImage">
         </Slide>
-        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'de'">
+        <Slide right width="300" class="Slide" v-if="this.$store.state.language == 'de'">
           <a id="home" href="#">
             <span class="firstHeader">Service</span>
           </a>
-          <a id="home" href="#" @click="changePathtoFinance()">
+          <router-link to="/finance">
             <span>Finanzberatung</span>
-          </a>
-
-          <a id="" href="#" @click="changePathtoRealEstate()">
+          </router-link>
+          <router-link to="/real-estate">
             <span>Immobilien</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoCars()">
+          </router-link>
+          <router-link to="/cars">
             <span>Oldtimer</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoBusiness()">
+          </router-link>
+          <router-link to="/business-consulting">
             <span>Unternehmensberatung</span>
-          </a>
+          </router-link>
           <a id="home" href="#">
             <span class="secondHeader">Seiten</span>
 
           </a>
-          <a id="home" href="#" @click="changePathtoTeam()">
+          <router-link to="/team">
             <span>Team</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoImprint()">
+          </router-link>
+          <router-link to="/impressum">
             <span>Impressum</span>
-          </a>
+          </router-link>
           <img src="@/assets/HohensteinWhite.png" class="sliderImage">
         </Slide>
-        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'ru'">
+        <Slide right width="300" class="Slide" v-if="this.$store.state.language == 'ru'">
           <a id="home" href="#">
             <span class="firstHeader">Сервис</span>
           </a>
-          <a id="home" href="#" @click="changePathtoFinance()">
+          <router-link to="/finance">
             <span>Финансовый совет</span>
-          </a>
+          </router-link>
 
-          <a id="" href="#" @click="changePathtoRealEstate()">
+          <router-link to="/real-estate">
             <span>Недвижимость</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoCars()">
+          </router-link>
+          <router-link to="/cars">
             <span>Винтажные автомобили</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoBusiness()">
+          </router-link>
+          <router-link to="/business-consulting">
             <span>Бизнес консалтинг</span>
-          </a>
+          </router-link>
           <a id="home" href="#">
             <span class="secondHeader">Страницы</span>
 
           </a>
-          <a id="home" href="#" @click="changePathtoTeam()">
+          <router-link to="/team">
             <span>Команда</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoImprint()">
+          </router-link>
+          <router-link to="/impressum">
             <span>Импрессум</span>
-          </a>
+          </router-link>
           <img src="@/assets/HohensteinWhite.png" class="sliderImage">
         </Slide>
       </div>
@@ -436,12 +439,12 @@ export default {
 }
 
 .firstHeader {
-  font-size: 28px;
+  font-size: 26px;
   border-bottom: 2px solid white;
 }
 
 .secondHeader {
-  font-size: 28px;
+  font-size: 26px;
   border-bottom: 2px solid white;
   padding-top: 15px;
 }
@@ -479,7 +482,6 @@ export default {
   margin: 0 auto;
   font-weight: 500;
   color: white;
-
 }
 
 .sliderImage {
@@ -487,7 +489,7 @@ export default {
   height: 100px;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 70px;
+  bottom: 60px;
 }
 
 .bm-overlay {
@@ -633,7 +635,7 @@ li {
 
 .servicesText {
   font-size: 30px;
-  opacity: 90%;
+
   position: absolute;
   top: -110px;
   letter-spacing: 1px;

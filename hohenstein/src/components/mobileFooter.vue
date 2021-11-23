@@ -11,19 +11,20 @@ export default {
 <template>
   <div class="wrapper">
     <div class="footer">
-      <p class="address">Weihburggasse 22/5 1010 Wien</p>
-      <p class="tel">+43 123 456 7890</p>
+      <p class="address">Rennweg 3, 1030 Wien</p>
+      <p class="tel"><a href="tel:01 4230033">01 4230033</a></p>
       <p class="mail">office@hohenstein-consulting.at</p>
     </div>
     <div class="whiteLine"></div>
     <p class="center" style="margin-top: 30px">
       <router-link class="router-link" to="/team"> Team </router-link>
     </p>
-
+    <router-link to="/impressum">
     <p class="center"> <router-link class="router-link" to="/impressum" v-if="this.$store.state.language == 'en'"> Imprint </router-link></p>
     <p class="center"> <router-link class="router-link" to="/impressum" v-if="this.$store.state.language == 'de'"> Impressum </router-link></p>
     <p class="center"> <router-link class="router-link" to="/impressum" v-if="this.$store.state.language == 'ru'"> Оттиск </router-link></p>
     <br />
+    </router-link>
     <img src="@/assets/HohensteinWhite.png" class="logo center" />
   </div>
 </template>
@@ -32,6 +33,9 @@ export default {
 * {
   color: white;
   font-weight:bold;
+}
+a{
+  text-decoration: none;
 }
 .tel {
   margin-left: 50px;

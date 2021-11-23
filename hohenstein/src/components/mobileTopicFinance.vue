@@ -64,7 +64,7 @@ html {
   right: 10px;
 }
 .header {
-  font-size: 22px;
+  font-size: 20px;
   margin-bottom: 0;
   margin-left: 5px;
   padding-right: 15px;

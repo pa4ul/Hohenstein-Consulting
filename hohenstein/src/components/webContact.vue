@@ -44,6 +44,8 @@ export default {
   components: {
     Slide,
     mobileFooter,
+  },mounted () {
+    window.scrollTo(0, 0);
   },
   created() {
     if( screen.width <= 760 ) {
@@ -75,11 +77,11 @@ export default {
         <div class="webContact">
           <p class="header" v-if="this.$store.state.language == 'en'">Contact us</p>
           <p class="text" v-if="this.$store.state.language == 'en'">How can we help?</p>
-          <p class="header" v-if="this.$store.state.language == 'de'">Kontaktiere uns!</p>
-          <p class="text" v-if="this.$store.state.language == 'de'">Wie können wir ihnen helfen?</p>
+          <p class="header" v-if="this.$store.state.language == 'de'">Kontaktieren Sie uns!</p>
+          <p class="text" v-if="this.$store.state.language == 'de'">Wie können wir Ihnen helfen?</p>
           <p class="header" v-if="this.$store.state.language == 'ru'">Свяжитесь с нами</p>
           <p class="text" v-if="this.$store.state.language == 'ru'">Как мы можем помочь?</p>
-          <form action="https://formsubmit.co/paulherbich1@gmail.com" method="POST">
+          <form action="https://formsubmit.co/office@hohenstein-consulting.at" method="POST">
             <input
                 name="Name"
                 type="text"
@@ -109,7 +111,7 @@ export default {
 
           </form>
           <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10636.210315711996!2d16.36620604147663!3d48.205603168378175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d079e6c60ca6f%3A0xa3afc3a3cb04134d!2sWeihburggasse%2022%2C%201010%20Wien!5e0!3m2!1sde!2sat!4v1635526907467!5m2!1sde!2sat"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.4457262017168!2d16.375373615651174!3d48.19802997922831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d0779ed2e7fcf%3A0xf7a713c48a91a7ce!2sPalais%20Hoyos!5e0!3m2!1sde!2sat!4v1637581158376!5m2!1sde!2sat"
               width="100%"
               height="400"
               style="border: 0"
@@ -120,8 +122,8 @@ export default {
         </div>
         <footer class="footer1">
           <ul>
-            <li style="float: left;"><a>office@hohenstein-consulting.at</a></li>
-            <li style="float: left;"><a>+43 650 123 4567</a></li>
+            <li style="float: left;"><a href="mailto:office@hohenstein-consulting.at">office@hohenstein-consulting.at</a></li>
+            <li style="float: left;"><a href="tel:01 4230033">01 4230033</a></li>
             <img
                 src="@/assets/HohensteinWhite.png"
                 class="hohenSteinLogoText"
@@ -131,7 +133,7 @@ export default {
             <router-link v-if="this.$store.state.language == 'en'" to="/impressum"><li style="float:right;"><a>Imprint</a></li></router-link>
             <router-link v-if="this.$store.state.language == 'de'" to="/impressum"><li style="float:right;"><a>Impressum</a></li></router-link>
             <router-link v-if="this.$store.state.language == 'ru'" to="/impressum"><li style="float:right;"><a>Импрессум</a></li></router-link>
-            <li style="float:right;"><a>Weihburggasse 22/5 1010 Wien </a></li>
+            <li style="float:right;"><a>Rennweg 3, 1030 Wien </a></li>
           </ul>
         </footer>
       </div>
@@ -161,90 +163,90 @@ export default {
           <span v-if="this.$store.state.language == 'ru'" @click="languageRU()" style="font-weight:bold">RU</span>
           <span v-else @click="languageRU()">RU</span>
         </a>
-        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'en'">
+        <Slide right width="300" class="Slide" v-if="this.$store.state.language == 'en'">
           <a id="home" href="#">
             <span class="firstHeader">Services</span>
           </a>
-          <a id="home" href="#" @click="changePathtoFinance()">
+          <router-link to="/finance">
             <span>Financial Advise</span>
-          </a>
+          </router-link>
 
-          <a id="" href="#" @click="changePathtoRealEstate()">
+          <router-link to="/real-estate">
             <span>Real Estate</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoCars()">
+          </router-link>
+          <router-link to="/cars">
             <span>Classic Cars</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoBusiness()">
+          </router-link>
+          <router-link to="/business-consulting">
             <span>Business Consulting</span>
-          </a>
+          </router-link>
           <a id="home" href="#">
             <span class="secondHeader">Pages</span>
 
           </a>
-          <a id="home" href="#" @click="changePathtoTeam()">
+          <router-link to="/team">
             <span>Team</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoImprint()">
+          </router-link>
+          <router-link to="/impressum">
             <span>Imprint</span>
-          </a>
+          </router-link>
           <img src="@/assets/HohensteinWhite.png" class="sliderImage">
         </Slide>
-        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'ru'">
+        <Slide right width="300" class="Slide" v-if="this.$store.state.language == 'de'">
+          <a id="home" href="#">
+            <span class="firstHeader">Service</span>
+          </a>
+          <router-link to="/finance">
+            <span>Finanzberatung</span>
+          </router-link>
+          <router-link to="/real-estate">
+            <span>Immobilien</span>
+          </router-link>
+          <router-link to="/cars">
+            <span>Oldtimer</span>
+          </router-link>
+          <router-link to="/business-consulting">
+            <span>Unternehmensberatung</span>
+          </router-link>
+          <a id="home" href="#">
+            <span class="secondHeader">Seiten</span>
+
+          </a>
+          <router-link to="/team">
+            <span>Team</span>
+          </router-link>
+          <router-link to="/impressum">
+            <span>Impressum</span>
+          </router-link>
+          <img src="@/assets/HohensteinWhite.png" class="sliderImage">
+        </Slide>
+        <Slide right width="300" class="Slide" v-if="this.$store.state.language == 'ru'">
           <a id="home" href="#">
             <span class="firstHeader">Сервис</span>
           </a>
-          <a id="home" href="#" @click="changePathtoFinance()">
+          <router-link to="/finance">
             <span>Финансовый совет</span>
-          </a>
+          </router-link>
 
-          <a id="" href="#" @click="changePathtoRealEstate()">
+          <router-link to="/real-estate">
             <span>Недвижимость</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoCars()">
+          </router-link>
+          <router-link to="/cars">
             <span>Винтажные автомобили</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoBusiness()">
+          </router-link>
+          <router-link to="/business-consulting">
             <span>Бизнес консалтинг</span>
-          </a>
+          </router-link>
           <a id="home" href="#">
             <span class="secondHeader">Страницы</span>
 
           </a>
-          <a id="home" href="#" @click="changePathtoTeam()">
+          <router-link to="/team">
             <span>Команда</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoImprint()">
+          </router-link>
+          <router-link to="/impressum">
             <span>Импрессум</span>
-          </a>
-          <img src="@/assets/HohensteinWhite.png" class="sliderImage">
-        </Slide>
-        <Slide right width="250" class="Slide" v-if="this.$store.state.language == 'de'">
-          <a id="home" href="#">
-            <span class="firstHeader">Service</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoFinance()">
-            <span>Finanzberatung</span>
-          </a>
-
-          <a id="" href="#" @click="changePathtoRealEstate()">
-            <span>Immobilien</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoCars()">
-            <span>Oldtimer</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoBusiness()">
-            <span>Unternehmensberatung</span>
-          </a>
-          <a id="home" href="#">
-            <span class="secondHeader">Seiten</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoTeam()">
-            <span>Team</span>
-          </a>
-          <a id="home" href="#" @click="changePathtoImprint()">
-            <span>Impressum</span>
-          </a>
+          </router-link>
           <img src="@/assets/HohensteinWhite.png" class="sliderImage">
         </Slide>
       </div>
@@ -252,11 +254,11 @@ export default {
         <div class="contact">
           <p class="header" v-if="this.$store.state.language == 'en'">Contact us!</p>
           <p class="text" v-if="this.$store.state.language == 'en'">How can we help?</p>
-          <p class="header" v-if="this.$store.state.language == 'de'">Kontaktiere uns!</p>
-          <p class="text" v-if="this.$store.state.language == 'de'">Wie können wir helfen?</p>
+          <p class="header" v-if="this.$store.state.language == 'de'">Kontaktieren Sie uns!</p>
+          <p class="text" v-if="this.$store.state.language == 'de'">Wie können wir Ihnen helfen?</p>
           <p class="header" v-if="this.$store.state.language == 'ru'">Свяжитесь с нами!</p>
           <p class="text" v-if="this.$store.state.language == 'ru'">Как мы можем помочь?</p>
-          <form action="https://formsubmit.co/paulherbich1@gmail.com" method="POST">
+          <form action="https://formsubmit.co/office@hohenstein-consulting.at" method="POST">
             <input
                 name="Name"
                 type="text"
@@ -284,7 +286,7 @@ export default {
        border-radius: 0;"/>
           </form>
           <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10636.210315711996!2d16.36620604147663!3d48.205603168378175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d079e6c60ca6f%3A0xa3afc3a3cb04134d!2sWeihburggasse%2022%2C%201010%20Wien!5e0!3m2!1sde!2sat!4v1635526907467!5m2!1sde!2sat"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.4457262017168!2d16.375373615651174!3d48.19802997922831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d0779ed2e7fcf%3A0xf7a713c48a91a7ce!2sPalais%20Hoyos!5e0!3m2!1sde!2sat!4v1637581158376!5m2!1sde!2sat"
               width="100%"
               height="400"
               style="border: 0"
@@ -302,7 +304,9 @@ export default {
 <style scoped>
 * {
   font-family: "Miller Display";
+  text-decoration: none;
 }
+
 .webContact{
   display: flex;
 }
@@ -342,7 +346,9 @@ li {
   margin: 2%;
   color:white;
 }
-
+a{
+  color:white;
+}
 .iframe {
   position: absolute;
   top: 550px;
